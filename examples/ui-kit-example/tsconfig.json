@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["@emotion/react/types/css-prop"],
+    "jsxImportSource": "@emotion/react"
+  },
+  "include": ["src", "@vitejs/plugin-react"]
+}

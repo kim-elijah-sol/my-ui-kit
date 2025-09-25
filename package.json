@@ -1,0 +1,12 @@
+{
+  "name": "my-ui-kit",
+  "version": "0.0.1",
+  "packageManager": "pnpm@10.17.1",
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  },
+  "workspaces": [
+    "packages/**/**",
+    "examples/**/**"
+  ]
+}
