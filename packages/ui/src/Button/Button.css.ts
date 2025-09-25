@@ -8,4 +8,5 @@ export const buttonCss = css({
   border: 'none',
   outline: 'none',
   background: 'none',
+  paddingBlock: 0,
 });
