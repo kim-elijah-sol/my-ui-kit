@@ -1,11 +1,18 @@
 import { css } from '@emotion/react';
 
 export const buttonCss = css({
-  paddingLeft: 14,
-  paddingRight: 14,
-  height: 36,
+  paddingLeft: '1rem',
+  paddingRight: '1rem',
+  height: '2.25rem',
+
   appearance: 'none',
   border: 'none',
   outline: 'none',
-  background: 'none',
+
+  background: '#1C70FF',
+  color: '#FFF',
+
+  borderRadius: '0.5rem',
+
+  cursor: 'pointer',
 });
