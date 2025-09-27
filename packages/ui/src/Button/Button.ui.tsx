@@ -1,9 +1,7 @@
-import { type ComponentPropsWithRef, type FC } from 'react';
-import { type WithCssProp } from '../type/WithCssProp';
-import { buttonCss } from './Button.css';
+import { type FC } from 'react';
+import { defaultButtonCss } from './Button.css';
+import { type ButtonProps } from './Button.types';
 
-type Props = WithCssProp<ComponentPropsWithRef<'button'>>;
-
-export const Button: FC<Props> = (props) => {
-  return <button css={buttonCss} {...props} />;
+export const Button: FC<ButtonProps> = (props) => {
+  return <button css={defaultButtonCss} {...props} />;
 };
