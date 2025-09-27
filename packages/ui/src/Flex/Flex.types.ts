@@ -28,3 +28,7 @@ export type FlexProps<T extends FlexElementType = 'div'> =
 export type FlexComponent = <T extends FlexElementType = 'div'>(
   props: FlexProps<T> & Partial<Pick<ComponentPropsWithRef<T>, 'ref'>>
 ) => ReactNode;
+
+export type FlexType = FlexComponent & {
+  Center: FlexComponent;
+};
