@@ -1,4 +1,4 @@
-import { Button } from '@ui-kit/ui';
+import { Button, Flex } from '@ui-kit/ui';
 
 const App = () => {
   return (
@@ -17,14 +17,16 @@ const App = () => {
         >
           Button
         </p>
-        <div
+        <Flex
           css={{
             padding: 12,
             border: '1px solid #DDD',
             borderRadius: '0.75rem',
-            display: 'flex',
-            gap: '0.5rem',
-            flexWrap: 'wrap',
+          }}
+          wrap
+          gap={{
+            row: 12,
+            column: '0.75rem',
           }}
         >
           <Button>Primary Button</Button>
@@ -48,7 +50,7 @@ const App = () => {
           <Button variant='link' disabled>
             Link Button
           </Button>
-        </div>
+        </Flex>
       </div>
     </div>
   );
