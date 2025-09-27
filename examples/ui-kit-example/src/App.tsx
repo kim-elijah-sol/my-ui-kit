@@ -28,6 +28,7 @@ const App = () => {
           }}
         >
           <Button>Button</Button>
+          <Button variant='border'>Button</Button>
         </div>
       </div>
     </div>
