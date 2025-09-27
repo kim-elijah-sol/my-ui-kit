@@ -27,9 +27,10 @@ const App = () => {
             flexWrap: 'wrap',
           }}
         >
-          <Button>Button</Button>
-          <Button variant='border'>Button</Button>
-          <Button variant='dashed'>Button</Button>
+          <Button>Primary Button</Button>
+          <Button variant='border'>Border Button</Button>
+          <Button variant='dashed'>Dashed Button</Button>
+          <Button variant='text'>Text Button</Button>
         </div>
       </div>
     </div>

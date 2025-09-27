@@ -50,3 +50,16 @@ export const dashedButtonCss = css([
     borderStyle: 'dashed',
   },
 ]);
+
+export const textButtonCss = css({
+  background: '#FFFFFF',
+  color: 'rgba(0,0,0,0.9)',
+
+  ':hover': {
+    background: '#1C70FF10',
+  },
+
+  ':active': {
+    background: '#1C70FF30',
+  },
+});
