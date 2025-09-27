@@ -28,6 +28,7 @@ const App = () => {
             row: 12,
             column: '0.75rem',
           }}
+          as='article'
         >
           <Button>Primary Button</Button>
           <Button variant='border'>Border Button</Button>

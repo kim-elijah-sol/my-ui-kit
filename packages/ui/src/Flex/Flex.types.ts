@@ -1,6 +1,17 @@
-import { ComponentPropsWithRef, CSSProperties } from 'react';
-import { GapType } from '../gap';
-import { type WithCssProp } from '../type/WithCssProp';
+import {
+  type ComponentPropsWithoutRef,
+  type ComponentPropsWithRef,
+  type CSSProperties,
+  type ElementType,
+  type ReactNode,
+} from 'react';
+import { type GapType } from '../gap';
+
+export type FlexElementType = ElementType & string;
+
+export type AsProps<T extends FlexElementType> = {
+  as?: T;
+};
 
 export type FlexOptions = {
   inline?: boolean;
@@ -11,4 +22,9 @@ export type FlexOptions = {
   gap?: GapType;
 };
 
-export type FlexProps = WithCssProp<ComponentPropsWithRef<'div'>> & FlexOptions;
+export type FlexProps<T extends FlexElementType = 'div'> =
+  ComponentPropsWithoutRef<T> & AsProps<T> & FlexOptions;
+
+export type FlexComponent = <T extends FlexElementType = 'div'>(
+  props: FlexProps<T> & Partial<Pick<ComponentPropsWithRef<T>, 'ref'>>
+) => ReactNode;
