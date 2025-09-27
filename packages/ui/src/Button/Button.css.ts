@@ -13,18 +13,28 @@ export const baseButtonCss = css({
 
   cursor: 'pointer',
   transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
+
+  ':disabled': {
+    cursor: 'not-allowed',
+  },
 });
 
 export const primaryButtonCss = css({
   background: '#1C70FF',
   color: '#FFFFFF',
 
-  ':hover': {
+  ':hover:not(:disabled)': {
     background: '#3C90FF',
   },
 
-  ':active': {
+  ':active:not(:disabled)': {
     background: '#0C50DD',
+  },
+
+  ':disabled': {
+    border: '1px solid #DFDFDF',
+    background: '#F1F1F1',
+    color: '#CCCCCC',
   },
 });
 
@@ -33,14 +43,20 @@ export const borderButtonCss = css({
   border: '1px solid #DFDFDF',
   color: 'rgba(0,0,0,0.9)',
 
-  ':hover': {
+  ':hover:not(:disabled)': {
     borderColor: '#1C70FF',
     color: '#1C70FF',
   },
 
-  ':active': {
+  ':active:not(:disabled)': {
     borderColor: '#0C50DD',
     color: '#0C50DD',
+  },
+
+  ':disabled': {
+    border: '1px solid #DFDFDF',
+    background: '#F1F1F1',
+    color: '#CCCCCC',
   },
 });
 
@@ -55,12 +71,16 @@ export const textButtonCss = css({
   background: '#FFFFFF',
   color: 'rgba(0,0,0,0.9)',
 
-  ':hover': {
+  ':hover:not(:disabled)': {
     background: '#1C70FF10',
   },
 
-  ':active': {
+  ':active:not(:disabled)': {
     background: '#1C70FF30',
+  },
+
+  ':disabled': {
+    color: '#CCCCCC',
   },
 });
 
@@ -68,11 +88,15 @@ export const linkButtonCss = css({
   background: '#FFFFFF',
   color: '#1C70FF',
 
-  ':hover': {
+  ':hover:not(:disabled)': {
     color: '#3C90FF',
   },
 
-  ':active': {
+  ':active:not(:disabled)': {
     color: '#0C50DD',
+  },
+
+  ':disabled': {
+    color: '#CCCCCC',
   },
 });
