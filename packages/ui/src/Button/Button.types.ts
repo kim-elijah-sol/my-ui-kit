@@ -1,7 +1,7 @@
 import { ComponentPropsWithRef } from 'react';
 import { WithCssProp } from '../type/WithCssProp';
 
-export type ButtonVariant = 'primary' | 'border';
+export type ButtonVariant = 'primary' | 'border' | 'dashed';
 
 type ButtonVariantProps = {
   variant?: ButtonVariant;

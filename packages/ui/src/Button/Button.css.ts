@@ -43,3 +43,10 @@ export const borderButtonCss = css({
     color: '#0C50DD',
   },
 });
+
+export const dashedButtonCss = css([
+  borderButtonCss,
+  {
+    borderStyle: 'dashed',
+  },
+]);
