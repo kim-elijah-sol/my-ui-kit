@@ -31,6 +31,7 @@ const App = () => {
           <Button variant='border'>Border Button</Button>
           <Button variant='dashed'>Dashed Button</Button>
           <Button variant='text'>Text Button</Button>
+          <Button variant='link'>Link Button</Button>
         </div>
       </div>
     </div>

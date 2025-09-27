@@ -4,6 +4,7 @@ import {
   baseButtonCss,
   borderButtonCss,
   dashedButtonCss,
+  linkButtonCss,
   primaryButtonCss,
   textButtonCss,
 } from './Button.css';
@@ -14,6 +15,7 @@ const variantCssMap: Record<ButtonVariant, SerializedStyles> = {
   border: borderButtonCss,
   dashed: dashedButtonCss,
   text: textButtonCss,
+  link: linkButtonCss,
 };
 
 export const Button: FC<ButtonProps> = ({ variant = 'primary', ...props }) => {

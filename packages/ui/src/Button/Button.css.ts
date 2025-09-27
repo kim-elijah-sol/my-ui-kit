@@ -63,3 +63,16 @@ export const textButtonCss = css({
     background: '#1C70FF30',
   },
 });
+
+export const linkButtonCss = css({
+  background: '#FFFFFF',
+  color: '#1C70FF',
+
+  ':hover': {
+    color: '#3C90FF',
+  },
+
+  ':active': {
+    color: '#0C50DD',
+  },
+});
