@@ -4,9 +4,9 @@ import {
   baseButtonCss,
   borderButtonCss,
   dashedButtonCss,
+  ghostButtonCss,
   linkButtonCss,
   primaryButtonCss,
-  textButtonCss,
 } from './Button.css';
 import type { ButtonProps, ButtonVariant } from './Button.types';
 
@@ -14,7 +14,7 @@ const variantCssMap: Record<ButtonVariant, SerializedStyles> = {
   primary: primaryButtonCss,
   border: borderButtonCss,
   dashed: dashedButtonCss,
-  text: textButtonCss,
+  ghost: ghostButtonCss,
   link: linkButtonCss,
 };
 

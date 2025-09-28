@@ -33,7 +33,7 @@ const App = () => {
           <Button>Primary Button</Button>
           <Button variant='border'>Border Button</Button>
           <Button variant='dashed'>Dashed Button</Button>
-          <Button variant='text'>Text Button</Button>
+          <Button variant='ghost'>Ghost Button</Button>
           <Button variant='link'>Link Button</Button>
 
           <div css={{ flexBasis: '100%', height: 0 }} />
@@ -45,8 +45,8 @@ const App = () => {
           <Button variant='dashed' disabled>
             Dashed Button
           </Button>
-          <Button variant='text' disabled>
-            Text Button
+          <Button variant='ghost' disabled>
+            Ghost Button
           </Button>
           <Button variant='link' disabled>
             Link Button

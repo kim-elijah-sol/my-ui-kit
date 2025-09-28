@@ -1,6 +1,6 @@
 import { type ComponentPropsWithRef, type ReactNode } from 'react';
 
-export type ButtonVariant = 'primary' | 'border' | 'dashed' | 'text' | 'link';
+export type ButtonVariant = 'primary' | 'border' | 'dashed' | 'ghost' | 'link';
 
 type ButtonVariantProps = {
   variant?: ButtonVariant;

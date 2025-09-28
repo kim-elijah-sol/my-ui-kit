@@ -69,7 +69,7 @@ export const dashedButtonCss = css([
   },
 ]);
 
-export const textButtonCss = css({
+export const ghostButtonCss = css({
   background: '#FFFFFF',
   color: 'rgba(0,0,0,0.9)',
 
