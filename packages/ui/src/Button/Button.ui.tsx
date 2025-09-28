@@ -1,5 +1,6 @@
 import { type SerializedStyles } from '@emotion/react';
 import { forwardRef, useMemo } from 'react';
+import { flexCss } from '../Flex/Flex.css';
 import {
   baseButtonCss,
   borderButtonCss,
@@ -24,6 +25,21 @@ export const Button = forwardRef(
 
     const variantCss = useMemo(() => variantCssMap[variant], [variant]);
 
-    return <button ref={ref} css={[baseButtonCss, variantCss]} {...props} />;
+    return (
+      <button
+        ref={ref}
+        css={[
+          baseButtonCss,
+          variantCss,
+          flexCss({
+            inline: true,
+            justify: 'center',
+            align: 'center',
+            gap: '0.5rem',
+          }),
+        ]}
+        {...props}
+      />
+    );
   }
 );
