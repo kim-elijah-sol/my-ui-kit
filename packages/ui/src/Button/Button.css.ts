@@ -1,9 +1,11 @@
 import { css } from '@emotion/react';
 
 export const baseButtonCss = css({
-  paddingLeft: '1rem',
-  paddingRight: '1rem',
-  height: '2.5rem',
+  fontSize: '0.875rem',
+
+  paddingLeft: '0.75rem',
+  paddingRight: '0.75rem',
+  height: '2.25rem',
 
   appearance: 'none',
   border: 'none',
