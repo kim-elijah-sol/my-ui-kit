@@ -22,15 +22,15 @@ export const baseButtonCss = css({
 });
 
 export const primaryButtonCss = css({
-  background: '#1C70FF',
+  background: '#121212',
   color: '#FFFFFF',
 
   ':hover:not(:disabled)': {
-    background: '#3C90FF',
+    background: '#666666',
   },
 
   ':active:not(:disabled)': {
-    background: '#0C50DD',
+    background: '#000000',
   },
 
   ':disabled': {
@@ -46,13 +46,11 @@ export const borderButtonCss = css({
   color: 'rgba(0,0,0,0.9)',
 
   ':hover:not(:disabled)': {
-    borderColor: '#1C70FF',
-    color: '#1C70FF',
+    borderColor: '#888888',
   },
 
   ':active:not(:disabled)': {
-    borderColor: '#0C50DD',
-    color: '#0C50DD',
+    borderColor: '#000000',
   },
 
   ':disabled': {
@@ -88,14 +86,14 @@ export const textButtonCss = css({
 
 export const linkButtonCss = css({
   background: '#FFFFFF',
-  color: '#1C70FF',
+  color: '#121212',
 
   ':hover:not(:disabled)': {
-    color: '#3C90FF',
+    color: '#666666',
   },
 
   ':active:not(:disabled)': {
-    color: '#0C50DD',
+    color: '#000000',
   },
 
   ':disabled': {
