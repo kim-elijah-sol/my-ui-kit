@@ -1,5 +1,5 @@
-import { SerializedStyles } from '@emotion/react';
-import { useMemo, type FC } from 'react';
+import { type SerializedStyles } from '@emotion/react';
+import { forwardRef, useMemo } from 'react';
 import {
   baseButtonCss,
   borderButtonCss,
@@ -8,7 +8,7 @@ import {
   primaryButtonCss,
   textButtonCss,
 } from './Button.css';
-import { ButtonVariant, type ButtonProps } from './Button.types';
+import type { ButtonProps, ButtonVariant } from './Button.types';
 
 const variantCssMap: Record<ButtonVariant, SerializedStyles> = {
   primary: primaryButtonCss,
@@ -18,8 +18,12 @@ const variantCssMap: Record<ButtonVariant, SerializedStyles> = {
   link: linkButtonCss,
 };
 
-export const Button: FC<ButtonProps> = ({ variant = 'primary', ...props }) => {
-  const variantCss = useMemo(() => variantCssMap[variant], [variant]);
+export const Button = forwardRef(
+  (_props: Omit<ButtonProps, 'ref'>, ref: Pick<ButtonProps, 'ref'>['ref']) => {
+    const { variant = 'primary', ...props } = _props;
 
-  return <button css={[baseButtonCss, variantCss]} {...props} />;
-};
+    const variantCss = useMemo(() => variantCssMap[variant], [variant]);
+
+    return <button ref={ref} css={[baseButtonCss, variantCss]} {...props} />;
+  }
+);
