@@ -47,10 +47,12 @@ export const borderButtonCss = css({
 
   ':hover:not(:disabled)': {
     borderColor: '#888888',
+    background: '#F1F1F1',
   },
 
   ':active:not(:disabled)': {
     borderColor: '#000000',
+    background: '#E5E5E5',
   },
 
   ':disabled': {
