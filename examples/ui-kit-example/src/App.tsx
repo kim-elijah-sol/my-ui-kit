@@ -1,8 +1,10 @@
-import { Button, Flex } from '@ui-kit/ui';
+import { Button, Flex, Input } from '@ui-kit/ui';
 
 const App = () => {
   return (
-    <div
+    <Flex
+      direction='column'
+      gap={12}
       css={{
         padding: 16,
       }}
@@ -53,7 +55,32 @@ const App = () => {
           </Button>
         </Flex>
       </div>
-    </div>
+
+      <div>
+        <p
+          css={{
+            marginBottom: '1rem',
+            fontWeight: 600,
+            fontSize: '1.25rem',
+          }}
+        >
+          Input
+        </p>
+        <Flex
+          direction='column'
+          css={{
+            padding: 12,
+            border: '1px solid #DDD',
+            borderRadius: '0.75rem',
+          }}
+          gap={16}
+          as='article'
+        >
+          <Input placeholder='아이디 입력' />
+          <Input type='password' placeholder='비밀번호 입력' />
+        </Flex>
+      </div>
+    </Flex>
   );
 };
 
