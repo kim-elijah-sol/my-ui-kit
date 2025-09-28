@@ -72,11 +72,11 @@ export const textButtonCss = css({
   color: 'rgba(0,0,0,0.9)',
 
   ':hover:not(:disabled)': {
-    background: '#1C70FF10',
+    background: '#E1E1E1',
   },
 
   ':active:not(:disabled)': {
-    background: '#1C70FF30',
+    background: '#CCCCCC',
   },
 
   ':disabled': {
