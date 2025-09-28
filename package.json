@@ -8,5 +8,9 @@
   "workspaces": [
     "packages/**/**",
     "examples/**/**"
-  ]
+  ],
+  "scripts": {
+    "ui": "pnpm -F @ui-kit/ui",
+    "example": "pnpm -F @ui-kit/example"
+  }
 }
