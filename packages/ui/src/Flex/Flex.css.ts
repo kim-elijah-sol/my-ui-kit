@@ -10,6 +10,7 @@ export const flexCss = (flexOptions?: FlexOptions) =>
       justifyContent: flexOptions?.justify,
       flexWrap:
         flexOptions?.wrap === true ? 'wrap' : flexOptions?.wrap || undefined,
+      flexDirection: flexOptions?.direction,
     },
     gapCss(flexOptions?.gap),
   ]);
