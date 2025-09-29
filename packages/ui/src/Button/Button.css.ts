@@ -52,7 +52,7 @@ export const borderButtonCss = css({
 
   ':active:not(:disabled)': {
     borderColor: '#000000',
-    background: '#E5E5E5',
+    background: '#E1E1E1',
   },
 
   ':disabled': {
