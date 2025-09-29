@@ -16,16 +16,24 @@ export const baseInputCss = css({
   color: '#121212',
 
   transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
+
+  ':disabled, &[readonly]': {
+    cursor: 'not-allowed',
+  },
 });
 
 export const borderInputCss = css({
   boxShadow: 'inset 0 0 0 1px #DFDFDF',
 
-  ':hover:not(:disabled)': {
+  ':hover:not(:disabled):not([readonly])': {
     boxShadow: 'inset 0 0 0 2px #AAAAAA',
   },
 
-  ':focus:not(:disabled)': {
+  ':focus:not(:disabled):not([readOnly])': {
     boxShadow: 'inset 0 0 0 2px #121212',
+  },
+
+  ':disabled, &[readonly]': {
+    background: '#F1F1F1',
   },
 });
