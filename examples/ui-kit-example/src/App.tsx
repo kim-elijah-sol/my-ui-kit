@@ -85,6 +85,23 @@ const App = () => {
           <Input variant='solid' type='password' placeholder='비밀번호 입력' />
           <Input variant='solid' placeholder='비활성화 readOnly' readOnly />
           <Input variant='solid' placeholder='비활성화 disabled' disabled />
+
+          <Input variant='bottom-border' placeholder='아이디 입력' />
+          <Input
+            variant='bottom-border'
+            type='password'
+            placeholder='비밀번호 입력'
+          />
+          <Input
+            variant='bottom-border'
+            placeholder='비활성화 readOnly'
+            readOnly
+          />
+          <Input
+            variant='bottom-border'
+            placeholder='비활성화 disabled'
+            disabled
+          />
         </Flex>
       </div>
     </Flex>

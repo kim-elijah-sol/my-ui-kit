@@ -53,3 +53,20 @@ export const solidInputCss = css({
     background: '#F1F1F1',
   },
 });
+
+export const bottomBorderInputCss = css({
+  borderRadius: 0,
+  boxShadow: 'inset 0 -1px 0 0 #DFDFDF',
+
+  ':hover:not(:disabled):not([readonly])': {
+    boxShadow: 'inset 0 -2px 0 0 #AAAAAA',
+  },
+
+  ':focus:not(:disabled):not([readOnly])': {
+    boxShadow: 'inset 0 -2px 0 0 #121212',
+  },
+
+  ':disabled, &[readonly]': {
+    background: '#F1F1F1',
+  },
+});
