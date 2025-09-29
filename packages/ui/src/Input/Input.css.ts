@@ -37,3 +37,19 @@ export const borderInputCss = css({
     background: '#F1F1F1',
   },
 });
+
+export const solidInputCss = css({
+  background: '#F5F5F5',
+
+  ':hover:not(:disabled):not([readonly])': {
+    background: '#FAFAFA',
+  },
+
+  ':focus:not(:disabled):not([readOnly])': {
+    background: '#E8E8E8',
+  },
+
+  ':disabled, &[readonly]': {
+    background: '#F1F1F1',
+  },
+});
