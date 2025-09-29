@@ -1,4 +1,4 @@
-import { Button, Flex, Input } from '@ui-kit/ui';
+import { Button, Flex, Input, Textarea } from '@ui-kit/ui';
 
 const App = () => {
   return (
@@ -9,6 +9,39 @@ const App = () => {
         padding: 16,
       }}
     >
+      <div>
+        <p
+          css={{
+            marginBottom: '1rem',
+            fontWeight: 600,
+            fontSize: '1.25rem',
+          }}
+        >
+          Textarea
+        </p>
+        <Flex
+          direction='column'
+          css={{
+            padding: 12,
+            border: '1px solid #DDD',
+            borderRadius: '0.75rem',
+          }}
+          gap={16}
+          as='article'
+        >
+          <Textarea placeholder='내용을 입력' />
+          <Textarea placeholder='내용을 입력' disabled />
+          <Textarea variant='solid' placeholder='내용을 입력' />
+          <Textarea variant='solid' placeholder='내용을 입력' disabled />
+          <Textarea variant='bottom-border' placeholder='내용을 입력' />
+          <Textarea
+            variant='bottom-border'
+            placeholder='내용을 입력'
+            disabled
+          />
+        </Flex>
+      </div>
+
       <div>
         <p
           css={{
