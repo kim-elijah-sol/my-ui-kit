@@ -13,6 +13,8 @@ export const baseInputCss = css({
 
   borderRadius: '0.5rem',
 
+  color: '#121212',
+
   transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
 });
 
