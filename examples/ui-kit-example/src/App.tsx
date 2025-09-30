@@ -1,4 +1,4 @@
-import { Button, Flex, Input, Textarea } from '@ui-kit/ui';
+import { Button, Flex, Input, Switch, Textarea } from '@ui-kit/ui';
 
 const App = () => {
   return (
@@ -9,6 +9,30 @@ const App = () => {
         padding: 16,
       }}
     >
+      <div>
+        <p
+          css={{
+            marginBottom: '1rem',
+            fontWeight: 600,
+            fontSize: '1.25rem',
+          }}
+        >
+          Switch
+        </p>
+        <Flex
+          direction='column'
+          css={{
+            padding: 12,
+            border: '1px solid #DDD',
+            borderRadius: '0.75rem',
+          }}
+          gap={16}
+          as='article'
+        >
+          <Switch />
+        </Flex>
+      </div>
+
       <div>
         <p
           css={{
