@@ -46,6 +46,10 @@ export const switchCss = css({
     outline: '2px solid #121212',
     outlineOffset: '2px',
     transition: 'outline 0s, outline-offset 0s',
+
+    "&[aria-checked='false']": {
+      outlineColor: '#DFDFDF',
+    },
   },
 });
 
