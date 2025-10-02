@@ -1,6 +1,9 @@
 import { Button, Flex, Input, Switch, Textarea } from '@ui-kit/ui';
+import { useState } from 'react';
 
 const App = () => {
+  const [switchState, setSwitchState] = useState<boolean>(false);
+
   return (
     <Flex
       direction='column'
@@ -25,10 +28,20 @@ const App = () => {
             border: '1px solid #DDD',
             borderRadius: '0.75rem',
           }}
-          gap={16}
+          gap={{
+            column: 16,
+            row: 8,
+          }}
           as='article'
+          wrap
         >
-          <Switch />
+          <Switch defaultChecked />
+          <Switch
+            defaultChecked
+            checked={switchState}
+            onChange={setSwitchState}
+          />
+          <div css={{ flexBasis: '100%', height: 0 }} />
           <Switch disabled />
           <Switch disabled checked />
         </Flex>

@@ -1,19 +1,44 @@
-import { useState } from 'react';
+import React from 'react';
+import { useControllableState } from '../_utils/hooks';
 import { switchCss, switchHandleCss } from './Switch.css';
 import type { SwitchProps } from './Switch.types';
 
 export const Switch = (_props: SwitchProps) => {
-  const { checked = false, onChange, ...props } = _props;
+  const {
+    defaultChecked = false,
+    checked,
+    onChange,
+    disabled,
+    ...props
+  } = _props;
 
-  const [internalChecked, setInternalChecked] = useState<boolean>(checked);
+  const [internalChecked, setInternalChecked] = useControllableState(
+    checked,
+    defaultChecked,
+    onChange
+  );
+
+  const handleToggle = () => {
+    if (!disabled) {
+      setInternalChecked(!internalChecked);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === ' ' || e.key === 'Enter') {
+      e.preventDefault();
+      handleToggle();
+    }
+  };
 
   return (
     <button
-      onClick={() => {
-        setInternalChecked(!internalChecked);
-        onChange?.(!internalChecked);
-      }}
+      type='button'
+      role='switch'
       aria-checked={internalChecked}
+      disabled={disabled}
+      onClick={handleToggle}
+      onKeyDown={handleKeyDown}
       css={switchCss}
       {...props}
     >
