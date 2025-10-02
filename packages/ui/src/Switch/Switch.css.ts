@@ -41,6 +41,12 @@ export const switchCss = css({
   ':disabled': {
     cursor: 'not-allowed',
   },
+
+  ':focus-visible': {
+    outline: '2px solid #121212',
+    outlineOffset: '2px',
+    transition: 'outline 0s, outline-offset 0s',
+  },
 });
 
 const switchCssClassName = `css-${switchCss.name}`;
