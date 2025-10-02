@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { switchCss } from './Switch.css';
+import { switchCss, switchHandleCss } from './Switch.css';
 import type { SwitchProps } from './Switch.types';
 
 export const Switch = (_props: SwitchProps) => {
@@ -16,6 +16,8 @@ export const Switch = (_props: SwitchProps) => {
       aria-checked={internalChecked}
       css={switchCss}
       {...props}
-    ></button>
+    >
+      <span css={switchHandleCss} />
+    </button>
   );
 };

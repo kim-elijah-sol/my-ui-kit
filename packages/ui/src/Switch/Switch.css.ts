@@ -30,3 +30,40 @@ export const switchCss = css({
     },
   },
 });
+
+const switchCssClassName = `css-${switchCss.name}`;
+
+export const switchHandleCss = css({
+  position: 'absolute',
+  top: '0.25rem',
+  height: '1.75rem',
+  width: '1.75rem',
+  transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
+
+  [`.${switchCssClassName}[aria-checked='true'] &`]: {
+    left: '2rem',
+  },
+
+  [`.${switchCssClassName}[aria-checked='false'] &`]: {
+    left: '0.25rem',
+  },
+
+  '::before': {
+    content: '""',
+    position: 'absolute',
+    inset: 0,
+    background: '#FFFFFF',
+    borderRadius: '0.875rem',
+    transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
+  },
+
+  [`.${switchCssClassName}[aria-checked='true']:active &::before`]: {
+    left: '-0.5rem',
+  },
+
+  [`.${switchCssClassName}[aria-checked='false']:active &::before`]: {
+    right: '-0.5rem',
+  },
+});
+
+console.log(switchCss);
