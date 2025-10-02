@@ -20,7 +20,6 @@ const App = () => {
           Switch
         </p>
         <Flex
-          direction='column'
           css={{
             padding: 12,
             border: '1px solid #DDD',
@@ -30,6 +29,8 @@ const App = () => {
           as='article'
         >
           <Switch />
+          <Switch disabled />
+          <Switch disabled checked />
         </Flex>
       </div>
 

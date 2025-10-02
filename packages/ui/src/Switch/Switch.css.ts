@@ -17,17 +17,29 @@ export const switchCss = css({
   "&[aria-checked='true']": {
     background: '#121212',
 
-    ':hover': {
+    ':not(:disabled):hover': {
       background: '#444444',
+    },
+
+    ':disabled': {
+      background: '#5A5A5A',
     },
   },
 
   "&[aria-checked='false']": {
     background: '#DFDFDF',
 
-    ':hover': {
+    ':not(:disabled):hover': {
       background: '#C1C1C1',
     },
+
+    ':disabled': {
+      background: '#ECECEC',
+    },
+  },
+
+  ':disabled': {
+    cursor: 'not-allowed',
   },
 });
 
@@ -57,13 +69,13 @@ export const switchHandleCss = css({
     transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
   },
 
-  [`.${switchCssClassName}[aria-checked='true']:active &::before`]: {
-    left: '-0.5rem',
-  },
+  [`.${switchCssClassName}:not(:disabled)[aria-checked='true']:active &::before`]:
+    {
+      left: '-0.5rem',
+    },
 
-  [`.${switchCssClassName}[aria-checked='false']:active &::before`]: {
-    right: '-0.5rem',
-  },
+  [`.${switchCssClassName}:not(:disabled)[aria-checked='false']:active &::before`]:
+    {
+      right: '-0.5rem',
+    },
 });
-
-console.log(switchCss);
