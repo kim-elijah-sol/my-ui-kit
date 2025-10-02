@@ -22,7 +22,7 @@ export const switchCss = css({
     },
 
     ':disabled': {
-      background: '#5A5A5A',
+      background: '#6A6A6A',
     },
   },
 
@@ -34,7 +34,7 @@ export const switchCss = css({
     },
 
     ':disabled': {
-      background: '#ECECEC',
+      background: '#EEEEEE',
     },
   },
 
