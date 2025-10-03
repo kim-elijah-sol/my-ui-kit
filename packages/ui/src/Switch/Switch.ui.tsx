@@ -1,9 +1,10 @@
 import React from 'react';
 import { useControllableState } from '../_utils/hooks';
+import { SwitchRoot } from './Root';
 import { switchCss, switchHandleCss } from './Switch.css';
-import type { SwitchProps } from './Switch.types';
+import type { SwitchComponent, SwitchType } from './Switch.types';
 
-export const Switch = (_props: SwitchProps) => {
+const _Switch: SwitchComponent = (_props) => {
   const {
     defaultChecked = false,
     checked,
@@ -46,3 +47,6 @@ export const Switch = (_props: SwitchProps) => {
     </button>
   );
 };
+
+export const Switch = _Switch as SwitchType;
+Switch.Root = SwitchRoot;

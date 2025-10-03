@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
+import { SiwtchRootComponent } from './Root';
 
 type SwitchOnChangeEvent = (checked: boolean) => void;
 
@@ -12,4 +13,10 @@ export type SwitchProps = {
   className?: string;
   name?: string;
   style?: React.CSSProperties;
+};
+
+export type SwitchComponent = (props: SwitchProps) => ReactNode;
+
+export type SwitchType = SwitchComponent & {
+  Root: SiwtchRootComponent;
 };

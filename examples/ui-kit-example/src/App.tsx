@@ -53,6 +53,10 @@ const App = () => {
               color: '#333',
             }}
           />
+          <div css={{ flexBasis: '100%', height: 0 }} />
+          <Switch.Root id='root-switch'>
+            <Switch />
+          </Switch.Root>
         </Flex>
       </div>
 
