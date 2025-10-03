@@ -12,10 +12,12 @@ export const switchCss = css({
   borderRadius: '1.125rem',
 
   cursor: 'pointer',
-  transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
+  transition:
+    'all 0.15s cubic-bezier(1, 0.5, 0, 0.5), outline-width 0s, outline-offset 0s',
 
   "&[aria-checked='true']": {
     background: '#121212',
+    outlineColor: '#121212',
 
     ':not(:disabled):hover': {
       background: '#444444',
@@ -28,6 +30,7 @@ export const switchCss = css({
 
   "&[aria-checked='false']": {
     background: '#DFDFDF',
+    outlineColor: '#DFDFDF',
 
     ':not(:disabled):hover': {
       background: '#C1C1C1',
@@ -43,13 +46,9 @@ export const switchCss = css({
   },
 
   ':focus-visible': {
-    outline: '2px solid #121212',
+    outlineWidth: '2px',
+    outlineStyle: 'solid',
     outlineOffset: '2px',
-    transition: 'outline 0s, outline-offset 0s',
-
-    "&[aria-checked='false']": {
-      outlineColor: '#DFDFDF',
-    },
   },
 });
 
