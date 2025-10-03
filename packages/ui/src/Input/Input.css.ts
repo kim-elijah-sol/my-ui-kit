@@ -17,7 +17,7 @@ export const baseInputCss = css({
 
   transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
 
-  ':disabled, &[readonly]': {
+  ':disabled': {
     cursor: 'not-allowed',
   },
 });
@@ -25,11 +25,11 @@ export const baseInputCss = css({
 export const borderInputCss = css({
   boxShadow: 'inset 0 0 0 1px #DFDFDF',
 
-  ':hover:not(:disabled):not([readonly])': {
+  ':hover:not(:disabled)': {
     boxShadow: 'inset 0 0 0 2px #AAAAAA',
   },
 
-  ':focus:not(:disabled):not([readOnly])': {
+  ':focus:not(:disabled)': {
     boxShadow: 'inset 0 0 0 2px #121212',
   },
 
@@ -41,11 +41,11 @@ export const borderInputCss = css({
 export const solidInputCss = css({
   background: '#F5F5F5',
 
-  ':hover:not(:disabled):not([readonly])': {
+  ':hover:not(:disabled)': {
     background: '#FAFAFA',
   },
 
-  ':focus:not(:disabled):not([readOnly])': {
+  ':focus:not(:disabled)': {
     background: '#E8E8E8',
   },
 
@@ -58,11 +58,11 @@ export const bottomBorderInputCss = css({
   borderRadius: 0,
   boxShadow: 'inset 0 -1px 0 0 #DFDFDF',
 
-  ':hover:not(:disabled):not([readonly])': {
+  ':hover:not(:disabled)': {
     boxShadow: 'inset 0 -2px 0 0 #AAAAAA',
   },
 
-  ':focus:not(:disabled):not([readOnly])': {
+  ':focus:not(:disabled)': {
     boxShadow: 'inset 0 -2px 0 0 #121212',
   },
 
