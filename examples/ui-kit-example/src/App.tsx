@@ -40,6 +40,9 @@ const App = () => {
             defaultChecked
             checked={switchState}
             onChange={setSwitchState}
+            id='_switch_id'
+            name='_switch_name'
+            className='_switch_class'
           />
           <div css={{ flexBasis: '100%', height: 0 }} />
           <Switch disabled />
