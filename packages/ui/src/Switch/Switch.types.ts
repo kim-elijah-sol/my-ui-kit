@@ -1,3 +1,5 @@
+import React from 'react';
+
 type SwitchOnChangeEvent = (checked: boolean) => void;
 
 export type SwitchProps = {
@@ -9,4 +11,5 @@ export type SwitchProps = {
   id?: string;
   className?: string;
   name?: string;
+  style?: React.CSSProperties;
 };

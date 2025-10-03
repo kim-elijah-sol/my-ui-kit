@@ -46,7 +46,13 @@ const App = () => {
           />
           <div css={{ flexBasis: '100%', height: 0 }} />
           <Switch disabled />
-          <Switch disabled checked />
+          <Switch
+            disabled
+            checked
+            style={{
+              color: '#333',
+            }}
+          />
         </Flex>
       </div>
 
