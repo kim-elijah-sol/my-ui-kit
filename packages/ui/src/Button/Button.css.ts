@@ -14,10 +14,18 @@ export const baseButtonCss = css({
   borderRadius: '0.5rem',
 
   cursor: 'pointer',
-  transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
+  transition:
+    'all 0.15s cubic-bezier(1, 0.5, 0, 0.5), outline-width 0s, outline-offset 0s',
 
   ':disabled': {
     cursor: 'not-allowed',
+  },
+
+  ':focus-visible': {
+    outlineWidth: '2px',
+    outlineStyle: 'solid',
+    outlineOffset: '2px',
+    outlineColor: '#121212',
   },
 });
 
