@@ -5,7 +5,7 @@ import {
   type ElementType,
   type ReactNode,
 } from 'react';
-import { type GapType } from '../gap';
+import { type GapType } from '../_utils/styles/gap';
 
 export type FlexElementType = ElementType & string;
 
