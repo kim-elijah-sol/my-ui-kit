@@ -1,6 +1,6 @@
 import React, { type ReactNode } from 'react';
 import { type SwitchLabelComponent } from './Label';
-import { type SiwtchRootComponent } from './Root';
+import { type SwitchRootComponent } from './Root';
 
 type SwitchOnChangeEvent = (checked: boolean) => void;
 
@@ -19,6 +19,6 @@ export type SwitchProps = {
 export type SwitchComponent = (props: SwitchProps) => ReactNode;
 
 export type SwitchType = SwitchComponent & {
-  Root: SiwtchRootComponent;
+  Root: SwitchRootComponent;
   Label: SwitchLabelComponent;
 };

@@ -2,9 +2,9 @@ import { Children, cloneElement, forwardRef, isValidElement } from 'react';
 import { Flex } from '../../Flex';
 import { SwitchLabel } from '../Label';
 import { Switch } from '../Switch.ui';
-import type { SiwtchRootComponent } from './Root.types';
+import type { SwitchRootComponent } from './Root.types';
 
-export const SwitchRoot: SiwtchRootComponent = forwardRef((_props, ref) => {
+export const SwitchRoot: SwitchRootComponent = forwardRef((_props, ref) => {
   const {
     id,
     align = 'center',

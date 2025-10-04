@@ -7,6 +7,6 @@ export type SwitchRootProps = PickRequired<
   'id'
 >;
 
-export type SiwtchRootComponent = (
+export type SwitchRootComponent = (
   props: SwitchRootProps & Partial<Pick<ComponentPropsWithRef<'label'>, 'ref'>>
 ) => ReactNode;
