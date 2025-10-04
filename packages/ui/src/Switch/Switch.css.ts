@@ -52,7 +52,7 @@ export const switchCss = css({
   },
 });
 
-const switchCssClassName = `css-${switchCss.name}`;
+export const switchCssClassName = `css-${switchCss.name}`;
 
 export const switchHandleCss = css({
   position: 'absolute',

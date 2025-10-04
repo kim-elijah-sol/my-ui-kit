@@ -1,5 +1,6 @@
 import React from 'react';
 import { useControllableState } from '../_utils/hooks';
+import { SwitchLabel } from './Label';
 import { SwitchRoot } from './Root';
 import { switchCss, switchHandleCss } from './Switch.css';
 import type { SwitchComponent, SwitchType } from './Switch.types';
@@ -50,3 +51,4 @@ const _Switch: SwitchComponent = (_props) => {
 
 export const Switch = _Switch as SwitchType;
 Switch.Root = SwitchRoot;
+Switch.Label = SwitchLabel;

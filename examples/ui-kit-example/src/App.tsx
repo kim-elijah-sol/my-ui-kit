@@ -55,7 +55,13 @@ const App = () => {
           />
           <div css={{ flexBasis: '100%', height: 0 }} />
           <Switch.Root id='root-switch'>
+            <Switch.Label>On/Off</Switch.Label>
             <Switch />
+          </Switch.Root>
+          <div css={{ flexBasis: '100%', height: 0 }} />
+          <Switch.Root id='root-switch_1'>
+            <Switch disabled checked />
+            <Switch.Label>On/Off</Switch.Label>
           </Switch.Root>
         </Flex>
       </div>
