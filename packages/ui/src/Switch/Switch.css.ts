@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { SWITCH_BASE_CLASSNAME } from './Switch.constants';
 
 export const switchCss = css({
   position: 'relative',
@@ -52,8 +53,6 @@ export const switchCss = css({
   },
 });
 
-export const switchCssClassName = `css-${switchCss.name}`;
-
 export const switchHandleCss = css({
   position: 'absolute',
   top: '0.25rem',
@@ -61,11 +60,11 @@ export const switchHandleCss = css({
   width: '1.75rem',
   transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
 
-  [`.${switchCssClassName}[aria-checked='true'] &`]: {
+  [`.${SWITCH_BASE_CLASSNAME}[aria-checked='true'] &`]: {
     left: '2rem',
   },
 
-  [`.${switchCssClassName}[aria-checked='false'] &`]: {
+  [`.${SWITCH_BASE_CLASSNAME}[aria-checked='false'] &`]: {
     left: '0.25rem',
   },
 
@@ -78,12 +77,12 @@ export const switchHandleCss = css({
     transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
   },
 
-  [`.${switchCssClassName}:not(:disabled)[aria-checked='true']:active &::before`]:
+  [`.${SWITCH_BASE_CLASSNAME}:not(:disabled)[aria-checked='true']:active &::before`]:
     {
       left: '-0.5rem',
     },
 
-  [`.${switchCssClassName}:not(:disabled)[aria-checked='false']:active &::before`]:
+  [`.${SWITCH_BASE_CLASSNAME}:not(:disabled)[aria-checked='false']:active &::before`]:
     {
       right: '-0.5rem',
     },

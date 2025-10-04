@@ -2,6 +2,7 @@ import React from 'react';
 import { useControllableState } from '../_utils/hooks';
 import { SwitchLabel } from './Label';
 import { SwitchRoot } from './Root';
+import { SWITCH_BASE_CLASSNAME } from './Switch.constants';
 import { switchCss, switchHandleCss } from './Switch.css';
 import type { SwitchComponent, SwitchType } from './Switch.types';
 
@@ -11,6 +12,7 @@ const _Switch: SwitchComponent = (_props) => {
     checked,
     onChange,
     disabled,
+    className,
     ...props
   } = _props;
 
@@ -42,6 +44,7 @@ const _Switch: SwitchComponent = (_props) => {
       onClick={handleToggle}
       onKeyDown={handleKeyDown}
       css={switchCss}
+      className={`${SWITCH_BASE_CLASSNAME}${className ? ` ${className}` : ''}`}
       {...props}
     >
       <span css={switchHandleCss} />
