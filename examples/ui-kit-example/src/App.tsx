@@ -1,4 +1,4 @@
-import { Button, Flex, Input, Switch, Textarea } from '@ui-kit/ui';
+import { Button, Flex, Input, Radio, Switch, Textarea } from '@ui-kit/ui';
 import { useState } from 'react';
 
 const App = () => {
@@ -12,6 +12,36 @@ const App = () => {
         padding: 16,
       }}
     >
+      <div>
+        <p
+          css={{
+            marginBottom: '1rem',
+            fontWeight: 600,
+            fontSize: '1.25rem',
+          }}
+        >
+          Radio
+        </p>
+        <Flex
+          css={{
+            padding: 12,
+            border: '1px solid #DDD',
+            borderRadius: '0.75rem',
+          }}
+          gap={{
+            column: 16,
+            row: 8,
+          }}
+          as='article'
+          direction='column'
+        >
+          <Radio id='radio-1' name='radio' />
+          <Radio id='radio-2' name='radio' />
+          <Radio defaultChecked id='radio-3' name='radio' disabled />
+          <Radio id='radio-4' name='radio' disabled />
+        </Flex>
+      </div>
+
       <div>
         <p
           css={{
