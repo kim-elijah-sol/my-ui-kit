@@ -20,7 +20,7 @@ const variantCssMap: Record<ButtonVariant, SerializedStyles> = {
 };
 
 export const Button = forwardRef(
-  (_props: Omit<ButtonProps, 'ref'>, ref: Pick<ButtonProps, 'ref'>['ref']) => {
+  (_props: Omit<ButtonProps, 'ref'>, ref: ButtonProps['ref']) => {
     const { variant = 'primary', ...props } = _props;
 
     const variantCss = useMemo(() => variantCssMap[variant], [variant]);
