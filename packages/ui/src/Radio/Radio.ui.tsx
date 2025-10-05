@@ -4,7 +4,7 @@ import { radioCircleCss, radioInputCss } from './Radio.css';
 import type { RadioProps } from './Radio.types';
 
 export const Radio = forwardRef(
-  (_props: RadioProps, ref: Pick<RadioProps, 'ref'>['ref']) => {
+  (_props: Omit<RadioProps, 'ref'>, ref: RadioProps['ref']) => {
     const { onChange, className, ...props } = _props;
 
     return (
