@@ -15,10 +15,7 @@ const variantCssMap: Record<TextareaVariant, SerializedStyles> = {
 };
 
 export const Textarea = forwardRef(
-  (
-    _props: Omit<TextareaProps, 'ref'>,
-    ref: Pick<TextareaProps, 'ref'>['ref']
-  ) => {
+  (_props: Omit<TextareaProps, 'ref'>, ref: TextareaProps['ref']) => {
     const { variant = 'border', ...props } = _props;
 
     const variantCss = useMemo(() => variantCssMap[variant], [variant]);
