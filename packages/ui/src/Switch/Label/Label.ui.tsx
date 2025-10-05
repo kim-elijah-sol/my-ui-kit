@@ -1,13 +1,10 @@
 import { type ComponentPropsWithRef, forwardRef } from 'react';
+import type { StringElementType } from '../../_utils/types';
 import { switchLabelCss } from './Label.css';
-import type {
-  SwitchLabelComponent,
-  SwitchLabelElementType,
-  SwitchLabelProps,
-} from './Label.types';
+import type { SwitchLabelComponent, SwitchLabelProps } from './Label.types';
 
 export const SwitchLabel: SwitchLabelComponent = forwardRef(
-  <T extends SwitchLabelElementType>(
+  <T extends StringElementType>(
     _props: SwitchLabelProps<T>,
     ref: ComponentPropsWithRef<T>['ref']
   ) => {
