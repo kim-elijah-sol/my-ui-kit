@@ -15,7 +15,7 @@ const variantCssMap: Record<InputVariant, SerializedStyles> = {
 };
 
 export const Input = forwardRef(
-  (_props: Omit<InputProps, 'ref'>, ref: Pick<InputProps, 'ref'>['ref']) => {
+  (_props: Omit<InputProps, 'ref'>, ref: InputProps['ref']) => {
     const { type = 'text', variant = 'border', ...props } = _props;
 
     const variantCss = useMemo(() => variantCssMap[variant], [variant]);
