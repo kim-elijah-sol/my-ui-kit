@@ -25,4 +25,5 @@ export type FlexComponent = <T extends StringElementType = 'div'>(
 
 export type FlexType = FlexComponent & {
   Center: FlexComponent;
+  Column: FlexComponent;
 };

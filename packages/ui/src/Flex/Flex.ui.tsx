@@ -46,3 +46,4 @@ const createFlex = (flexOptions?: FlexOptions): FlexComponent =>
 
 export const Flex = createFlex() as FlexType;
 Flex.Center = createFlex({ justify: 'center', align: 'center' });
+Flex.Column = createFlex({ direction: 'column' });

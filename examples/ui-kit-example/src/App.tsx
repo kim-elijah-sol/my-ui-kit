@@ -5,8 +5,7 @@ const App = () => {
   const [switchState, setSwitchState] = useState<boolean>(false);
 
   return (
-    <Flex
-      direction='column'
+    <Flex.Column
       gap={12}
       css={{
         padding: 16,
@@ -22,7 +21,7 @@ const App = () => {
         >
           Radio
         </p>
-        <Flex
+        <Flex.Column
           css={{
             padding: 12,
             border: '1px solid #DDD',
@@ -33,13 +32,12 @@ const App = () => {
             row: 8,
           }}
           as='article'
-          direction='column'
         >
           <Radio id='radio-1' name='radio' />
           <Radio id='radio-2' name='radio' />
           <Radio defaultChecked id='radio-3' name='radio' disabled />
           <Radio id='radio-4' name='radio' disabled />
-        </Flex>
+        </Flex.Column>
       </div>
 
       <div>
@@ -106,8 +104,7 @@ const App = () => {
         >
           Textarea
         </p>
-        <Flex
-          direction='column'
+        <Flex.Column
           css={{
             padding: 12,
             border: '1px solid #DDD',
@@ -126,7 +123,7 @@ const App = () => {
             placeholder='내용을 입력'
             disabled
           />
-        </Flex>
+        </Flex.Column>
       </div>
 
       <div>
@@ -186,8 +183,7 @@ const App = () => {
         >
           Input
         </p>
-        <Flex
-          direction='column'
+        <Flex.Column
           css={{
             padding: 12,
             border: '1px solid #DDD',
@@ -222,9 +218,9 @@ const App = () => {
             placeholder='비활성화 disabled'
             disabled
           />
-        </Flex>
+        </Flex.Column>
       </div>
-    </Flex>
+    </Flex.Column>
   );
 };
 
