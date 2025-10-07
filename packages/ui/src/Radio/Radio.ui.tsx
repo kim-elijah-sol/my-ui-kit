@@ -5,14 +5,13 @@ import type { RadioProps } from './Radio.types';
 
 export const Radio = forwardRef(
   (_props: Omit<RadioProps, 'ref'>, ref: RadioProps['ref']) => {
-    const { onChange, className, ...props } = _props;
+    const { className, ...props } = _props;
 
     return (
       <>
         <input
           ref={ref}
           type='radio'
-          onChange={onChange ? (e) => onChange(e.target.checked) : undefined}
           css={radioInputCss}
           className={`${RADIO_INPUT_BASE_CLASSNAME}${
             className ? ` ${className}` : ''
