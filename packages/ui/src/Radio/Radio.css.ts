@@ -16,7 +16,7 @@ export const radioInputCss = css({
   height: '100%',
   borderRadius: '50%',
 
-  boxShadow: 'inset 0 0 0 1px #DFDFDF',
+  boxShadow: 'inset 0 0 0 1px #CCCCCC',
 
   cursor: 'pointer',
   transition:
@@ -66,7 +66,7 @@ export const radioInnerCircleCss = css({
   transform: 'translate(-50%, -50%) scale(0)',
   width: '50%',
   height: '50%',
-  background: '#DFDFDF',
+  background: '#CCCCCC',
   transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
   borderRadius: '50%',
 
