@@ -1,5 +1,6 @@
 import { type SerializedStyles } from '@emotion/react';
 import { forwardRef, useMemo } from 'react';
+import type { WithoutRef } from '../_utils/types';
 import {
   baseTextareaCss,
   borderTextareaCss,
@@ -15,7 +16,7 @@ const variantCssMap: Record<TextareaVariant, SerializedStyles> = {
 };
 
 export const Textarea = forwardRef(
-  (_props: Omit<TextareaProps, 'ref'>, ref: TextareaProps['ref']) => {
+  (_props: WithoutRef<TextareaProps>, ref: TextareaProps['ref']) => {
     const { variant = 'border', ...props } = _props;
 
     const variantCss = useMemo(() => variantCssMap[variant], [variant]);
