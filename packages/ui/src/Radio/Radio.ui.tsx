@@ -1,6 +1,10 @@
 import { forwardRef } from 'react';
 import { RADIO_INPUT_BASE_CLASSNAME } from './Radio.constants';
-import { radioCircleCss, radioInputCss } from './Radio.css';
+import {
+  radioInnerCircleCss,
+  radioInputCss,
+  radioWrapperCss,
+} from './Radio.css';
 import type { RadioProps } from './Radio.types';
 
 export const Radio = forwardRef(
@@ -8,7 +12,7 @@ export const Radio = forwardRef(
     const { className, ...props } = _props;
 
     return (
-      <>
+      <div css={radioWrapperCss}>
         <input
           ref={ref}
           type='radio'
@@ -18,8 +22,8 @@ export const Radio = forwardRef(
           }`}
           {...props}
         />
-        <label htmlFor={props.id} css={radioCircleCss} />
-      </>
+        <span css={radioInnerCircleCss} />
+      </div>
     );
   }
 );
