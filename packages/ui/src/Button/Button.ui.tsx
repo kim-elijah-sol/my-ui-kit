@@ -21,12 +21,13 @@ const variantCssMap: Record<ButtonVariant, SerializedStyles> = {
 
 export const Button = forwardRef(
   (_props: Omit<ButtonProps, 'ref'>, ref: ButtonProps['ref']) => {
-    const { variant = 'primary', ...props } = _props;
+    const { variant = 'primary', type = 'button', ...props } = _props;
 
     const variantCss = useMemo(() => variantCssMap[variant], [variant]);
 
     return (
       <button
+        type={type}
         ref={ref}
         css={[
           baseButtonCss,
