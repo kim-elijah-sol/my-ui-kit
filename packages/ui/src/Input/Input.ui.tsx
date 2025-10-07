@@ -1,5 +1,6 @@
 import { type SerializedStyles } from '@emotion/react';
 import { forwardRef, useMemo } from 'react';
+import type { WithoutRef } from '../_utils/types';
 import {
   baseInputCss,
   borderInputCss,
@@ -15,7 +16,7 @@ const variantCssMap: Record<InputVariant, SerializedStyles> = {
 };
 
 export const Input = forwardRef(
-  (_props: Omit<InputProps, 'ref'>, ref: InputProps['ref']) => {
+  (_props: WithoutRef<InputProps>, ref: InputProps['ref']) => {
     const { type = 'text', variant = 'border', ...props } = _props;
 
     const variantCss = useMemo(() => variantCssMap[variant], [variant]);
