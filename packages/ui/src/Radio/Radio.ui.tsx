@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import type { WithoutRef } from '../_utils/types';
 import { RADIO_INPUT_BASE_CLASSNAME } from './Radio.constants';
 import {
   radioInnerCircleCss,
@@ -8,7 +9,7 @@ import {
 import type { RadioProps } from './Radio.types';
 
 export const Radio = forwardRef(
-  (_props: Omit<RadioProps, 'ref'>, ref: RadioProps['ref']) => {
+  (_props: WithoutRef<RadioProps>, ref: RadioProps['ref']) => {
     const { className, ...props } = _props;
 
     return (
