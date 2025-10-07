@@ -4,9 +4,9 @@ import { SwitchLabel } from './Label';
 import { SwitchRoot } from './Root';
 import { SWITCH_BASE_CLASSNAME } from './Switch.constants';
 import { switchCss, switchHandleCss } from './Switch.css';
-import type { SwitchComponent, SwitchType } from './Switch.types';
+import type { SwitchType } from './Switch.types';
 
-const _Switch: SwitchComponent = (_props) => {
+export const Switch: SwitchType = (_props) => {
   const {
     defaultChecked = false,
     checked,
@@ -52,6 +52,5 @@ const _Switch: SwitchComponent = (_props) => {
   );
 };
 
-export const Switch = _Switch as SwitchType;
 Switch.Root = SwitchRoot;
 Switch.Label = SwitchLabel;
