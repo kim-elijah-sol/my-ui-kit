@@ -1,5 +1,6 @@
 import { type SerializedStyles } from '@emotion/react';
 import { forwardRef, useMemo } from 'react';
+import type { WithoutRef } from '../_utils/types';
 import { flexCss } from '../Flex/Flex.css';
 import {
   baseButtonCss,
@@ -20,7 +21,7 @@ const variantCssMap: Record<ButtonVariant, SerializedStyles> = {
 };
 
 export const Button = forwardRef(
-  (_props: Omit<ButtonProps, 'ref'>, ref: ButtonProps['ref']) => {
+  (_props: WithoutRef<ButtonProps>, ref: ButtonProps['ref']) => {
     const { variant = 'primary', type = 'button', ...props } = _props;
 
     const variantCss = useMemo(() => variantCssMap[variant], [variant]);
