@@ -36,7 +36,7 @@ const App = () => {
           <Radio id='radio-1' name='radio' />
           <Radio id='radio-2' name='radio' />
           <Radio defaultChecked id='radio-3' name='radio' disabled />
-          <Radio id='radio-4' name='radio' disabled />
+          <Radio name='radio' disabled />
         </Flex.Column>
       </div>
 
