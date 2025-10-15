@@ -2,15 +2,18 @@ import { css } from '@emotion/react';
 import { SWITCH_BASE_CLASSNAME } from './Switch.constants';
 
 export const switchCss = css({
+  '--s-h': '2.25rem',
+  '--s-w': '4rem',
+
   position: 'relative',
-  height: '2.25rem',
-  width: '4rem',
+  height: 'var(--s-h)',
+  width: 'var(--s-w)',
 
   appearance: 'none',
   border: 'none',
   outline: 'none',
 
-  borderRadius: '1.125rem',
+  borderRadius: 'calc(var(--s-h) / 2)',
 
   cursor: 'pointer',
   transition:
@@ -54,14 +57,16 @@ export const switchCss = css({
 });
 
 export const switchHandleCss = css({
+  '--s-h-s': 'calc(var(--s-h) - 0.5rem)',
+
   position: 'absolute',
   top: '0.25rem',
-  height: '1.75rem',
-  width: '1.75rem',
+  height: 'var(--s-h-s)',
+  width: 'var(--s-h-s)',
   transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
 
   [`.${SWITCH_BASE_CLASSNAME}[aria-checked='true'] &`]: {
-    left: '2rem',
+    left: 'calc(var(--s-w) - calc(var(--s-h-s) + 0.25rem))',
   },
 
   [`.${SWITCH_BASE_CLASSNAME}[aria-checked='false'] &`]: {
@@ -73,17 +78,17 @@ export const switchHandleCss = css({
     position: 'absolute',
     inset: 0,
     background: '#FFFFFF',
-    borderRadius: '0.875rem',
+    borderRadius: 'calc(var(--s-h-s) / 2)',
     transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
   },
 
   [`.${SWITCH_BASE_CLASSNAME}:not(:disabled)[aria-checked='true']:active &::before`]:
     {
-      left: '-0.5rem',
+      left: 'calc(calc(var(--s-h-s) / 3.5) * -1)',
     },
 
   [`.${SWITCH_BASE_CLASSNAME}:not(:disabled)[aria-checked='false']:active &::before`]:
     {
-      right: '-0.5rem',
+      right: 'calc(calc(var(--s-h-s) / 3.5) * -1)',
     },
 });
