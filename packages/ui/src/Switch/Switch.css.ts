@@ -1,19 +1,30 @@
 import { css } from '@emotion/react';
+import { createVarStore } from '../_utils/fx/createVarStore';
 import { SWITCH_BASE_CLASSNAME } from './Switch.constants';
 
-export const switchCss = css({
-  '--s-h': '2.25rem',
-  '--s-w': '4rem',
+const switchSizeStore = createVarStore<'s-h' | 's-w'>();
 
+export const switchDefaultSizeCss = switchSizeStore.css({
+  's-h': '2.25rem',
+  's-w': '4rem',
+});
+
+const switchHandleSizeStore = createVarStore<'s-h-s'>();
+
+export const switchHandleDefaultSizeCss = switchHandleSizeStore.css({
+  's-h-s': `calc(${switchSizeStore.use('s-h')} - 0.5rem)`,
+});
+
+export const switchCss = css({
   position: 'relative',
-  height: 'var(--s-h)',
-  width: 'var(--s-w)',
+  height: switchSizeStore.use('s-h'),
+  width: switchSizeStore.use('s-w'),
 
   appearance: 'none',
   border: 'none',
   outline: 'none',
 
-  borderRadius: 'calc(var(--s-h) / 2)',
+  borderRadius: `calc(${switchSizeStore.use('s-h')} / 2)`,
 
   cursor: 'pointer',
   transition:
@@ -57,16 +68,16 @@ export const switchCss = css({
 });
 
 export const switchHandleCss = css({
-  '--s-h-s': 'calc(var(--s-h) - 0.5rem)',
-
   position: 'absolute',
   top: '0.25rem',
-  height: 'var(--s-h-s)',
-  width: 'var(--s-h-s)',
+  height: switchHandleSizeStore.use('s-h-s'),
+  width: switchHandleSizeStore.use('s-h-s'),
   transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
 
   [`.${SWITCH_BASE_CLASSNAME}[aria-checked='true'] &`]: {
-    left: 'calc(var(--s-w) - calc(var(--s-h-s) + 0.25rem))',
+    left: `calc(${switchSizeStore.use(
+      's-w'
+    )} - calc(${switchHandleSizeStore.use('s-h-s')} + 0.25rem))`,
   },
 
   [`.${SWITCH_BASE_CLASSNAME}[aria-checked='false'] &`]: {
@@ -78,17 +89,17 @@ export const switchHandleCss = css({
     position: 'absolute',
     inset: 0,
     background: '#FFFFFF',
-    borderRadius: 'calc(var(--s-h-s) / 2)',
+    borderRadius: `calc(${switchHandleSizeStore.use('s-h-s')} / 2)`,
     transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
   },
 
   [`.${SWITCH_BASE_CLASSNAME}:not(:disabled)[aria-checked='true']:active &::before`]:
     {
-      left: 'calc(calc(var(--s-h-s) / 3.5) * -1)',
+      left: `calc(calc(${switchHandleSizeStore.use('s-h-s')} / 3.5) * -1)`,
     },
 
   [`.${SWITCH_BASE_CLASSNAME}:not(:disabled)[aria-checked='false']:active &::before`]:
     {
-      right: 'calc(calc(var(--s-h-s) / 3.5) * -1)',
+      right: `calc(calc(${switchHandleSizeStore.use('s-h-s')} / 3.5) * -1)`,
     },
 });

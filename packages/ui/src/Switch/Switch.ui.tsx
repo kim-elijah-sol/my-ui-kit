@@ -3,7 +3,12 @@ import { useControllableState } from '../_utils/hooks';
 import { SwitchLabel } from './Label';
 import { SwitchRoot } from './Root';
 import { SWITCH_BASE_CLASSNAME } from './Switch.constants';
-import { switchCss, switchHandleCss } from './Switch.css';
+import {
+  switchCss,
+  switchDefaultSizeCss,
+  switchHandleCss,
+  switchHandleDefaultSizeCss,
+} from './Switch.css';
 import type { SwitchType } from './Switch.types';
 
 export const Switch: SwitchType = (_props) => {
@@ -43,11 +48,11 @@ export const Switch: SwitchType = (_props) => {
       disabled={disabled}
       onClick={handleToggle}
       onKeyDown={handleKeyDown}
-      css={switchCss}
+      css={[switchCss, switchDefaultSizeCss]}
       className={`${SWITCH_BASE_CLASSNAME}${className ? ` ${className}` : ''}`}
       {...props}
     >
-      <span css={switchHandleCss} />
+      <span css={[switchHandleCss, switchHandleDefaultSizeCss]} />
     </button>
   );
 };
