@@ -5,8 +5,8 @@ import { SWITCH_BASE_CLASSNAME } from './Switch.constants';
 const switchSizeStore = createVarStore<'s-h' | 's-w'>();
 
 export const switchDefaultSizeCss = switchSizeStore.css({
-  's-h': '2.25rem',
-  's-w': '4rem',
+  's-h': '2rem',
+  's-w': '3.5rem',
 });
 
 const switchHandleSizeStore = createVarStore<'s-h-s'>();
