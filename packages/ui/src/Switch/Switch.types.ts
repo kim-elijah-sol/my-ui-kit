@@ -4,6 +4,10 @@ import { type SwitchRootComponent } from './Root';
 
 type SwitchOnChangeEvent = (checked: boolean) => void;
 
+export type SwitchSize = 'sm' | 'md' | 'lg';
+
+type SwitchSizeProps = Partial<Record<'size', SwitchSize>>;
+
 export type SwitchProps = {
   defaultChecked?: boolean;
   checked?: boolean;
@@ -14,7 +18,7 @@ export type SwitchProps = {
   className?: string;
   name?: string;
   style?: React.CSSProperties;
-};
+} & SwitchSizeProps;
 
 export type SwitchComponent = (props: SwitchProps) => ReactNode;
 

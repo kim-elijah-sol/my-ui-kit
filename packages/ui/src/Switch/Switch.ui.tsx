@@ -1,15 +1,24 @@
-import React from 'react';
+import { type SerializedStyles } from '@emotion/react';
+import React, { useMemo } from 'react';
 import { useControllableState } from '../_utils/hooks';
 import { SwitchLabel } from './Label';
 import { SwitchRoot } from './Root';
 import { SWITCH_BASE_CLASSNAME } from './Switch.constants';
 import {
   switchCss,
-  switchDefaultSizeCss,
   switchHandleCss,
   switchHandleDefaultSizeCss,
+  switchLargeSizeCss,
+  switchMediumSizeCss,
+  switchSmallSizeCss,
 } from './Switch.css';
-import type { SwitchType } from './Switch.types';
+import type { SwitchSize, SwitchType } from './Switch.types';
+
+const sizeCssMap: Record<SwitchSize, SerializedStyles> = {
+  sm: switchSmallSizeCss,
+  md: switchMediumSizeCss,
+  lg: switchLargeSizeCss,
+};
 
 export const Switch: SwitchType = (_props) => {
   const {
@@ -18,6 +27,7 @@ export const Switch: SwitchType = (_props) => {
     onChange,
     disabled,
     className,
+    size = 'md',
     ...props
   } = _props;
 
@@ -40,6 +50,8 @@ export const Switch: SwitchType = (_props) => {
     }
   };
 
+  const sizeCss = useMemo(() => sizeCssMap[size], [size]);
+
   return (
     <button
       type='button'
@@ -48,7 +60,7 @@ export const Switch: SwitchType = (_props) => {
       disabled={disabled}
       onClick={handleToggle}
       onKeyDown={handleKeyDown}
-      css={[switchCss, switchDefaultSizeCss]}
+      css={[switchCss, sizeCss]}
       className={`${SWITCH_BASE_CLASSNAME}${className ? ` ${className}` : ''}`}
       {...props}
     >
