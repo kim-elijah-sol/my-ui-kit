@@ -91,6 +91,11 @@ const App = () => {
             <Switch disabled checked />
             <Switch.Label>On/Off</Switch.Label>
           </Switch.Root>
+          <Flex align='center' gap={8}>
+            <Switch size='sm' />
+            <Switch size='md' />
+            <Switch size='lg' />
+          </Flex>
         </Flex>
       </div>
 
