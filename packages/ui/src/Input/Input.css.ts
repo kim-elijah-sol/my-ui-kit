@@ -1,17 +1,27 @@
 import { css } from '@emotion/react';
+import { createVarStore } from '../_utils/fx';
+
+const inputSizeStore = createVarStore<'f-s' | 'p-x' | 'h' | 'r'>();
+
+export const inputMediumSizeCss = inputSizeStore.css({
+  'f-s': '0.875rem',
+  'p-x': '0.75rem',
+  h: '2.25rem',
+  r: '0.5rem',
+});
 
 export const baseInputCss = css({
-  fontSize: '0.875rem',
+  fontSize: inputSizeStore.use('f-s'),
 
-  paddingLeft: '0.75rem',
-  paddingRight: '0.75rem',
-  height: '2.25rem',
+  paddingLeft: inputSizeStore.use('p-x'),
+  paddingRight: inputSizeStore.use('p-x'),
+  height: inputSizeStore.use('h'),
 
   appearance: 'none',
   border: 'none',
   outline: 'none',
 
-  borderRadius: '0.5rem',
+  borderRadius: inputSizeStore.use('r'),
 
   color: '#121212',
 
