@@ -223,6 +223,9 @@ const App = () => {
             placeholder='비활성화 disabled'
             disabled
           />
+
+          <Input size='sm' />
+          <Input size='lg' />
         </Flex.Column>
       </div>
     </Flex.Column>
