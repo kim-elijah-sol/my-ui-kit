@@ -3,10 +3,24 @@ import { createVarStore } from '../_utils/fx';
 
 const inputSizeStore = createVarStore<'f-s' | 'p-x' | 'h' | 'r'>();
 
+export const inputSmallSizeCss = inputSizeStore.css({
+  'f-s': '0.875rem',
+  'p-x': '0.5rem',
+  h: '1.75rem',
+  r: '0.35rem',
+});
+
 export const inputMediumSizeCss = inputSizeStore.css({
   'f-s': '0.875rem',
   'p-x': '0.75rem',
   h: '2.25rem',
+  r: '0.5rem',
+});
+
+export const inputLargeSizeCss = inputSizeStore.css({
+  'f-s': '1rem',
+  'p-x': '0.75rem',
+  h: '2.5rem',
   r: '0.5rem',
 });
 
