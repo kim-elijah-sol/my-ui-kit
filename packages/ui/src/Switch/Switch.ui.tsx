@@ -1,6 +1,6 @@
-import { type SerializedStyles } from '@emotion/react';
 import React, { useMemo } from 'react';
 import { useControllableState } from '../_utils/hooks';
+import type { CssMap } from '../_utils/types';
 import { SwitchLabel } from './Label';
 import { SwitchRoot } from './Root';
 import { SWITCH_BASE_CLASSNAME } from './Switch.constants';
@@ -14,7 +14,7 @@ import {
 } from './Switch.css';
 import type { SwitchSize, SwitchType } from './Switch.types';
 
-const sizeCssMap: Record<SwitchSize, SerializedStyles> = {
+const sizeCssMap: CssMap<SwitchSize> = {
   sm: switchSmallSizeCss,
   md: switchMediumSizeCss,
   lg: switchLargeSizeCss,

@@ -1,7 +1,6 @@
-import { type SerializedStyles } from '@emotion/react';
 import { forwardRef, useMemo } from 'react';
-import type { WithoutRef } from '../_utils/types';
 import { flexCss } from '../Flex/Flex.css';
+import type { CssMap, WithoutRef } from '../_utils/types';
 import {
   baseButtonCss,
   borderButtonCss,
@@ -12,7 +11,7 @@ import {
 } from './Button.css';
 import type { ButtonProps, ButtonVariant } from './Button.types';
 
-const variantCssMap: Record<ButtonVariant, SerializedStyles> = {
+const variantCssMap: CssMap<ButtonVariant> = {
   primary: primaryButtonCss,
   border: borderButtonCss,
   dashed: dashedButtonCss,

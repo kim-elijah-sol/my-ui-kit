@@ -1,6 +1,5 @@
-import { type SerializedStyles } from '@emotion/react';
 import { forwardRef, useMemo } from 'react';
-import type { WithoutRef } from '../_utils/types';
+import type { CssMap, WithoutRef } from '../_utils/types';
 import {
   baseInputCss,
   borderInputCss,
@@ -12,13 +11,13 @@ import {
 } from './Input.css';
 import type { InputProps, InputSize, InputVariant } from './Input.types';
 
-const variantCssMap: Record<InputVariant, SerializedStyles> = {
+const variantCssMap: CssMap<InputVariant> = {
   border: borderInputCss,
   solid: solidInputCss,
   'bottom-border': bottomBorderInputCss,
 };
 
-const sizeCssMap: Record<InputSize, SerializedStyles> = {
+const sizeCssMap: CssMap<InputSize> = {
   sm: inputSmallSizeCss,
   md: inputMediumSizeCss,
   lg: inputLargeSizeCss,

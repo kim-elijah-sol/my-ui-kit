@@ -1,6 +1,5 @@
-import { type SerializedStyles } from '@emotion/react';
 import { forwardRef, useMemo } from 'react';
-import type { WithoutRef } from '../_utils/types';
+import type { CssMap, WithoutRef } from '../_utils/types';
 import {
   baseTextareaCss,
   borderTextareaCss,
@@ -9,7 +8,7 @@ import {
 } from './Textarea.css';
 import type { TextareaProps, TextareaVariant } from './Textarea.types';
 
-const variantCssMap: Record<TextareaVariant, SerializedStyles> = {
+const variantCssMap: CssMap<TextareaVariant> = {
   border: borderTextareaCss,
   solid: solidTextareaCss,
   'bottom-border': bottomBorderTextareaCss,
