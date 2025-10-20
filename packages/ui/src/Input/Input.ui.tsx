@@ -8,7 +8,7 @@ import {
   inputMediumSizeCss,
   solidInputCss,
 } from './Input.css';
-import type { InputProps, InputVariant } from './Input.typs';
+import type { InputProps, InputVariant } from './Input.types';
 
 const variantCssMap: Record<InputVariant, SerializedStyles> = {
   border: borderInputCss,

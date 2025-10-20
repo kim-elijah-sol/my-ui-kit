@@ -1,2 +1,2 @@
-export * from './Input.typs';
+export * from './Input.types';
 export * from './Input.ui';
