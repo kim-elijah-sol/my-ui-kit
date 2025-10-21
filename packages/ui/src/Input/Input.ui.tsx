@@ -1,4 +1,5 @@
 import { forwardRef, useMemo } from 'react';
+import type { CommonSize } from '../common/types';
 import type { CssMap, WithoutRef } from '../_utils/types';
 import {
   baseInputCss,
@@ -9,7 +10,7 @@ import {
   inputSmallSizeCss,
   solidInputCss,
 } from './Input.css';
-import type { InputProps, InputSize, InputVariant } from './Input.types';
+import type { InputProps, InputVariant } from './Input.types';
 
 const variantCssMap: CssMap<InputVariant> = {
   border: borderInputCss,
@@ -17,7 +18,7 @@ const variantCssMap: CssMap<InputVariant> = {
   'bottom-border': bottomBorderInputCss,
 };
 
-const sizeCssMap: CssMap<InputSize> = {
+const sizeCssMap: CssMap<CommonSize> = {
   sm: inputSmallSizeCss,
   md: inputMediumSizeCss,
   lg: inputLargeSizeCss,

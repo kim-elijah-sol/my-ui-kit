@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import type { CommonSize } from '../common/types';
 import { useControllableState } from '../_utils/hooks';
 import type { CssMap } from '../_utils/types';
 import { SwitchLabel } from './Label';
@@ -12,9 +13,9 @@ import {
   switchMediumSizeCss,
   switchSmallSizeCss,
 } from './Switch.css';
-import type { SwitchSize, SwitchType } from './Switch.types';
+import type { SwitchType } from './Switch.types';
 
-const sizeCssMap: CssMap<SwitchSize> = {
+const sizeCssMap: CssMap<CommonSize> = {
   sm: switchSmallSizeCss,
   md: switchMediumSizeCss,
   lg: switchLargeSizeCss,

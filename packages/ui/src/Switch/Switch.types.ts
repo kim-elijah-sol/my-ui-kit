@@ -1,12 +1,9 @@
 import React, { type ReactNode } from 'react';
+import type { CommonSizeProps } from '../common/types';
 import { type SwitchLabelComponent } from './Label';
 import { type SwitchRootComponent } from './Root';
 
 type SwitchOnChangeEvent = (checked: boolean) => void;
-
-export type SwitchSize = 'sm' | 'md' | 'lg';
-
-type SwitchSizeProps = Partial<Record<'size', SwitchSize>>;
 
 export type SwitchProps = {
   defaultChecked?: boolean;
@@ -18,7 +15,7 @@ export type SwitchProps = {
   className?: string;
   name?: string;
   style?: React.CSSProperties;
-} & SwitchSizeProps;
+} & CommonSizeProps;
 
 export type SwitchComponent = (props: SwitchProps) => ReactNode;
 
