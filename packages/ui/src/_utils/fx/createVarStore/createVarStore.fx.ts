@@ -1,9 +1,11 @@
 import { css } from '@emotion/react';
 import { CreateVarStore } from './createVarStore.types';
 
-const prefix = 'ui-kit';
+const DEFAULT_PREFIX = 'ui-kit';
 
-export const createVarStore = <T extends string>(): CreateVarStore<T> => {
+export const createVarStore = <T extends string>(
+  prefix: string = DEFAULT_PREFIX
+): CreateVarStore<T> => {
   return {
     use: (key) => {
       return `var(--${prefix}-${key})`;
