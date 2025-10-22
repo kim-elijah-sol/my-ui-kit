@@ -5,6 +5,7 @@ import {
   baseInputCss,
   borderInputCss,
   bottomBorderInputCss,
+  inputBlackColorCss,
   inputLargeSizeCss,
   inputMediumSizeCss,
   inputSmallSizeCss,
@@ -36,7 +37,7 @@ export const Input = forwardRef(
       <input
         type={type}
         ref={ref}
-        css={[baseInputCss, variantCss, sizeCss]}
+        css={[baseInputCss, variantCss, sizeCss, inputBlackColorCss]}
         {...props}
       />
     );

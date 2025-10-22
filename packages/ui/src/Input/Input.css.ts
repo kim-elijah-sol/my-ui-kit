@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import { createVarStore } from '../_utils/fx';
+import type { Prefix } from '../_utils/types';
 
 const inputSizeStore = createVarStore<'f-s' | 'p-x' | 'h' | 'r'>();
 
@@ -22,6 +23,22 @@ export const inputLargeSizeCss = inputSizeStore.css({
   'p-x': '0.75rem',
   h: '2.5rem',
   r: '0.5rem',
+});
+
+const inputColorStore = createVarStore<
+  | Prefix<'border', '' | Prefix<'-', 'hover' | 'focus'>>
+  | Prefix<'background', '' | Prefix<'-', 'hover' | 'focus' | 'disabled'>>
+>('ui-kit-input');
+
+export const inputBlackColorCss = inputColorStore.css({
+  border: '#DFDFDF',
+  'border-hover': '#AAAAAA',
+  'border-focus': '#121212',
+
+  background: '#F5F5F5',
+  'background-hover': '#FAFAFA',
+  'background-focus': '#E8E8E8',
+  'background-disabled': '#F1F1F1',
 });
 
 export const baseInputCss = css({
@@ -47,50 +64,50 @@ export const baseInputCss = css({
 });
 
 export const borderInputCss = css({
-  boxShadow: 'inset 0 0 0 1px #DFDFDF',
+  boxShadow: `inset 0 0 0 1px ${inputColorStore.use('border')}`,
 
   ':hover:not(:disabled)': {
-    boxShadow: 'inset 0 0 0 2px #AAAAAA',
+    boxShadow: `inset 0 0 0 2px ${inputColorStore.use('border-hover')}`,
   },
 
   ':focus:not(:disabled)': {
-    boxShadow: 'inset 0 0 0 2px #121212',
+    boxShadow: `inset 0 0 0 2px ${inputColorStore.use('border-focus')}`,
   },
 
   ':disabled, &[readonly]': {
-    background: '#F1F1F1',
+    background: inputColorStore.use('background-disabled'),
   },
 });
 
 export const solidInputCss = css({
-  background: '#F5F5F5',
+  background: inputColorStore.use('background'),
 
   ':hover:not(:disabled)': {
-    background: '#FAFAFA',
+    background: inputColorStore.use('background-hover'),
   },
 
   ':focus:not(:disabled)': {
-    background: '#E8E8E8',
+    background: inputColorStore.use('background-focus'),
   },
 
   ':disabled, &[readonly]': {
-    background: '#F1F1F1',
+    background: inputColorStore.use('background-disabled'),
   },
 });
 
 export const bottomBorderInputCss = css({
   borderRadius: 0,
-  boxShadow: 'inset 0 -1px 0 0 #DFDFDF',
+  boxShadow: `inset 0 -1px 0 0 ${inputColorStore.use('border')}`,
 
   ':hover:not(:disabled)': {
-    boxShadow: 'inset 0 -2px 0 0 #AAAAAA',
+    boxShadow: `inset 0 -2px 0 0 ${inputColorStore.use('border-hover')}`,
   },
 
   ':focus:not(:disabled)': {
-    boxShadow: 'inset 0 -2px 0 0 #121212',
+    boxShadow: `inset 0 -2px 0 0 ${inputColorStore.use('border-focus')}`,
   },
 
   ':disabled, &[readonly]': {
-    background: '#F1F1F1',
+    background: inputColorStore.use('background-disabled'),
   },
 });
