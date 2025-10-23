@@ -41,6 +41,17 @@ export const inputBlackColorCss = inputColorStore.css({
   'background-disabled': '#F1F1F1',
 });
 
+export const inputBlueColorCss = inputColorStore.css({
+  border: '#DFDFDF',
+  'border-hover': '#70ACFF',
+  'border-focus': '#006AFF',
+
+  background: '#F5F5F5',
+  'background-hover': '#FAFAFA',
+  'background-focus': '#E8E8E8',
+  'background-disabled': '#F1F1F1',
+});
+
 export const baseInputCss = css({
   fontSize: inputSizeStore.use('f-s'),
 

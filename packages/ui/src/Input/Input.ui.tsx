@@ -6,12 +6,13 @@ import {
   borderInputCss,
   bottomBorderInputCss,
   inputBlackColorCss,
+  inputBlueColorCss,
   inputLargeSizeCss,
   inputMediumSizeCss,
   inputSmallSizeCss,
   solidInputCss,
 } from './Input.css';
-import type { InputProps, InputVariant } from './Input.types';
+import type { InputColor, InputProps, InputVariant } from './Input.types';
 
 const variantCssMap: CssMap<InputVariant> = {
   border: borderInputCss,
@@ -25,19 +26,32 @@ const sizeCssMap: CssMap<CommonSize> = {
   lg: inputLargeSizeCss,
 };
 
+const colorCssMap: CssMap<InputColor> = {
+  black: inputBlackColorCss,
+  blue: inputBlueColorCss,
+};
+
 export const Input = forwardRef(
   (_props: WithoutRef<InputProps>, ref: InputProps['ref']) => {
-    const { type = 'text', variant = 'border', size = 'md', ...props } = _props;
+    const {
+      type = 'text',
+      variant = 'border',
+      size = 'md',
+      color = 'black',
+      ...props
+    } = _props;
 
     const variantCss = useMemo(() => variantCssMap[variant], [variant]);
 
     const sizeCss = useMemo(() => sizeCssMap[size], [size]);
 
+    const colorCss = useMemo(() => colorCssMap[color], [color]);
+
     return (
       <input
         type={type}
         ref={ref}
-        css={[baseInputCss, variantCss, sizeCss, inputBlackColorCss]}
+        css={[baseInputCss, variantCss, sizeCss, colorCss]}
         {...props}
       />
     );
