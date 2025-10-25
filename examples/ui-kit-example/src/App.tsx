@@ -198,7 +198,11 @@ const App = () => {
           as='article'
         >
           <Input placeholder='아이디 입력' />
-          <Input type='password' placeholder='비밀번호 입력' />
+          <Input
+            type='password'
+            placeholder='비밀번호 입력 (blue Color)'
+            color='blue'
+          />
           <Input placeholder='비활성화 readOnly' readOnly />
           <Input placeholder='비활성화 disabled' disabled />
 
@@ -211,7 +215,8 @@ const App = () => {
           <Input
             variant='bottom-border'
             type='password'
-            placeholder='비밀번호 입력'
+            placeholder='비밀번호 입력 (blue Color)'
+            color='blue'
           />
           <Input
             variant='bottom-border'
