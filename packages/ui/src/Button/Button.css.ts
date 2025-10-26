@@ -1,17 +1,27 @@
 import { css } from '@emotion/react';
+import { createVarStore } from '../_utils/fx';
+
+const buttonSizeStore = createVarStore<'f-s' | 'p-x' | 'h' | 'r'>();
+
+export const buttonMediumSizeCss = buttonSizeStore.css({
+  'f-s': '0.875rem',
+  'p-x': '0.75rem',
+  h: '2.25rem',
+  r: '0.5rem',
+});
 
 export const baseButtonCss = css({
-  fontSize: '0.875rem',
+  fontSize: buttonSizeStore.use('f-s'),
 
-  paddingLeft: '0.75rem',
-  paddingRight: '0.75rem',
-  height: '2.25rem',
+  paddingLeft: buttonSizeStore.use('p-x'),
+  paddingRight: buttonSizeStore.use('p-x'),
+  height: buttonSizeStore.use('h'),
 
   appearance: 'none',
   border: 'none',
   outline: 'none',
 
-  borderRadius: '0.5rem',
+  borderRadius: buttonSizeStore.use('r'),
 
   cursor: 'pointer',
   transition:

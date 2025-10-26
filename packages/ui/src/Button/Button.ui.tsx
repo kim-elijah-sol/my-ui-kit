@@ -4,6 +4,7 @@ import type { CssMap, WithoutRef } from '../_utils/types';
 import {
   baseButtonCss,
   borderButtonCss,
+  buttonMediumSizeCss,
   dashedButtonCss,
   ghostButtonCss,
   linkButtonCss,
@@ -32,6 +33,7 @@ export const Button = forwardRef(
         css={[
           baseButtonCss,
           variantCss,
+          buttonMediumSizeCss,
           flexCss({
             inline: true,
             justify: 'center',
