@@ -175,6 +175,14 @@ const App = () => {
           <Button variant='link' disabled>
             Link Button
           </Button>
+
+          <div css={{ flexBasis: '100%', height: 0 }} />
+
+          <Flex align='center' gap={8}>
+            <Button size='sm'>Small Button</Button>
+            <Button>Medium Button</Button>
+            <Button size='lg'>Large Button</Button>
+          </Flex>
         </Flex>
       </div>
 
