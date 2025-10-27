@@ -1,10 +1,13 @@
 import { forwardRef, useMemo } from 'react';
+import { CommonSize } from '../common/types';
 import { flexCss } from '../Flex/Flex.css';
 import type { CssMap, WithoutRef } from '../_utils/types';
 import {
   baseButtonCss,
   borderButtonCss,
+  buttonLargeSizeCss,
   buttonMediumSizeCss,
+  buttonSmallSizeCss,
   dashedButtonCss,
   ghostButtonCss,
   linkButtonCss,
@@ -20,11 +23,24 @@ const variantCssMap: CssMap<ButtonVariant> = {
   link: linkButtonCss,
 };
 
+const sizeCssMap: CssMap<CommonSize> = {
+  sm: buttonSmallSizeCss,
+  md: buttonMediumSizeCss,
+  lg: buttonLargeSizeCss,
+};
+
 export const Button = forwardRef(
   (_props: WithoutRef<ButtonProps>, ref: ButtonProps['ref']) => {
-    const { variant = 'primary', type = 'button', ...props } = _props;
+    const {
+      variant = 'primary',
+      type = 'button',
+      size = 'md',
+      ...props
+    } = _props;
 
     const variantCss = useMemo(() => variantCssMap[variant], [variant]);
+
+    const sizeCss = useMemo(() => sizeCssMap[size], [size]);
 
     return (
       <button
@@ -33,7 +49,7 @@ export const Button = forwardRef(
         css={[
           baseButtonCss,
           variantCss,
-          buttonMediumSizeCss,
+          sizeCss,
           flexCss({
             inline: true,
             justify: 'center',
