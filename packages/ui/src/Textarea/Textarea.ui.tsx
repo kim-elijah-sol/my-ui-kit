@@ -5,6 +5,7 @@ import {
   borderTextareaCss,
   bottomBorderTextareaCss,
   solidTextareaCss,
+  textareaBlackColorCss,
 } from './Textarea.css';
 import type { TextareaProps, TextareaVariant } from './Textarea.types';
 
@@ -21,7 +22,11 @@ export const Textarea = forwardRef(
     const variantCss = useMemo(() => variantCssMap[variant], [variant]);
 
     return (
-      <textarea ref={ref} css={[baseTextareaCss, variantCss]} {...props} />
+      <textarea
+        ref={ref}
+        css={[baseTextareaCss, variantCss, textareaBlackColorCss]}
+        {...props}
+      />
     );
   }
 );

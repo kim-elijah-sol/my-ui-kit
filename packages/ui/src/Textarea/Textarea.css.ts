@@ -1,4 +1,22 @@
 import { css } from '@emotion/react';
+import { createVarStore } from '../_utils/fx';
+import type { Prefix } from '../_utils/types';
+
+const textareaColorStore = createVarStore<
+  | Prefix<'border', '' | Prefix<'-', 'hover' | 'focus'>>
+  | Prefix<'background', '' | Prefix<'-', 'hover' | 'focus' | 'disabled'>>
+>('ui-kit-input');
+
+export const textareaBlackColorCss = textareaColorStore.css({
+  border: '#DFDFDF',
+  'border-hover': '#AAAAAA',
+  'border-focus': '#121212',
+
+  background: '#F5F5F5',
+  'background-hover': '#FAFAFA',
+  'background-focus': '#E8E8E8',
+  'background-disabled': '#F1F1F1',
+});
 
 export const baseTextareaCss = css({
   fontSize: '0.875rem',
@@ -22,50 +40,50 @@ export const baseTextareaCss = css({
 });
 
 export const borderTextareaCss = css({
-  boxShadow: 'inset 0 0 0 1px #DFDFDF',
+  boxShadow: `inset 0 0 0 1px ${textareaColorStore.use('border')}`,
 
-  ':hover:not(:disabled):not([readonly])': {
-    boxShadow: 'inset 0 0 0 2px #AAAAAA',
+  ':hover:not(:disabled)': {
+    boxShadow: `inset 0 0 0 2px ${textareaColorStore.use('border-hover')}`,
   },
 
-  ':focus:not(:disabled):not([readOnly])': {
-    boxShadow: 'inset 0 0 0 2px #121212',
+  ':focus:not(:disabled)': {
+    boxShadow: `inset 0 0 0 2px ${textareaColorStore.use('border-focus')}`,
   },
 
   ':disabled, &[readonly]': {
-    background: '#F1F1F1',
+    background: textareaColorStore.use('background-disabled'),
   },
 });
 
 export const solidTextareaCss = css({
-  background: '#F5F5F5',
+  background: textareaColorStore.use('background'),
 
-  ':hover:not(:disabled):not([readonly])': {
-    background: '#FAFAFA',
+  ':hover:not(:disabled)': {
+    background: textareaColorStore.use('background-hover'),
   },
 
-  ':focus:not(:disabled):not([readOnly])': {
-    background: '#E8E8E8',
+  ':focus:not(:disabled)': {
+    background: textareaColorStore.use('background-focus'),
   },
 
   ':disabled, &[readonly]': {
-    background: '#F1F1F1',
+    background: textareaColorStore.use('background-disabled'),
   },
 });
 
 export const bottomBorderTextareaCss = css({
   borderRadius: 0,
-  boxShadow: 'inset 0 -1px 0 0 #DFDFDF',
+  boxShadow: `inset 0 -1px 0 0 ${textareaColorStore.use('border')}`,
 
-  ':hover:not(:disabled):not([readonly])': {
-    boxShadow: 'inset 0 -2px 0 0 #AAAAAA',
+  ':hover:not(:disabled)': {
+    boxShadow: `inset 0 -2px 0 0 ${textareaColorStore.use('border-hover')}`,
   },
 
-  ':focus:not(:disabled):not([readOnly])': {
-    boxShadow: 'inset 0 -2px 0 0 #121212',
+  ':focus:not(:disabled)': {
+    boxShadow: `inset 0 -2px 0 0 ${textareaColorStore.use('border-focus')}`,
   },
 
   ':disabled, &[readonly]': {
-    background: '#F1F1F1',
+    background: textareaColorStore.use('background-disabled'),
   },
 });
