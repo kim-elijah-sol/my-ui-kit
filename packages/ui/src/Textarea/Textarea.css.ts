@@ -18,6 +18,17 @@ export const textareaBlackColorCss = textareaColorStore.css({
   'background-disabled': '#F1F1F1',
 });
 
+export const textareaBlueColorCss = textareaColorStore.css({
+  border: '#DFDFDF',
+  'border-hover': '#70ACFF',
+  'border-focus': '#006AFF',
+
+  background: '#F5F5F5',
+  'background-hover': '#FAFAFA',
+  'background-focus': '#E8E8E8',
+  'background-disabled': '#F1F1F1',
+});
+
 export const baseTextareaCss = css({
   fontSize: '0.875rem',
 
