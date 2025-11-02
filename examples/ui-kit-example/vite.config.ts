@@ -12,6 +12,9 @@ export default defineConfig({
   ],
   server: {
     host: true,
-    allowedHosts: ['my-ui-kit-exmaple.ap-northeast-2.arkain.site', 'my-ui-kit-example.run.goorm.io'],
+    allowedHosts: [
+      'my-ui-kit-exmaple.ap-northeast-2.arkain.site',
+      'my-ui-kit-example.run.goorm.io',
+    ],
   },
 });

@@ -10,14 +10,14 @@ import type { RadioProps } from './Radio.types';
 
 export const Radio = forwardRef(
   (_props: WithoutRef<RadioProps>, ref: RadioProps['ref']) => {
-    const { className, id : _id, ...props } = _props;
+    const { className, id: _id, ...props } = _props;
 
-	const id = _id ?? useId();
+    const id = _id ?? useId();
 
     return (
       <div css={radioWrapperCss}>
         <input
-		  id={id}
+          id={id}
           ref={ref}
           type='radio'
           css={radioInputCss}

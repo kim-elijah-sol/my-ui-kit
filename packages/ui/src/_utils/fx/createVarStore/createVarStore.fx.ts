@@ -11,12 +11,15 @@ export const createVarStore = <T extends string>(
       return `var(--${prefix}-${key})`;
     },
     css: (vars) => {
-      const cssVars = Object.entries(vars).reduce((acc, [_key, value]) => {
-        const key = `--${prefix}-${_key}`;
+      const cssVars = Object.entries(vars).reduce(
+        (acc, [_key, value]) => {
+          const key = `--${prefix}-${_key}`;
 
-        acc[key] = value;
-        return acc;
-      }, {} as Record<string, any>);
+          acc[key] = value;
+          return acc;
+        },
+        {} as Record<string, any>
+      );
 
       return css(cssVars);
     },

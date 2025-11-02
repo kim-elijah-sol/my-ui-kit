@@ -1,8 +1,12 @@
 import { Button, Flex, Input, Radio, Switch, Textarea } from '@ui-kit/ui';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const App = () => {
   const [switchState, setSwitchState] = useState<boolean>(false);
+
+  useEffect(() => {
+    console.log('??');
+  }, []);
 
   return (
     <Flex.Column
