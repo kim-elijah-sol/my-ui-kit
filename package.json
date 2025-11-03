@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "packageManager": "pnpm@10.17.1",
   "devDependencies": {
+    "prettier": "^3.6.2",
     "typescript": "^5.9.2"
   },
   "workspaces": [
@@ -12,6 +13,6 @@
   "scripts": {
     "ui": "pnpm -F @ui-kit/ui",
     "example": "pnpm -F @ui-kit/example",
-    "format": "pnpm prettier . --write"
+    "format": "pnpm prettier . --write --cache"
   }
 }
