@@ -14,7 +14,7 @@ export const textareaBlackColorCss = textareaColorStore.css({
 
   background: '#F5F5F5',
   'background-hover': '#FAFAFA',
-  'background-focus': '#E8E8E8',
+  'background-focus': '#FFFFFF',
   'background-disabled': '#F1F1F1',
 });
 
@@ -25,7 +25,7 @@ export const textareaBlueColorCss = textareaColorStore.css({
 
   background: '#F5F5F5',
   'background-hover': '#FAFAFA',
-  'background-focus': '#E8E8E8',
+  'background-focus': '#FFFFFF',
   'background-disabled': '#F1F1F1',
 });
 
@@ -71,10 +71,12 @@ export const solidTextareaCss = css({
 
   ':hover:not(:disabled)': {
     background: textareaColorStore.use('background-hover'),
+    boxShadow: `inset 0 0 0 2px ${textareaColorStore.use('border-hover')}`,
   },
 
   ':focus:not(:disabled)': {
     background: textareaColorStore.use('background-focus'),
+    boxShadow: `inset 0 0 0 2px ${textareaColorStore.use('border-focus')}`,
   },
 
   ':disabled, &[readonly]': {
