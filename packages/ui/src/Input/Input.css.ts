@@ -37,7 +37,7 @@ export const inputBlackColorCss = inputColorStore.css({
 
   background: '#F5F5F5',
   'background-hover': '#FAFAFA',
-  'background-focus': '#E8E8E8',
+  'background-focus': '#FFFFFF',
   'background-disabled': '#F1F1F1',
 });
 
@@ -48,7 +48,7 @@ export const inputBlueColorCss = inputColorStore.css({
 
   background: '#F5F5F5',
   'background-hover': '#FAFAFA',
-  'background-focus': '#E8E8E8',
+  'background-focus': '#FFFFFF',
   'background-disabled': '#F1F1F1',
 });
 
@@ -95,10 +95,12 @@ export const solidInputCss = css({
 
   ':hover:not(:disabled)': {
     background: inputColorStore.use('background-hover'),
+    boxShadow: `inset 0 0 0 2px ${inputColorStore.use('border-hover')}`,
   },
 
   ':focus:not(:disabled)': {
     background: inputColorStore.use('background-focus'),
+    boxShadow: `inset 0 0 0 2px ${inputColorStore.use('border-focus')}`,
   },
 
   ':disabled, &[readonly]': {
