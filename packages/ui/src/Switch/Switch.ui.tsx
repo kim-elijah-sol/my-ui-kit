@@ -6,6 +6,7 @@ import { SwitchLabel } from './Label';
 import { SwitchRoot } from './Root';
 import { SWITCH_BASE_CLASSNAME } from './Switch.constants';
 import {
+  switchBlackColorCss,
   switchCss,
   switchHandleCss,
   switchHandleDefaultSizeCss,
@@ -61,7 +62,7 @@ export const Switch: SwitchType = (_props) => {
       disabled={disabled}
       onClick={handleToggle}
       onKeyDown={handleKeyDown}
-      css={[switchCss, sizeCss]}
+      css={[switchCss, sizeCss, switchBlackColorCss]}
       className={`${SWITCH_BASE_CLASSNAME}${className ? ` ${className}` : ''}`}
       {...props}
     >

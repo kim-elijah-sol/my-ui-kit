@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import { createVarStore } from '../_utils/fx/createVarStore';
 import { SWITCH_BASE_CLASSNAME } from './Switch.constants';
+import type { Prefix } from '../_utils/types';
 
 const switchSizeStore = createVarStore<'s-h' | 's-w'>();
 
@@ -25,6 +26,25 @@ export const switchHandleDefaultSizeCss = switchHandleSizeStore.css({
   's-h-s': `calc(${switchSizeStore.use('s-h')} - 0.5rem)`,
 });
 
+type SwitchColorProperties = Prefix<'background' , '' | '-hover' | '-disabled'> | 'outline-focus'
+
+const switchColorStore = createVarStore<
+  | Prefix<'checked-', SwitchColorProperties>
+  | Prefix<'unchecked-', SwitchColorProperties>
+>('ui-kit-switch');
+
+export const switchBlackColorCss = switchColorStore.css({
+  'checked-background': '#121212',
+  'checked-background-hover': '#444444',
+  'checked-outline-focus': '#121212',
+  'checked-background-disabled': '#6A6A66',
+
+  'unchecked-background': '#DFDFDF',
+  'unchecked-background-hover': '#C1C1C1',
+  'unchecked-outline-focus': '#DFDFDF',
+  'unchecked-background-disabled': '#EEEEEE',
+});
+
 export const switchCss = css({
   position: 'relative',
   height: switchSizeStore.use('s-h'),
@@ -41,28 +61,28 @@ export const switchCss = css({
     'all 0.15s cubic-bezier(1, 0.5, 0, 0.5), outline-width 0s, outline-offset 0s',
 
   "&[aria-checked='true']": {
-    background: '#121212',
-    outlineColor: '#121212',
+    background: switchColorStore.use('checked-background'),
+    outlineColor: switchColorStore.use('checked-outline-focus'),
 
     ':not(:disabled):hover': {
-      background: '#444444',
+      background: switchColorStore.use('checked-background-hover'),
     },
 
     ':disabled': {
-      background: '#6A6A6A',
+      background: switchColorStore.use('checked-background-disabled'),
     },
   },
 
   "&[aria-checked='false']": {
-    background: '#DFDFDF',
-    outlineColor: '#DFDFDF',
+    background: switchColorStore.use('unchecked-background'),
+    outlineColor: switchColorStore.use('unchecked-outline-focus'),
 
     ':not(:disabled):hover': {
-      background: '#C1C1C1',
+      background: switchColorStore.use('unchecked-background-hover'),
     },
 
     ':disabled': {
-      background: '#EEEEEE',
+      background: switchColorStore.use('unchecked-background-disabled'),
     },
   },
 
