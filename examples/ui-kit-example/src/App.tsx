@@ -126,6 +126,7 @@ const App = () => {
           <Textarea placeholder='내용을 입력 (blue color)' color='blue' />
           <Textarea placeholder='내용을 입력' disabled />
           <Textarea variant='solid' placeholder='내용을 입력' />
+          <Textarea variant='solid' placeholder='내용을 입력 (blue color)' color='blue' />
           <Textarea variant='solid' placeholder='내용을 입력' disabled />
           <Textarea variant='bottom-border' placeholder='내용을 입력' />
           <Textarea
