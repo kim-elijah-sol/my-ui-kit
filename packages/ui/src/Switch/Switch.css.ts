@@ -26,7 +26,9 @@ export const switchHandleDefaultSizeCss = switchHandleSizeStore.css({
   's-h-s': `calc(${switchSizeStore.use('s-h')} - 0.5rem)`,
 });
 
-type SwitchColorProperties = Prefix<'background' , '' | '-hover' | '-disabled'> | 'outline-focus'
+type SwitchColorProperties =
+  | Prefix<'background', '' | '-hover' | '-disabled'>
+  | 'outline-focus';
 
 const switchColorStore = createVarStore<
   | Prefix<'checked-', SwitchColorProperties>
