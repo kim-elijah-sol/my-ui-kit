@@ -1,5 +1,15 @@
 import { css } from '@emotion/react';
 import { RADIO_INPUT_BASE_CLASSNAME } from './Radio.constants';
+import { createVarStore } from '../_utils/fx';
+
+const radioColorStore = createVarStore<'hover' | 'checked' | 'disabled-checked' | 'disabled-unchecked'>()
+
+export const radioBlackColorCss = radioColorStore.css({
+  hover: '#AAAAAA',
+  checked: '#121212',
+  'disabled-checked': '#6A6A6A',
+  'disabled-unchecked': '#EEEEEE',
+})
 
 export const radioWrapperCss = css({
   position: 'relative',
@@ -30,32 +40,32 @@ export const radioInputCss = css({
     outlineWidth: '2px',
     outlineStyle: 'solid',
     outlineOffset: '2px',
-    outlineColor: '#121212',
+    outlineColor: radioColorStore.use('checked'),
   },
 
   ':not(:disabled):not(:checked)': {
     ':hover': {
-      boxShadow: 'inset 0 0 0 2px #AAAAAA',
+      boxShadow: `inset 0 0 0 2px ${radioColorStore.use('hover')}`,
     },
     ':active': {
-      boxShadow: 'inset 0 0 0 2px #121212',
+      boxShadow: `inset 0 0 0 2px ${radioColorStore.use('checked')}`,
     },
   },
 
   ':not(:disabled):checked': {
-    boxShadow: 'inset 0 0 0 1px #121212',
+    boxShadow: `inset 0 0 0 1px ${radioColorStore.use('checked')}`,
 
     ':hover': {
-      boxShadow: 'inset 0 0 0 2px #121212',
+      boxShadow: `inset 0 0 0 2px ${radioColorStore.use('checked')}`,
     },
   },
 
   ':disabled:checked': {
-    boxShadow: 'inset 0 0 0 1px #6A6A6A',
+    boxShadow: `inset 0 0 0 1px ${radioColorStore.use('disabled-checked')}`,
   },
 
   ':disabled:not(:checked)': {
-    boxShadow: 'inset 0 0 0 1px #EEEEEE',
+    boxShadow: `inset 0 0 0 1px ${radioColorStore.use('disabled-unchecked')}`,
   },
 });
 
@@ -72,11 +82,11 @@ export const radioInnerCircleCss = css({
 
   [`.${RADIO_INPUT_BASE_CLASSNAME}:not(:disabled):checked + &`]: {
     transform: 'translate(-50%, -50%) scale(1)',
-    background: '#121212',
+    background: radioColorStore.use('checked'),
   },
 
   [`.${RADIO_INPUT_BASE_CLASSNAME}:disabled:checked + &`]: {
     transform: 'translate(-50%, -50%) scale(1)',
-    background: '#6A6A6A',
+    background: radioColorStore.use('disabled-checked'),
   },
 });

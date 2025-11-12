@@ -2,6 +2,7 @@ import { forwardRef, useId } from 'react';
 import type { WithoutRef } from '../_utils/types';
 import { RADIO_INPUT_BASE_CLASSNAME } from './Radio.constants';
 import {
+  radioBlackColorCss,
   radioInnerCircleCss,
   radioInputCss,
   radioWrapperCss,
@@ -15,7 +16,7 @@ export const Radio = forwardRef(
     const id = _id ?? useId();
 
     return (
-      <div css={radioWrapperCss}>
+      <div css={[radioWrapperCss, radioBlackColorCss]}>
         <input
           id={id}
           ref={ref}
