@@ -2,21 +2,23 @@ import { css } from '@emotion/react';
 import { RADIO_INPUT_BASE_CLASSNAME } from './Radio.constants';
 import { createVarStore } from '../_utils/fx';
 
-const radioColorStore = createVarStore<'hover' | 'checked' | 'disabled-checked' | 'disabled-unchecked'>()
+const radioColorStore = createVarStore<
+  'hover' | 'checked' | 'disabled-checked' | 'disabled-unchecked'
+>();
 
 export const radioBlackColorCss = radioColorStore.css({
   hover: '#AAAAAA',
   checked: '#121212',
   'disabled-checked': '#6A6A6A',
   'disabled-unchecked': '#EEEEEE',
-})
+});
 
 export const radioBlueColorCss = radioColorStore.css({
   hover: '#70ACFF',
   checked: '#006AFF',
   'disabled-checked': '#6A6A6A',
   'disabled-unchecked': '#EEEEEE',
-})
+});
 
 export const radioWrapperCss = css({
   position: 'relative',

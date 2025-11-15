@@ -17,7 +17,7 @@ const colorCssMap: CssMap<RadioColor> = {
 
 export const Radio = forwardRef(
   (_props: WithoutRef<RadioProps>, ref: RadioProps['ref']) => {
-    const { className, id: _id , color = 'black' , ...props } = _props;
+    const { className, id: _id, color = 'black', ...props } = _props;
 
     const id = _id ?? useId();
 

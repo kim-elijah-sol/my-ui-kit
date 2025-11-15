@@ -7,6 +7,7 @@ import { SwitchRoot } from './Root';
 import { SWITCH_BASE_CLASSNAME } from './Switch.constants';
 import {
   switchBlackColorCss,
+  switchBlueColorCss,
   switchCss,
   switchHandleCss,
   switchHandleDefaultSizeCss,
@@ -14,12 +15,17 @@ import {
   switchMediumSizeCss,
   switchSmallSizeCss,
 } from './Switch.css';
-import type { SwitchType } from './Switch.types';
+import type { SwitchColor, SwitchType } from './Switch.types';
 
 const sizeCssMap: CssMap<CommonSize> = {
   sm: switchSmallSizeCss,
   md: switchMediumSizeCss,
   lg: switchLargeSizeCss,
+};
+
+const colorCssMap: CssMap<SwitchColor> = {
+  black: switchBlackColorCss,
+  blue: switchBlueColorCss,
 };
 
 export const Switch: SwitchType = (_props) => {
@@ -29,6 +35,7 @@ export const Switch: SwitchType = (_props) => {
     onChange,
     disabled,
     className,
+    color = 'black',
     size = 'md',
     ...props
   } = _props;
@@ -54,6 +61,8 @@ export const Switch: SwitchType = (_props) => {
 
   const sizeCss = useMemo(() => sizeCssMap[size], [size]);
 
+  const colorCss = useMemo(() => colorCssMap[color], [color]);
+
   return (
     <button
       type='button'
@@ -62,7 +71,7 @@ export const Switch: SwitchType = (_props) => {
       disabled={disabled}
       onClick={handleToggle}
       onKeyDown={handleKeyDown}
-      css={[switchCss, sizeCss, switchBlackColorCss]}
+      css={[switchCss, sizeCss, colorCss]}
       className={`${SWITCH_BASE_CLASSNAME}${className ? ` ${className}` : ''}`}
       {...props}
     >

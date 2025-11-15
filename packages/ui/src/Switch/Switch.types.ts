@@ -3,6 +3,10 @@ import type { CommonSizeProps } from '../common/types';
 import { type SwitchLabelComponent } from './Label';
 import { type SwitchRootComponent } from './Root';
 
+export type SwitchColor = 'black' | 'blue';
+
+type SwitchColorProps = Partial<Record<'color', SwitchColor>>;
+
 type SwitchOnChangeEvent = (checked: boolean) => void;
 
 export type SwitchProps = {
@@ -15,7 +19,8 @@ export type SwitchProps = {
   className?: string;
   name?: string;
   style?: React.CSSProperties;
-} & CommonSizeProps;
+} & CommonSizeProps &
+  SwitchColorProps;
 
 export type SwitchComponent = (props: SwitchProps) => ReactNode;
 

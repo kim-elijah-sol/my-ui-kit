@@ -47,6 +47,18 @@ export const switchBlackColorCss = switchColorStore.css({
   'unchecked-background-disabled': '#EEEEEE',
 });
 
+export const switchBlueColorCss = switchColorStore.css({
+  'checked-background': '#006AFF',
+  'checked-background-hover': '#70ACFF',
+  'checked-outline-focus': '#006AFF',
+  'checked-background-disabled': '#A0CFFF',
+
+  'unchecked-background': '#DFDFDF',
+  'unchecked-background-hover': '#C1C1C1',
+  'unchecked-outline-focus': '#DFDFDF',
+  'unchecked-background-disabled': '#EEEEEE',
+});
+
 export const switchCss = css({
   position: 'relative',
   height: switchSizeStore.use('s-h'),
