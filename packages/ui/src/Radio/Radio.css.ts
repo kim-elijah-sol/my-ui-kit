@@ -16,7 +16,7 @@ export const radioBlackColorCss = radioColorStore.css({
 export const radioBlueColorCss = radioColorStore.css({
   hover: '#70ACFF',
   checked: '#006AFF',
-  'disabled-checked': '#6A6A6A',
+  'disabled-checked': '#A0CFFF',
   'disabled-unchecked': '#EEEEEE',
 });
 
