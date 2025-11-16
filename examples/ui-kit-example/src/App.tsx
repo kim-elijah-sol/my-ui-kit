@@ -76,6 +76,8 @@ const App = () => {
             name='_switch_name'
             className='_switch_class'
           />
+          <Switch color='blue' defaultChecked />
+          <Switch color='blue' />
           <div css={{ flexBasis: '100%', height: 0 }} />
           <Switch disabled />
           <Switch
@@ -85,6 +87,7 @@ const App = () => {
               color: '#333',
             }}
           />
+          <Switch disabled checked color='blue' />
           <div css={{ flexBasis: '100%', height: 0 }} />
           <Switch.Root id='root-switch'>
             <Switch.Label>On/Off</Switch.Label>
