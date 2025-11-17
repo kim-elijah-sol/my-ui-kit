@@ -5,6 +5,7 @@ import type { CssMap, WithoutRef } from '../_utils/types';
 import {
   baseButtonCss,
   borderButtonCss,
+  buttonBlackColorCss,
   buttonLargeSizeCss,
   buttonMediumSizeCss,
   buttonSmallSizeCss,
@@ -56,6 +57,7 @@ export const Button = forwardRef(
             align: 'center',
             gap: '0.5rem',
           }),
+          ...buttonBlackColorCss,
         ]}
         {...props}
       />

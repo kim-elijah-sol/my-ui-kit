@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import { createVarStore } from '../_utils/fx';
+import { Prefix } from '../_utils/types';
 
 const buttonSizeStore = createVarStore<'f-s' | 'p-x' | 'h' | 'r'>();
 
@@ -23,6 +24,35 @@ export const buttonLargeSizeCss = buttonSizeStore.css({
   h: '2.5rem',
   r: '0.5rem',
 });
+
+const baseButtonColorStore = createVarStore<'outline'>();
+
+const baseButtonBlackColorCss = baseButtonColorStore.css({
+  outline: '#121212',
+});
+
+const primaryColorStore = createVarStore<
+  | 'bg'
+  | 'color'
+  | 'hover'
+  | 'active'
+  | Prefix<'disabled-', 'bg' | 'color' | 'border'>
+>();
+
+const primaryBlackColorCss = primaryColorStore.css({
+  bg: '#121212',
+  color: '#FFFFFF',
+  hover: '#666666',
+  active: '#000000',
+  'disabled-bg': '#F1F1F1',
+  'disabled-color': '#CCCCCC',
+  'disabled-border': '#DFDFDF',
+});
+
+export const buttonBlackColorCss = [
+  baseButtonBlackColorCss,
+  primaryBlackColorCss,
+];
 
 export const baseButtonCss = css({
   fontSize: buttonSizeStore.use('f-s'),
@@ -49,26 +79,26 @@ export const baseButtonCss = css({
     outlineWidth: '2px',
     outlineStyle: 'solid',
     outlineOffset: '2px',
-    outlineColor: '#121212',
+    outlineColor: baseButtonColorStore.use('outline'),
   },
 });
 
 export const primaryButtonCss = css({
-  background: '#121212',
-  color: '#FFFFFF',
+  background: primaryColorStore.use('bg'),
+  color: primaryColorStore.use('color'),
 
   ':hover:not(:disabled)': {
-    background: '#666666',
+    background: primaryColorStore.use('hover'),
   },
 
   ':active:not(:disabled)': {
-    background: '#000000',
+    background: primaryColorStore.use('active'),
   },
 
   ':disabled': {
-    border: '1px solid #DFDFDF',
-    background: '#F1F1F1',
-    color: '#CCCCCC',
+    border: `1px solid ${primaryColorStore.use('disabled-border')}`,
+    background: primaryColorStore.use('disabled-bg'),
+    color: primaryColorStore.use('disabled-color'),
   },
 });
 
