@@ -49,9 +49,21 @@ const primaryBlackColorCss = primaryColorStore.css({
   'disabled-border': '#DFDFDF',
 });
 
+const borderColorStore = createVarStore<
+  'border' | 'hover-border' | 'active-border' | Prefix<'disabled-', 'border'>
+>();
+
+export const borderBlackColorCss = borderColorStore.css({
+  border: '#DFDFDF',
+  'hover-border': '#888888',
+  'active-border': '#000000',
+  'disabled-border': '#DFDFDF',
+});
+
 export const buttonBlackColorCss = [
   baseButtonBlackColorCss,
   primaryBlackColorCss,
+  borderBlackColorCss,
 ];
 
 export const baseButtonCss = css({
@@ -104,21 +116,21 @@ export const primaryButtonCss = css({
 
 export const borderButtonCss = css({
   background: '#FFFFFF',
-  border: '1px solid #DFDFDF',
+  border: `1px solid ${borderColorStore.use('border')}`,
   color: 'rgba(0,0,0,0.9)',
 
   ':hover:not(:disabled)': {
-    borderColor: '#888888',
+    borderColor: borderColorStore.use('hover-border'),
     background: '#F1F1F1',
   },
 
   ':active:not(:disabled)': {
-    borderColor: '#000000',
+    borderColor: borderColorStore.use('active-border'),
     background: '#E1E1E1',
   },
 
   ':disabled': {
-    border: '1px solid #DFDFDF',
+    border: `1px solid ${borderColorStore.use('disabled-border')}`,
     background: '#F1F1F1',
     color: '#CCCCCC',
   },
