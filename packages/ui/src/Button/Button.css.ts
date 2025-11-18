@@ -2,7 +2,9 @@ import { css } from '@emotion/react';
 import { createVarStore } from '../_utils/fx';
 import { Prefix } from '../_utils/types';
 
-const buttonSizeStore = createVarStore<'f-s' | 'p-x' | 'h' | 'r'>();
+const buttonSizeStore = createVarStore<'f-s' | 'p-x' | 'h' | 'r'>(
+  'button-size'
+);
 
 export const buttonSmallSizeCss = buttonSizeStore.css({
   'f-s': '0.875rem',
@@ -25,7 +27,7 @@ export const buttonLargeSizeCss = buttonSizeStore.css({
   r: '0.5rem',
 });
 
-const baseButtonColorStore = createVarStore<'outline'>();
+const baseButtonColorStore = createVarStore<'outline'>('base-button');
 
 const baseButtonBlackColorCss = baseButtonColorStore.css({
   outline: '#121212',
@@ -37,7 +39,7 @@ const primaryColorStore = createVarStore<
   | 'hover'
   | 'active'
   | Prefix<'disabled-', 'bg' | 'color' | 'border'>
->();
+>('primary-button');
 
 const primaryBlackColorCss = primaryColorStore.css({
   bg: '#121212',
@@ -51,7 +53,7 @@ const primaryBlackColorCss = primaryColorStore.css({
 
 const borderColorStore = createVarStore<
   'border' | 'hover-border' | 'active-border' | Prefix<'disabled-', 'border'>
->();
+>('border-button');
 
 export const borderBlackColorCss = borderColorStore.css({
   border: '#DFDFDF',
