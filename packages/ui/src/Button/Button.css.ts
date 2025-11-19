@@ -55,17 +55,25 @@ const borderColorStore = createVarStore<
   'border' | 'hover-border' | 'active-border' | Prefix<'disabled-', 'border'>
 >('border-button');
 
-export const borderBlackColorCss = borderColorStore.css({
+const borderBlackColorCss = borderColorStore.css({
   border: '#DFDFDF',
   'hover-border': '#888888',
   'active-border': '#000000',
   'disabled-border': '#DFDFDF',
 });
 
+const ghostColorStore = createVarStore<'hover' | 'active'>('ghost-button');
+
+const ghostBlackColorCss = ghostColorStore.css({
+  hover: '#E1E1E1',
+  active: '#CCCCCC',
+});
+
 export const buttonBlackColorCss = [
   baseButtonBlackColorCss,
   primaryBlackColorCss,
   borderBlackColorCss,
+  ghostBlackColorCss,
 ];
 
 export const baseButtonCss = css({
@@ -150,11 +158,11 @@ export const ghostButtonCss = css({
   color: 'rgba(0,0,0,0.9)',
 
   ':hover:not(:disabled)': {
-    background: '#E1E1E1',
+    background: ghostColorStore.use('hover'),
   },
 
   ':active:not(:disabled)': {
-    background: '#CCCCCC',
+    background: ghostColorStore.use('active'),
   },
 
   ':disabled': {
