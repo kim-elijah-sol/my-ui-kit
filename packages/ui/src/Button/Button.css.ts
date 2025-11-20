@@ -69,11 +69,23 @@ const ghostBlackColorCss = ghostColorStore.css({
   active: '#CCCCCC',
 });
 
+const linkColorStore = createVarStore<
+  'color' | 'hover' | 'active' | 'disabled'
+>('link-button');
+
+const linkBlackColorCss = linkColorStore.css({
+  color: '#121212',
+  hover: '#666666',
+  active: '#000000',
+  disabled: '#CCCCCC',
+});
+
 export const buttonBlackColorCss = [
   baseButtonBlackColorCss,
   primaryBlackColorCss,
   borderBlackColorCss,
   ghostBlackColorCss,
+  linkBlackColorCss,
 ];
 
 export const baseButtonCss = css({
@@ -172,17 +184,17 @@ export const ghostButtonCss = css({
 
 export const linkButtonCss = css({
   background: '#FFFFFF',
-  color: '#121212',
+  color: linkColorStore.use('color'),
 
   ':hover:not(:disabled)': {
-    color: '#666666',
+    color: linkColorStore.use('hover'),
   },
 
   ':active:not(:disabled)': {
-    color: '#000000',
+    color: linkColorStore.use('active'),
   },
 
   ':disabled': {
-    color: '#CCCCCC',
+    color: linkColorStore.use('disabled'),
   },
 });
