@@ -1,7 +1,11 @@
-import stylistic from '@stylistic/eslint-plugin';
-import arca      from 'eslint-plugin-arca';
+import stylistic        from '@stylistic/eslint-plugin';
+import arca             from 'eslint-plugin-arca';
+import { defineConfig } from 'eslint/config';
+import tseslint         from 'typescript-eslint';
 
-export default [
+export default defineConfig(
+  tseslint.configs.recommended,
+  stylistic.configs['disable-legacy'],
   stylistic.configs.customize({
     indent: 2,
     quotes: 'single',
@@ -9,11 +13,15 @@ export default [
     jsx: true,
   }),
   {
+    files: ['**/*.{js,jsx,ts,tsx}'],
     plugins: {
       '@stylistic': stylistic,
       arca,
     },
     rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-empty-object-type': 'off',
+
       '@stylistic/indent': ['error', 2],
       '@stylistic/quotes': ['error', 'single'],
       '@stylistic/no-multi-spaces': 'off',
@@ -21,4 +29,4 @@ export default [
       'arca/import-align': ['error', { collapseExtraSpaces: true }],
     },
   },
-];
+);

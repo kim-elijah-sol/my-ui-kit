@@ -1,5 +1,5 @@
-import { css } from '@emotion/react';
-import { gapCss } from '../_utils/styles/gap';
+import { css }              from '@emotion/react';
+import { gapCss }           from '../_utils/styles/gap';
 import type { FlexOptions } from './Flex.types';
 
 export const flexCss = (flexOptions?: FlexOptions) =>

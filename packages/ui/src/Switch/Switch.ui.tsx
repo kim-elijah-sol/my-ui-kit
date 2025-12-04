@@ -1,9 +1,9 @@
-import React, { useMemo } from 'react';
-import type { CommonSize } from '../common/types';
-import { useControllableState } from '../_utils/hooks';
-import type { CssMap } from '../_utils/types';
-import { SwitchLabel } from './Label';
-import { SwitchRoot } from './Root';
+import React, { useMemo }        from 'react';
+import type { CommonSize }       from '../common/types';
+import { useControllableState }  from '../_utils/hooks';
+import type { CssMap }           from '../_utils/types';
+import { SwitchLabel }           from './Label';
+import { SwitchRoot }            from './Root';
 import { SWITCH_BASE_CLASSNAME } from './Switch.constants';
 import {
   switchBlackColorCss,
@@ -43,7 +43,7 @@ export const Switch: SwitchType = (_props) => {
   const [internalChecked, setInternalChecked] = useControllableState(
     checked,
     defaultChecked,
-    onChange
+    onChange,
   );
 
   const handleToggle = () => {
@@ -65,8 +65,8 @@ export const Switch: SwitchType = (_props) => {
 
   return (
     <button
-      type='button'
-      role='switch'
+      type="button"
+      role="switch"
       aria-checked={internalChecked}
       disabled={disabled}
       onClick={handleToggle}

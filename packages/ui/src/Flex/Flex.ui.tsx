@@ -1,6 +1,6 @@
 import { type ComponentPropsWithRef, forwardRef } from 'react';
-import type { StringElementType } from '../_utils/types';
-import { flexCss } from './Flex.css';
+import type { StringElementType }                 from '../_utils/types';
+import { flexCss }                                from './Flex.css';
 import type {
   FlexComponent,
   FlexOptions,
@@ -12,7 +12,7 @@ const createFlex = (flexOptions?: FlexOptions): FlexComponent =>
   forwardRef(
     <T extends StringElementType>(
       _props: FlexProps<T>,
-      ref: ComponentPropsWithRef<T>['ref']
+      ref: ComponentPropsWithRef<T>['ref'],
     ) => {
       const {
         inline = flexOptions?.inline,
@@ -41,7 +41,7 @@ const createFlex = (flexOptions?: FlexOptions): FlexComponent =>
           {...props}
         />
       );
-    }
+    },
   );
 
 export const Flex = createFlex() as FlexType;

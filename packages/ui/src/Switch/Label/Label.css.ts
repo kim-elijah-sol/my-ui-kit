@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css }                   from '@emotion/react';
 import { SWITCH_BASE_CLASSNAME } from '../Switch.constants';
 
 const switchLabelHoverCss = css({

@@ -1,7 +1,7 @@
-import { css } from '@emotion/react';
-import { createVarStore } from '../_utils/fx/createVarStore';
+import { css }                   from '@emotion/react';
+import { createVarStore }        from '../_utils/fx/createVarStore';
 import { SWITCH_BASE_CLASSNAME } from './Switch.constants';
-import type { Prefix } from '../_utils/types';
+import type { Prefix }           from '../_utils/types';
 
 const switchSizeStore = createVarStore<'s-h' | 's-w'>();
 
@@ -26,9 +26,9 @@ export const switchHandleDefaultSizeCss = switchHandleSizeStore.css({
   's-h-s': `calc(${switchSizeStore.use('s-h')} - 0.5rem)`,
 });
 
-type SwitchColorProperties =
-  | Prefix<'background', '' | '-hover' | '-disabled'>
-  | 'outline-focus';
+type SwitchColorProperties
+  = | Prefix<'background', '' | '-hover' | '-disabled'>
+    | 'outline-focus';
 
 const switchColorStore = createVarStore<
   | Prefix<'checked-', SwitchColorProperties>
@@ -60,23 +60,23 @@ export const switchBlueColorCss = switchColorStore.css({
 });
 
 export const switchCss = css({
-  position: 'relative',
-  height: switchSizeStore.use('s-h'),
-  width: switchSizeStore.use('s-w'),
+  'position': 'relative',
+  'height': switchSizeStore.use('s-h'),
+  'width': switchSizeStore.use('s-w'),
 
-  appearance: 'none',
-  border: 'none',
-  outline: 'none',
+  'appearance': 'none',
+  'border': 'none',
+  'outline': 'none',
 
-  borderRadius: `calc(${switchSizeStore.use('s-h')} / 2)`,
+  'borderRadius': `calc(${switchSizeStore.use('s-h')} / 2)`,
 
-  cursor: 'pointer',
-  transition:
+  'cursor': 'pointer',
+  'transition':
     'all 0.15s cubic-bezier(1, 0.5, 0, 0.5), outline-width 0s, outline-offset 0s',
 
-  "&[aria-checked='true']": {
-    background: switchColorStore.use('checked-background'),
-    outlineColor: switchColorStore.use('checked-outline-focus'),
+  '&[aria-checked=\'true\']': {
+    'background': switchColorStore.use('checked-background'),
+    'outlineColor': switchColorStore.use('checked-outline-focus'),
 
     ':not(:disabled):hover': {
       background: switchColorStore.use('checked-background-hover'),
@@ -87,9 +87,9 @@ export const switchCss = css({
     },
   },
 
-  "&[aria-checked='false']": {
-    background: switchColorStore.use('unchecked-background'),
-    outlineColor: switchColorStore.use('unchecked-outline-focus'),
+  '&[aria-checked=\'false\']': {
+    'background': switchColorStore.use('unchecked-background'),
+    'outlineColor': switchColorStore.use('unchecked-outline-focus'),
 
     ':not(:disabled):hover': {
       background: switchColorStore.use('unchecked-background-hover'),
@@ -112,15 +112,15 @@ export const switchCss = css({
 });
 
 export const switchHandleCss = css({
-  position: 'absolute',
-  top: '0.25rem',
-  height: switchHandleSizeStore.use('s-h-s'),
-  width: switchHandleSizeStore.use('s-h-s'),
-  transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
+  'position': 'absolute',
+  'top': '0.25rem',
+  'height': switchHandleSizeStore.use('s-h-s'),
+  'width': switchHandleSizeStore.use('s-h-s'),
+  'transition': '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
 
   [`.${SWITCH_BASE_CLASSNAME}[aria-checked='true'] &`]: {
     left: `calc(${switchSizeStore.use(
-      's-w'
+      's-w',
     )} - calc(${switchHandleSizeStore.use('s-h-s')} + 0.25rem))`,
   },
 

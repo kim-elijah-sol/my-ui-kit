@@ -1,30 +1,30 @@
-import { css } from '@emotion/react';
+import { css }            from '@emotion/react';
 import { createVarStore } from '../_utils/fx';
-import { Prefix } from '../_utils/types';
+import { Prefix }         from '../_utils/types';
 
 const buttonSizeStore = createVarStore<'f-s' | 'p-x' | 'h' | 'r'>(
-  'button-size'
+  'button-size',
 );
 
 export const buttonSmallSizeCss = buttonSizeStore.css({
   'f-s': '0.875rem',
   'p-x': '0.5rem',
-  h: '1.75rem',
-  r: '0.35rem',
+  'h': '1.75rem',
+  'r': '0.35rem',
 });
 
 export const buttonMediumSizeCss = buttonSizeStore.css({
   'f-s': '0.875rem',
   'p-x': '0.75rem',
-  h: '2.25rem',
-  r: '0.5rem',
+  'h': '2.25rem',
+  'r': '0.5rem',
 });
 
 export const buttonLargeSizeCss = buttonSizeStore.css({
   'f-s': '1rem',
   'p-x': '0.75rem',
-  h: '2.5rem',
-  r: '0.5rem',
+  'h': '2.5rem',
+  'r': '0.5rem',
 });
 
 const baseButtonColorStore = createVarStore<'outline'>('base-button');
@@ -42,10 +42,10 @@ const primaryColorStore = createVarStore<
 >('primary-button');
 
 const primaryBlackColorCss = primaryColorStore.css({
-  bg: '#121212',
-  color: '#FFFFFF',
-  hover: '#666666',
-  active: '#000000',
+  'bg': '#121212',
+  'color': '#FFFFFF',
+  'hover': '#666666',
+  'active': '#000000',
   'disabled-bg': '#F1F1F1',
   'disabled-color': '#CCCCCC',
   'disabled-border': '#DFDFDF',
@@ -56,7 +56,7 @@ const borderColorStore = createVarStore<
 >('border-button');
 
 const borderBlackColorCss = borderColorStore.css({
-  border: '#DFDFDF',
+  'border': '#DFDFDF',
   'hover-border': '#888888',
   'active-border': '#000000',
   'disabled-border': '#DFDFDF',
@@ -89,20 +89,20 @@ export const buttonBlackColorCss = [
 ];
 
 export const baseButtonCss = css({
-  fontSize: buttonSizeStore.use('f-s'),
+  'fontSize': buttonSizeStore.use('f-s'),
 
-  paddingLeft: buttonSizeStore.use('p-x'),
-  paddingRight: buttonSizeStore.use('p-x'),
-  height: buttonSizeStore.use('h'),
+  'paddingLeft': buttonSizeStore.use('p-x'),
+  'paddingRight': buttonSizeStore.use('p-x'),
+  'height': buttonSizeStore.use('h'),
 
-  appearance: 'none',
-  border: 'none',
-  outline: 'none',
+  'appearance': 'none',
+  'border': 'none',
+  'outline': 'none',
 
-  borderRadius: buttonSizeStore.use('r'),
+  'borderRadius': buttonSizeStore.use('r'),
 
-  cursor: 'pointer',
-  transition:
+  'cursor': 'pointer',
+  'transition':
     'all 0.15s cubic-bezier(1, 0.5, 0, 0.5), outline-width 0s, outline-offset 0s',
 
   ':disabled': {
@@ -118,8 +118,8 @@ export const baseButtonCss = css({
 });
 
 export const primaryButtonCss = css({
-  background: primaryColorStore.use('bg'),
-  color: primaryColorStore.use('color'),
+  'background': primaryColorStore.use('bg'),
+  'color': primaryColorStore.use('color'),
 
   ':hover:not(:disabled)': {
     background: primaryColorStore.use('hover'),
@@ -137,9 +137,9 @@ export const primaryButtonCss = css({
 });
 
 export const borderButtonCss = css({
-  background: '#FFFFFF',
-  border: `1px solid ${borderColorStore.use('border')}`,
-  color: 'rgba(0,0,0,0.9)',
+  'background': '#FFFFFF',
+  'border': `1px solid ${borderColorStore.use('border')}`,
+  'color': 'rgba(0,0,0,0.9)',
 
   ':hover:not(:disabled)': {
     borderColor: borderColorStore.use('hover-border'),
@@ -166,8 +166,8 @@ export const dashedButtonCss = css([
 ]);
 
 export const ghostButtonCss = css({
-  background: '#FFFFFF',
-  color: 'rgba(0,0,0,0.9)',
+  'background': '#FFFFFF',
+  'color': 'rgba(0,0,0,0.9)',
 
   ':hover:not(:disabled)': {
     background: ghostColorStore.use('hover'),
@@ -183,8 +183,8 @@ export const ghostButtonCss = css({
 });
 
 export const linkButtonCss = css({
-  background: '#FFFFFF',
-  color: linkColorStore.use('color'),
+  'background': '#FFFFFF',
+  'color': linkColorStore.use('color'),
 
   ':hover:not(:disabled)': {
     color: linkColorStore.use('hover'),

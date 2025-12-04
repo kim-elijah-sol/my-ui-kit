@@ -1,4 +1,4 @@
-import { forwardRef, useMemo } from 'react';
+import { forwardRef, useMemo }     from 'react';
 import type { CssMap, WithoutRef } from '../_utils/types';
 import {
   baseTextareaCss,
@@ -15,8 +15,8 @@ import type {
 } from './Textarea.types';
 
 const variantCssMap: CssMap<TextareaVariant> = {
-  border: borderTextareaCss,
-  solid: solidTextareaCss,
+  'border': borderTextareaCss,
+  'solid': solidTextareaCss,
   'bottom-border': bottomBorderTextareaCss,
 };
 
@@ -40,5 +40,5 @@ export const Textarea = forwardRef(
         {...props}
       />
     );
-  }
+  },
 );

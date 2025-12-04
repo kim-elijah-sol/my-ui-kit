@@ -1,6 +1,6 @@
-import { css } from '@emotion/react';
+import { css }            from '@emotion/react';
 import { createVarStore } from '../_utils/fx';
-import type { Prefix } from '../_utils/types';
+import type { Prefix }    from '../_utils/types';
 
 const textareaColorStore = createVarStore<
   | Prefix<'border', '' | Prefix<'-', 'hover' | 'focus'>>
@@ -8,41 +8,41 @@ const textareaColorStore = createVarStore<
 >('ui-kit-input');
 
 export const textareaBlackColorCss = textareaColorStore.css({
-  border: '#DFDFDF',
+  'border': '#DFDFDF',
   'border-hover': '#AAAAAA',
   'border-focus': '#121212',
 
-  background: '#F5F5F5',
+  'background': '#F5F5F5',
   'background-hover': '#FAFAFA',
   'background-focus': '#FFFFFF',
   'background-disabled': '#F1F1F1',
 });
 
 export const textareaBlueColorCss = textareaColorStore.css({
-  border: '#DFDFDF',
+  'border': '#DFDFDF',
   'border-hover': '#70ACFF',
   'border-focus': '#006AFF',
 
-  background: '#F5F5F5',
+  'background': '#F5F5F5',
   'background-hover': '#FAFAFA',
   'background-focus': '#FFFFFF',
   'background-disabled': '#F1F1F1',
 });
 
 export const baseTextareaCss = css({
-  fontSize: '0.875rem',
+  'fontSize': '0.875rem',
 
-  appearance: 'none',
-  border: 'none',
-  outline: 'none',
-  padding: '0.75rem',
+  'appearance': 'none',
+  'border': 'none',
+  'outline': 'none',
+  'padding': '0.75rem',
 
-  borderRadius: '0.5rem',
+  'borderRadius': '0.5rem',
 
-  color: '#121212',
+  'color': '#121212',
 
-  transition: ['background', 'box-shadow']
-    .map((property) => `${property} 0.15s cubic-bezier(1, 0.5, 0, 0.5)`)
+  'transition': ['background', 'box-shadow']
+    .map(property => `${property} 0.15s cubic-bezier(1, 0.5, 0, 0.5)`)
     .join(','),
 
   ':disabled, &[readonly]': {
@@ -51,7 +51,7 @@ export const baseTextareaCss = css({
 });
 
 export const borderTextareaCss = css({
-  boxShadow: `inset 0 0 0 1px ${textareaColorStore.use('border')}`,
+  'boxShadow': `inset 0 0 0 1px ${textareaColorStore.use('border')}`,
 
   ':hover:not(:disabled)': {
     boxShadow: `inset 0 0 0 2px ${textareaColorStore.use('border-hover')}`,
@@ -67,7 +67,7 @@ export const borderTextareaCss = css({
 });
 
 export const solidTextareaCss = css({
-  background: textareaColorStore.use('background'),
+  'background': textareaColorStore.use('background'),
 
   ':hover:not(:disabled)': {
     background: textareaColorStore.use('background-hover'),
@@ -85,8 +85,8 @@ export const solidTextareaCss = css({
 });
 
 export const bottomBorderTextareaCss = css({
-  borderRadius: 0,
-  boxShadow: `inset 0 -1px 0 0 ${textareaColorStore.use('border')}`,
+  'borderRadius': 0,
+  'boxShadow': `inset 0 -1px 0 0 ${textareaColorStore.use('border')}`,
 
   ':hover:not(:disabled)': {
     boxShadow: `inset 0 -2px 0 0 ${textareaColorStore.use('border-hover')}`,

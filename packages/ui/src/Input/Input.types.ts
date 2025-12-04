@@ -1,5 +1,5 @@
 import { type ComponentPropsWithRef, type ReactNode } from 'react';
-import type { CommonSizeProps } from '../common/types';
+import type { CommonSizeProps }                       from '../common/types';
 
 export type InputVariant = 'border' | 'solid' | 'bottom-border';
 
@@ -9,9 +9,9 @@ export type InputColor = 'black' | 'blue';
 
 type InputColorProps = Partial<Record<'color', InputColor>>;
 
-export type InputProps = Omit<ComponentPropsWithRef<'input'>, 'size'> &
-  InputVariantProps &
-  CommonSizeProps &
-  InputColorProps;
+export type InputProps = Omit<ComponentPropsWithRef<'input'>, 'size'>
+  & InputVariantProps
+  & CommonSizeProps
+  & InputColorProps;
 
 export type InputComponent = (props: InputProps) => ReactNode;

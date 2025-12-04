@@ -1,6 +1,6 @@
 import { type ComponentPropsWithRef, type ReactNode } from 'react';
-import { type FlexProps } from '../../Flex';
-import type { PickRequired } from '../../_utils/types';
+import { type FlexProps }                             from '../../Flex';
+import type { PickRequired }                          from '../../_utils/types';
 
 export type SwitchRootProps = PickRequired<
   Omit<FlexProps<'label'>, 'as'>,
@@ -8,5 +8,5 @@ export type SwitchRootProps = PickRequired<
 >;
 
 export type SwitchRootComponent = (
-  props: SwitchRootProps & Partial<Pick<ComponentPropsWithRef<'label'>, 'ref'>>
+  props: SwitchRootProps & Partial<Pick<ComponentPropsWithRef<'label'>, 'ref'>>,
 ) => ReactNode;

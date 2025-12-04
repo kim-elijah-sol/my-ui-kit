@@ -1,5 +1,5 @@
-import { forwardRef, useMemo } from 'react';
-import type { CommonSize } from '../common/types';
+import { forwardRef, useMemo }     from 'react';
+import type { CommonSize }         from '../common/types';
 import type { CssMap, WithoutRef } from '../_utils/types';
 import {
   baseInputCss,
@@ -15,8 +15,8 @@ import {
 import type { InputColor, InputProps, InputVariant } from './Input.types';
 
 const variantCssMap: CssMap<InputVariant> = {
-  border: borderInputCss,
-  solid: solidInputCss,
+  'border': borderInputCss,
+  'solid': solidInputCss,
   'bottom-border': bottomBorderInputCss,
 };
 
@@ -55,5 +55,5 @@ export const Input = forwardRef(
         {...props}
       />
     );
-  }
+  },
 );

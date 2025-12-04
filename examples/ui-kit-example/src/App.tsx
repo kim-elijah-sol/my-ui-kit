@@ -1,5 +1,5 @@
 import { Button, Flex, Input, Radio, Switch, Textarea } from '@ui-kit/ui';
-import { useState, useEffect } from 'react';
+import { useState, useEffect }                          from 'react';
 
 const App = () => {
   const [switchState, setSwitchState] = useState<boolean>(false);
@@ -35,18 +35,18 @@ const App = () => {
             column: 16,
             row: 8,
           }}
-          as='article'
+          as="article"
         >
-          <Radio id='radio-1' name='radio' />
-          <Radio id='radio-2' name='radio' color='blue' />
+          <Radio id="radio-1" name="radio" />
+          <Radio id="radio-2" name="radio" color="blue" />
           <Radio
             defaultChecked
-            id='radio-3'
-            name='radio'
-            color='blue'
+            id="radio-3"
+            name="radio"
+            color="blue"
             disabled
           />
-          <Radio name='radio' disabled />
+          <Radio name="radio" disabled />
         </Flex.Column>
       </div>
 
@@ -70,7 +70,7 @@ const App = () => {
             column: 16,
             row: 8,
           }}
-          as='article'
+          as="article"
           wrap
         >
           <Switch defaultChecked />
@@ -78,12 +78,12 @@ const App = () => {
             defaultChecked
             checked={switchState}
             onChange={setSwitchState}
-            id='_switch_id'
-            name='_switch_name'
-            className='_switch_class'
+            id="_switch_id"
+            name="_switch_name"
+            className="_switch_class"
           />
-          <Switch color='blue' defaultChecked />
-          <Switch color='blue' />
+          <Switch color="blue" defaultChecked />
+          <Switch color="blue" />
           <div css={{ flexBasis: '100%', height: 0 }} />
           <Switch disabled />
           <Switch
@@ -93,21 +93,21 @@ const App = () => {
               color: '#333',
             }}
           />
-          <Switch disabled checked color='blue' />
+          <Switch disabled checked color="blue" />
           <div css={{ flexBasis: '100%', height: 0 }} />
-          <Switch.Root id='root-switch'>
+          <Switch.Root id="root-switch">
             <Switch.Label>On/Off</Switch.Label>
             <Switch />
           </Switch.Root>
           <div css={{ flexBasis: '100%', height: 0 }} />
-          <Switch.Root id='root-switch_1'>
+          <Switch.Root id="root-switch_1">
             <Switch disabled checked />
             <Switch.Label>On/Off</Switch.Label>
           </Switch.Root>
-          <Flex align='center' gap={8}>
-            <Switch size='sm' />
-            <Switch size='md' />
-            <Switch size='lg' />
+          <Flex align="center" gap={8}>
+            <Switch size="sm" />
+            <Switch size="md" />
+            <Switch size="lg" />
           </Flex>
         </Flex>
       </div>
@@ -129,22 +129,22 @@ const App = () => {
             borderRadius: '0.75rem',
           }}
           gap={16}
-          as='article'
+          as="article"
         >
-          <Textarea placeholder='내용을 입력' />
-          <Textarea placeholder='내용을 입력 (blue color)' color='blue' />
-          <Textarea placeholder='내용을 입력' disabled />
-          <Textarea variant='solid' placeholder='내용을 입력' />
+          <Textarea placeholder="내용을 입력" />
+          <Textarea placeholder="내용을 입력 (blue color)" color="blue" />
+          <Textarea placeholder="내용을 입력" disabled />
+          <Textarea variant="solid" placeholder="내용을 입력" />
           <Textarea
-            variant='solid'
-            placeholder='내용을 입력 (blue color)'
-            color='blue'
+            variant="solid"
+            placeholder="내용을 입력 (blue color)"
+            color="blue"
           />
-          <Textarea variant='solid' placeholder='내용을 입력' disabled />
-          <Textarea variant='bottom-border' placeholder='내용을 입력' />
+          <Textarea variant="solid" placeholder="내용을 입력" disabled />
+          <Textarea variant="bottom-border" placeholder="내용을 입력" />
           <Textarea
-            variant='bottom-border'
-            placeholder='내용을 입력'
+            variant="bottom-border"
+            placeholder="내용을 입력"
             disabled
           />
         </Flex.Column>
@@ -171,36 +171,36 @@ const App = () => {
             row: 12,
             column: '0.75rem',
           }}
-          as='article'
+          as="article"
         >
           <Button>Primary Button</Button>
-          <Button variant='border'>Border Button</Button>
-          <Button variant='dashed'>Dashed Button</Button>
-          <Button variant='ghost'>Ghost Button</Button>
-          <Button variant='link'>Link Button</Button>
+          <Button variant="border">Border Button</Button>
+          <Button variant="dashed">Dashed Button</Button>
+          <Button variant="ghost">Ghost Button</Button>
+          <Button variant="link">Link Button</Button>
 
           <div css={{ flexBasis: '100%', height: 0 }} />
 
           <Button disabled>Primary Button</Button>
-          <Button variant='border' disabled>
+          <Button variant="border" disabled>
             Border Button
           </Button>
-          <Button variant='dashed' disabled>
+          <Button variant="dashed" disabled>
             Dashed Button
           </Button>
-          <Button variant='ghost' disabled>
+          <Button variant="ghost" disabled>
             Ghost Button
           </Button>
-          <Button variant='link' disabled>
+          <Button variant="link" disabled>
             Link Button
           </Button>
 
           <div css={{ flexBasis: '100%', height: 0 }} />
 
-          <Flex align='center' gap={8}>
-            <Button size='sm'>Small Button</Button>
+          <Flex align="center" gap={8}>
+            <Button size="sm">Small Button</Button>
             <Button>Medium Button</Button>
-            <Button size='lg'>Large Button</Button>
+            <Button size="lg">Large Button</Button>
           </Flex>
         </Flex>
       </div>
@@ -222,47 +222,47 @@ const App = () => {
             borderRadius: '0.75rem',
           }}
           gap={16}
-          as='article'
+          as="article"
         >
-          <Input placeholder='아이디 입력' />
+          <Input placeholder="아이디 입력" />
           <Input
-            type='password'
-            placeholder='비밀번호 입력 (blue Color)'
-            color='blue'
+            type="password"
+            placeholder="비밀번호 입력 (blue Color)"
+            color="blue"
           />
-          <Input placeholder='비활성화 readOnly' readOnly />
-          <Input placeholder='비활성화 disabled' disabled />
+          <Input placeholder="비활성화 readOnly" readOnly />
+          <Input placeholder="비활성화 disabled" disabled />
 
-          <Input variant='solid' placeholder='아이디 입력' />
+          <Input variant="solid" placeholder="아이디 입력" />
           <Input
-            variant='solid'
-            type='password'
-            placeholder='비밀번호 입력'
-            color='blue'
+            variant="solid"
+            type="password"
+            placeholder="비밀번호 입력"
+            color="blue"
           />
-          <Input variant='solid' placeholder='비활성화 readOnly' readOnly />
-          <Input variant='solid' placeholder='비활성화 disabled' disabled />
+          <Input variant="solid" placeholder="비활성화 readOnly" readOnly />
+          <Input variant="solid" placeholder="비활성화 disabled" disabled />
 
-          <Input variant='bottom-border' placeholder='아이디 입력' />
+          <Input variant="bottom-border" placeholder="아이디 입력" />
           <Input
-            variant='bottom-border'
-            type='password'
-            placeholder='비밀번호 입력 (blue Color)'
-            color='blue'
+            variant="bottom-border"
+            type="password"
+            placeholder="비밀번호 입력 (blue Color)"
+            color="blue"
           />
           <Input
-            variant='bottom-border'
-            placeholder='비활성화 readOnly'
+            variant="bottom-border"
+            placeholder="비활성화 readOnly"
             readOnly
           />
           <Input
-            variant='bottom-border'
-            placeholder='비활성화 disabled'
+            variant="bottom-border"
+            placeholder="비활성화 disabled"
             disabled
           />
 
-          <Input size='sm' />
-          <Input size='lg' />
+          <Input size="sm" />
+          <Input size="lg" />
         </Flex.Column>
       </div>
     </Flex.Column>

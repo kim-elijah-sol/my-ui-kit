@@ -3,7 +3,7 @@ import { useState } from 'react';
 export const useControllableState = <T>(
   controlledValue?: T,
   defaultValue?: T,
-  onChange?: (value: T) => void
+  onChange?: (value: T) => void,
 ) => {
   const [uncontrolledValue, setUncontrolledValue] = useState(defaultValue);
   const isControlled = controlledValue !== undefined;

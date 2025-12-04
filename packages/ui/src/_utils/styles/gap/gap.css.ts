@@ -1,6 +1,6 @@
-import { css } from '@emotion/react';
+import { css }        from '@emotion/react';
 import { resolveGap } from './gap.lib';
-import { GapType } from './gap.types';
+import { GapType }    from './gap.types';
 
 export const gapCss = (gap: GapType) =>
   css({

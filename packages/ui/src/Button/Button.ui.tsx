@@ -1,6 +1,6 @@
-import { forwardRef, useMemo } from 'react';
-import { CommonSize } from '../common/types';
-import { flexCss } from '../Flex/Flex.css';
+import { forwardRef, useMemo }     from 'react';
+import { CommonSize }              from '../common/types';
+import { flexCss }                 from '../Flex/Flex.css';
 import type { CssMap, WithoutRef } from '../_utils/types';
 import {
   baseButtonCss,
@@ -62,5 +62,5 @@ export const Button = forwardRef(
         {...props}
       />
     );
-  }
+  },
 );

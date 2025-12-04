@@ -1,5 +1,5 @@
 import { forwardRef, useId, useMemo } from 'react';
-import type { CssMap, WithoutRef } from '../_utils/types';
+import type { CssMap, WithoutRef }    from '../_utils/types';
 import { RADIO_INPUT_BASE_CLASSNAME } from './Radio.constants';
 import {
   radioBlackColorCss,
@@ -28,7 +28,7 @@ export const Radio = forwardRef(
         <input
           id={id}
           ref={ref}
-          type='radio'
+          type="radio"
           css={radioInputCss}
           className={`${RADIO_INPUT_BASE_CLASSNAME}${
             className ? ` ${className}` : ''
@@ -38,5 +38,5 @@ export const Radio = forwardRef(
         <span css={radioInnerCircleCss} />
       </div>
     );
-  }
+  },
 );

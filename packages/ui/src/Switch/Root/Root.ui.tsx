@@ -1,8 +1,8 @@
 import { Children, cloneElement, forwardRef, isValidElement } from 'react';
-import { Flex } from '../../Flex';
-import { SwitchLabel } from '../Label';
-import { Switch } from '../Switch.ui';
-import type { SwitchRootComponent } from './Root.types';
+import { Flex }                                               from '../../Flex';
+import { SwitchLabel }                                        from '../Label';
+import { Switch }                                             from '../Switch.ui';
+import type { SwitchRootComponent }                           from './Root.types';
 
 export const SwitchRoot: SwitchRootComponent = forwardRef((_props, ref) => {
   const {
@@ -21,7 +21,8 @@ export const SwitchRoot: SwitchRootComponent = forwardRef((_props, ref) => {
         return cloneElement(element, {
           id,
         } as any);
-      } else if (element.type === SwitchLabel) {
+      }
+      else if (element.type === SwitchLabel) {
         return cloneElement(element, {
           htmlFor: id,
         } as any);
@@ -34,7 +35,7 @@ export const SwitchRoot: SwitchRootComponent = forwardRef((_props, ref) => {
     <Flex
       {...props}
       ref={ref}
-      as='label'
+      as="label"
       htmlFor={id}
       align={align}
       direction={direction}

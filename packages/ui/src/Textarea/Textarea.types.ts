@@ -8,8 +8,8 @@ export type TextareaColor = 'black' | 'blue';
 
 type TextareaColorProps = Partial<Record<'color', TextareaColor>>;
 
-export type TextareaProps = ComponentPropsWithRef<'textarea'> &
-  TextareaVariantProps &
-  TextareaColorProps;
+export type TextareaProps = ComponentPropsWithRef<'textarea'>
+  & TextareaVariantProps
+  & TextareaColorProps;
 
 export type TextareaComponent = (props: TextareaProps) => ReactNode;
