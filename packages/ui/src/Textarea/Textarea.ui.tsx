@@ -1,36 +1,20 @@
-import { forwardRef, useMemo }     from 'react';
-import type { CssMap, WithoutRef } from '@ui-kit/utils';
+import { forwardRef, useMemo } from 'react';
+import type { WithoutRef }     from '@ui-kit/utils';
 import {
   baseTextareaClass,
-  borderTextareaClass,
-  bottomBorderTextareaClass,
-  solidTextareaClass,
-  textareaBlackColorClass,
-  textareaBlueColorClass,
+  textareaVariantMap,
 } from './Textarea.css';
 import type {
-  TextareaColor,
   TextareaProps,
-  TextareaVariant,
 } from './Textarea.types';
-
-const variantClassMap: CssMap<TextareaVariant> = {
-  'border': borderTextareaClass,
-  'solid': solidTextareaClass,
-  'bottom-border': bottomBorderTextareaClass,
-};
-
-const colorClassMap: CssMap<TextareaColor> = {
-  black: textareaBlackColorClass,
-  blue: textareaBlueColorClass,
-};
+import { textareaColorMap } from './css/Textarea.color.css';
 
 export const Textarea = forwardRef(
   (_props: WithoutRef<TextareaProps>, ref: TextareaProps['ref']) => {
     const { variant = 'border', color = 'black', className, ...props } = _props;
 
-    const variantClass = useMemo(() => variantClassMap[variant], [variant]);
-    const colorClass = useMemo(() => colorClassMap[color], [color]);
+    const variantClass = useMemo(() => textareaVariantMap[variant], [variant]);
+    const colorClass = useMemo(() => textareaColorMap[color], [color]);
 
     return (
       <textarea

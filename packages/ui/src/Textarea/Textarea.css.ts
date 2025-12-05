@@ -1,32 +1,7 @@
-import { style }                       from '@vanilla-extract/css';
-import { createVarStore, type Prefix } from '@ui-kit/utils';
-
-const textareaColorStore = createVarStore<
-  | Prefix<'border', '' | Prefix<'-', 'hover' | 'focus'>>
-  | Prefix<'background', '' | Prefix<'-', 'hover' | 'focus' | 'disabled'>>
->('ui-kit-input');
-
-export const textareaBlackColorClass = textareaColorStore.style({
-  'border': '#DFDFDF',
-  'border-hover': '#AAAAAA',
-  'border-focus': '#121212',
-
-  'background': '#F5F5F5',
-  'background-hover': '#FAFAFA',
-  'background-focus': '#FFFFFF',
-  'background-disabled': '#F1F1F1',
-});
-
-export const textareaBlueColorClass = textareaColorStore.style({
-  'border': '#DFDFDF',
-  'border-hover': '#70ACFF',
-  'border-focus': '#006AFF',
-
-  'background': '#F5F5F5',
-  'background-hover': '#FAFAFA',
-  'background-focus': '#FFFFFF',
-  'background-disabled': '#F1F1F1',
-});
+import { CssMap }             from '@ui-kit/utils';
+import { style }              from '@vanilla-extract/css';
+import { TextareaVariant }    from './Textarea.types';
+import { textareaColorStore } from './store/Textarea.color.store';
 
 export const baseTextareaClass = style({
   fontSize: '0.875rem',
@@ -51,7 +26,7 @@ export const baseTextareaClass = style({
   },
 });
 
-export const borderTextareaClass = style({
+const borderTextareaClass = style({
   boxShadow: `inset 0 0 0 1px ${textareaColorStore.use('border')}`,
 
   selectors: {
@@ -66,8 +41,7 @@ export const borderTextareaClass = style({
     },
   },
 });
-
-export const solidTextareaClass = style({
+const solidTextareaClass = style({
   background: textareaColorStore.use('background'),
 
   selectors: {
@@ -84,8 +58,7 @@ export const solidTextareaClass = style({
     },
   },
 });
-
-export const bottomBorderTextareaClass = style({
+const bottomBorderTextareaClass = style({
   borderRadius: 0,
   boxShadow: `inset 0 -1px 0 0 ${textareaColorStore.use('border')}`,
 
@@ -101,3 +74,8 @@ export const bottomBorderTextareaClass = style({
     },
   },
 });
+export const textareaVariantMap: CssMap<TextareaVariant> = {
+  'border': borderTextareaClass,
+  'solid': solidTextareaClass,
+  'bottom-border': bottomBorderTextareaClass,
+};
