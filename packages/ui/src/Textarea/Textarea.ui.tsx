@@ -1,4 +1,4 @@
-import { forwardRef, useMemo }          from 'react';
+import { forwardRef, useMemo }     from 'react';
 import type { CssMap, WithoutRef } from '@ui-kit/utils';
 import {
   baseTextareaClass,

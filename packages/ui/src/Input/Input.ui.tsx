@@ -1,5 +1,5 @@
-import { forwardRef, useMemo }          from 'react';
-import type { CommonSize }              from '../common/types';
+import { forwardRef, useMemo }     from 'react';
+import type { CommonSize }         from '../common/types';
 import type { CssMap, WithoutRef } from '@ui-kit/utils';
 import {
   baseInputClass,

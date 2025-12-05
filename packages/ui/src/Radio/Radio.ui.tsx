@@ -1,5 +1,5 @@
-import { forwardRef, useId, useMemo }   from 'react';
-import type { CssMap, WithoutRef } from '@ui-kit/utils';
+import { forwardRef, useId, useMemo } from 'react';
+import type { CssMap, WithoutRef }    from '@ui-kit/utils';
 import {
   radioBlackColorClass,
   radioBlueColorClass,

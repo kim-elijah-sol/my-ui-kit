@@ -1,4 +1,4 @@
-import { style }                      from '@vanilla-extract/css';
+import { style }                  from '@vanilla-extract/css';
 import { createVarStore, Prefix } from '@ui-kit/utils';
 
 const buttonSizeStore = createVarStore<'f-s' | 'p-x' | 'h' | 'r'>(

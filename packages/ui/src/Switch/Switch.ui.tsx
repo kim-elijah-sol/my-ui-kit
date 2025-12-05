@@ -1,5 +1,5 @@
-import React, { useMemo }                       from 'react';
-import type { CommonSize }                      from '../common/types';
+import React, { useMemo }                    from 'react';
+import type { CommonSize }                   from '../common/types';
 import { useControllableState, type CssMap } from '@ui-kit/utils';
 import {
   switchBlackColorClass,

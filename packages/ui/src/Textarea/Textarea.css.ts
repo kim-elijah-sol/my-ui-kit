@@ -1,4 +1,4 @@
-import { style }                        from '@vanilla-extract/css';
+import { style }                       from '@vanilla-extract/css';
 import { createVarStore, type Prefix } from '@ui-kit/utils';
 
 const textareaColorStore = createVarStore<
