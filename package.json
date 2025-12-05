@@ -21,6 +21,6 @@
     "example": "pnpm -F @ui-kit/example",
     "format": "eslint --fix",
     "prepare": "husky",
-    "package:dev": "pnpm -F @ui-kit/ui -F @ui-kit/utils dev"
+    "package:dev": "pnpm -F @ui-kit/ui dev & pnpm -F @ui-kit/utils dev"
   }
 }
