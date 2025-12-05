@@ -1,6 +1,6 @@
 import { CssMap }          from '@ui-kit/utils';
-import { CommonSize }      from '../common/types';
-import { buttonSizeStore } from './store/Button.size.store';
+import { CommonSize }      from '../../common/types';
+import { buttonSizeStore } from '../store/Button.size.store';
 
 /** CLASS */
 const buttonSmallSizeClass = buttonSizeStore.style({

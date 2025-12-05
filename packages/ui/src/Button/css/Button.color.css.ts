@@ -1,4 +1,4 @@
-import * as buttonColorStore from './store/Button.color.store';
+import * as buttonColorStore from '../store/Button.color.store';
 
 const baseButtonBlackColorClass = buttonColorStore.baseButtonColorStore.style({
   outline: '#121212',

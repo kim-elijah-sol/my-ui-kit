@@ -5,8 +5,8 @@ import {
   buttonVariantMap,
 } from './Button.css';
 import type { ButtonProps }      from './Button.types';
-import { buttonSizeMap }         from './Button.size.css';
-import { buttonBlackColorClass } from './Button.color.css';
+import { buttonSizeMap }         from './css/Button.size.css';
+import { buttonBlackColorClass } from './css/Button.color.css';
 
 export const Button = forwardRef(
   (_props: WithoutRef<ButtonProps>, ref: ButtonProps['ref']) => {
