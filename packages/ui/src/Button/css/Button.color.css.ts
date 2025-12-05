@@ -1,3 +1,4 @@
+import clsx                  from 'clsx';
 import * as buttonColorStore from '../store/Button.color.store';
 
 const baseButtonBlackColorClass = buttonColorStore.baseButtonColorStore.style({
@@ -28,10 +29,10 @@ const linkBlackColorClass = buttonColorStore.linkColorStore.style({
   active: '#000000',
   disabled: '#CCCCCC',
 });
-export const buttonBlackColorClass = [
+export const buttonBlackColorClass = clsx(
   baseButtonBlackColorClass,
   primaryBlackColorClass,
   borderBlackColorClass,
   ghostBlackColorClass,
   linkBlackColorClass,
-].join(' ');
+);

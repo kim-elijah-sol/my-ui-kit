@@ -1,5 +1,6 @@
 import React, { useMemo }       from 'react';
 import { useControllableState } from '@ui-kit/utils';
+import clsx                     from 'clsx';
 import {
   switchClass,
   switchHandleClass,
@@ -50,15 +51,10 @@ export const Switch: SwitchComponent = (_props) => {
       disabled={disabled}
       onClick={handleToggle}
       onKeyDown={handleKeyDown}
-      className={[
-        switchClass,
-        sizeClass,
-        colorClass,
-        className,
-      ].filter(Boolean).join(' ')}
+      className={clsx(switchClass, sizeClass, colorClass, className)}
       {...props}
     >
-      <span className={[switchHandleClass, switchHandleDefaultSizeClass].join(' ')} />
+      <span className={clsx(switchHandleClass, switchHandleDefaultSizeClass)} />
     </button>
   );
 };

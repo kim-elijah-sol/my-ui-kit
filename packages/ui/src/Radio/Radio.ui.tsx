@@ -1,5 +1,6 @@
 import { forwardRef, useId, useMemo } from 'react';
 import type { WithoutRef }            from '@ui-kit/utils';
+import clsx                           from 'clsx';
 import {
   radioInnerCircleClass,
   radioInputClass,
@@ -17,15 +18,12 @@ export const Radio = forwardRef(
     const colorClass = useMemo(() => radioColorMap[color], [color]);
 
     return (
-      <div className={[radioWrapperClass, colorClass].join(' ')}>
+      <div className={clsx(radioWrapperClass, colorClass)}>
         <input
           id={id}
           ref={ref}
           type="radio"
-          className={[
-            radioInputClass,
-            className,
-          ].filter(Boolean).join(' ')}
+          className={clsx(radioInputClass, className)}
           {...props}
         />
         <span className={radioInnerCircleClass} />

@@ -1,5 +1,6 @@
 import { forwardRef, useMemo } from 'react';
 import type { WithoutRef }     from '@ui-kit/utils';
+import clsx                    from 'clsx';
 import {
   baseInputClass,
   inputVariantMap,
@@ -27,13 +28,7 @@ export const Input = forwardRef(
       <input
         type={type}
         ref={ref}
-        className={[
-          baseInputClass,
-          variantClass,
-          sizeClass,
-          colorClass,
-          className,
-        ].filter(Boolean).join(' ')}
+        className={clsx(baseInputClass, variantClass, sizeClass, colorClass, className)}
         {...props}
       />
     );

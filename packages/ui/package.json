@@ -19,7 +19,8 @@
     "dev": "tsc --watch"
   },
   "dependencies": {
-    "@ui-kit/utils": "workspace:*"
+    "@ui-kit/utils": "workspace:*",
+    "clsx": "^2.1.1"
   },
   "devDependencies": {
     "@types/react": "^19.1.13",

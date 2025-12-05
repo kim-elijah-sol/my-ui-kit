@@ -1,5 +1,6 @@
 import { forwardRef, useMemo } from 'react';
 import type { WithoutRef }     from '@ui-kit/utils';
+import clsx                    from 'clsx';
 import {
   baseTextareaClass,
   textareaVariantMap,
@@ -19,12 +20,7 @@ export const Textarea = forwardRef(
     return (
       <textarea
         ref={ref}
-        className={[
-          baseTextareaClass,
-          variantClass,
-          colorClass,
-          className,
-        ].filter(Boolean).join(' ')}
+        className={clsx(baseTextareaClass, variantClass, colorClass, className)}
         {...props}
       />
     );

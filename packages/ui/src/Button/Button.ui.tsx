@@ -1,5 +1,6 @@
 import { forwardRef, useMemo } from 'react';
 import type { WithoutRef }     from '@ui-kit/utils';
+import clsx                    from 'clsx';
 import {
   baseButtonClass,
   buttonVariantMap,
@@ -25,13 +26,7 @@ export const Button = forwardRef(
       <button
         type={type}
         ref={ref}
-        className={[
-          baseButtonClass,
-          variantClass,
-          sizeClass,
-          buttonBlackColorClass,
-          className,
-        ].filter(Boolean).join(' ')}
+        className={clsx(baseButtonClass, variantClass, sizeClass, buttonBlackColorClass, className)}
         {...props}
       />
     );
