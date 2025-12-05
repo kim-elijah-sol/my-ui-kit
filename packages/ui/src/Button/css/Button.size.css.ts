@@ -2,7 +2,6 @@ import { CssMap }          from '@ui-kit/utils';
 import { CommonSize }      from '../../common/types';
 import { buttonSizeStore } from '../store/Button.size.store';
 
-/** CLASS */
 const buttonSmallSizeClass = buttonSizeStore.style({
   'f-s': '0.875rem',
   'p-x': '0.5rem',
@@ -22,7 +21,6 @@ const buttonLargeSizeClass = buttonSizeStore.style({
   'r': '0.5rem',
 });
 
-/** CLASS MAP */
 export const buttonSizeMap: CssMap<CommonSize> = {
   sm: buttonSmallSizeClass,
   md: buttonMediumSizeClass,
