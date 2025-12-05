@@ -1,35 +1,12 @@
-import { forwardRef, useMemo }     from 'react';
-import type { CommonSize }         from '../common/types';
-import type { CssMap, WithoutRef } from '@ui-kit/utils';
+import { forwardRef, useMemo } from 'react';
+import type { WithoutRef }     from '@ui-kit/utils';
 import {
   baseInputClass,
-  borderInputClass,
-  bottomBorderInputClass,
-  inputBlackColorClass,
-  inputBlueColorClass,
-  inputLargeSizeClass,
-  inputMediumSizeClass,
-  inputSmallSizeClass,
-  solidInputClass,
+  inputVariantMap,
 } from './Input.css';
-import type { InputColor, InputProps, InputVariant } from './Input.types';
-
-const variantClassMap: CssMap<InputVariant> = {
-  'border': borderInputClass,
-  'solid': solidInputClass,
-  'bottom-border': bottomBorderInputClass,
-};
-
-const sizeClassMap: CssMap<CommonSize> = {
-  sm: inputSmallSizeClass,
-  md: inputMediumSizeClass,
-  lg: inputLargeSizeClass,
-};
-
-const colorClassMap: CssMap<InputColor> = {
-  black: inputBlackColorClass,
-  blue: inputBlueColorClass,
-};
+import type { InputProps } from './Input.types';
+import { inputSizeMap }    from './css/Input.size.css';
+import { inputColorMap }   from './css/Input.color.css';
 
 export const Input = forwardRef(
   (_props: WithoutRef<InputProps>, ref: InputProps['ref']) => {
@@ -42,9 +19,9 @@ export const Input = forwardRef(
       ...props
     } = _props;
 
-    const variantClass = useMemo(() => variantClassMap[variant], [variant]);
-    const sizeClass = useMemo(() => sizeClassMap[size], [size]);
-    const colorClass = useMemo(() => colorClassMap[color], [color]);
+    const variantClass = useMemo(() => inputVariantMap[variant], [variant]);
+    const sizeClass = useMemo(() => inputSizeMap[size], [size]);
+    const colorClass = useMemo(() => inputColorMap[color], [color]);
 
     return (
       <input
