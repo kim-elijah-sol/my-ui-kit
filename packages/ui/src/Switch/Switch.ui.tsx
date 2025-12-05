@@ -1,28 +1,12 @@
-import React, { useMemo }                    from 'react';
-import type { CommonSize }                   from '../common/types';
-import { useControllableState, type CssMap } from '@ui-kit/utils';
+import React, { useMemo }       from 'react';
+import { useControllableState } from '@ui-kit/utils';
 import {
-  switchBlackColorClass,
-  switchBlueColorClass,
   switchClass,
   switchHandleClass,
-  switchHandleDefaultSizeClass,
-  switchLargeSizeClass,
-  switchMediumSizeClass,
-  switchSmallSizeClass,
 } from './Switch.css';
-import type { SwitchColor, SwitchComponent } from './Switch.types';
-
-const sizeClassMap: CssMap<CommonSize> = {
-  sm: switchSmallSizeClass,
-  md: switchMediumSizeClass,
-  lg: switchLargeSizeClass,
-};
-
-const colorClassMap: CssMap<SwitchColor> = {
-  black: switchBlackColorClass,
-  blue: switchBlueColorClass,
-};
+import type { SwitchComponent }                        from './Switch.types';
+import { switchHandleDefaultSizeClass, switchSizeMap } from './css/Switch.size.css';
+import { switchColorMap }                              from './css/Switch.color.css';
 
 export const Switch: SwitchComponent = (_props) => {
   const {
@@ -55,8 +39,8 @@ export const Switch: SwitchComponent = (_props) => {
     }
   };
 
-  const sizeClass = useMemo(() => sizeClassMap[size], [size]);
-  const colorClass = useMemo(() => colorClassMap[color], [color]);
+  const sizeClass = useMemo(() => switchSizeMap[size], [size]);
+  const colorClass = useMemo(() => switchColorMap[color], [color]);
 
   return (
     <button
