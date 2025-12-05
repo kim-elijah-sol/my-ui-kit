@@ -1,6 +1,5 @@
-import { style }          from '@vanilla-extract/css';
-import { createVarStore } from '../_utils/fx/createVarStore';
-import type { Prefix }    from '../_utils/types';
+import { style }                        from '@vanilla-extract/css';
+import { createVarStore, type Prefix } from '@ui-kit/utils';
 
 const switchSizeStore = createVarStore<'s-h' | 's-w'>();
 

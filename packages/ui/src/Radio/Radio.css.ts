@@ -1,5 +1,5 @@
 import { style }          from '@vanilla-extract/css';
-import { createVarStore } from '../_utils/fx';
+import { createVarStore } from '@ui-kit/utils';
 
 const radioColorStore = createVarStore<
   'hover' | 'checked' | 'disabled-checked' | 'disabled-unchecked'

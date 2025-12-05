@@ -1,6 +1,5 @@
-import { style }          from '@vanilla-extract/css';
-import { createVarStore } from '../_utils/fx';
-import { Prefix }         from '../_utils/types';
+import { style }                      from '@vanilla-extract/css';
+import { createVarStore, Prefix } from '@ui-kit/utils';
 
 const buttonSizeStore = createVarStore<'f-s' | 'p-x' | 'h' | 'r'>(
   'button-size',

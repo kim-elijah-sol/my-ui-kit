@@ -59,6 +59,22 @@ importers:
         version: 7.2.6(@types/node@24.10.1)
 
   packages/ui:
+    dependencies:
+      '@ui-kit/utils':
+        specifier: workspace:*
+        version: link:../utils
+    devDependencies:
+      '@types/react':
+        specifier: ^19.1.13
+        version: 19.2.7
+      '@vanilla-extract/css':
+        specifier: ^1.17.5
+        version: 1.17.5
+      react:
+        specifier: ^19.1.1
+        version: 19.2.1
+
+  packages/utils:
     devDependencies:
       '@types/react':
         specifier: ^19.1.13

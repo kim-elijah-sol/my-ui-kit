@@ -1,5 +1,5 @@
 {
-  "name": "@ui-kit/ui",
+  "name": "@ui-kit/utils",
   "version": "0.0.1",
   "packageManager": "pnpm@10.17.1",
   "main": "./dist/index.js",
@@ -17,9 +17,6 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch"
-  },
-  "dependencies": {
-    "@ui-kit/utils": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^19.1.13",

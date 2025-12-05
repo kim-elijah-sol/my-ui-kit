@@ -17,8 +17,10 @@
   ],
   "scripts": {
     "ui": "pnpm -F @ui-kit/ui",
+    "utils": "pnpm -F @ui-kit/utils",
     "example": "pnpm -F @ui-kit/example",
     "format": "eslint --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "package:dev": "pnpm -F @ui-kit/ui -F @ui-kit/utils dev"
   }
 }
