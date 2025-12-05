@@ -1,23 +1,5 @@
-import { style }          from '@vanilla-extract/css';
-import { createVarStore } from '@ui-kit/utils';
-
-const radioColorStore = createVarStore<
-  'hover' | 'checked' | 'disabled-checked' | 'disabled-unchecked'
->();
-
-export const radioBlackColorClass = radioColorStore.style({
-  'hover': '#AAAAAA',
-  'checked': '#121212',
-  'disabled-checked': '#6A6A6A',
-  'disabled-unchecked': '#EEEEEE',
-});
-
-export const radioBlueColorClass = radioColorStore.style({
-  'hover': '#70ACFF',
-  'checked': '#006AFF',
-  'disabled-checked': '#A0CFFF',
-  'disabled-unchecked': '#EEEEEE',
-});
+import { style }           from '@vanilla-extract/css';
+import { radioColorStore } from './store/Radio.color.store';
 
 export const radioWrapperClass = style({
   position: 'relative',

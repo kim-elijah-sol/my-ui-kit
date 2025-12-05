@@ -1,18 +1,12 @@
 import { forwardRef, useId, useMemo } from 'react';
-import type { CssMap, WithoutRef }    from '@ui-kit/utils';
+import type { WithoutRef }            from '@ui-kit/utils';
 import {
-  radioBlackColorClass,
-  radioBlueColorClass,
   radioInnerCircleClass,
   radioInputClass,
   radioWrapperClass,
 } from './Radio.css';
-import type { RadioColor, RadioProps } from './Radio.types';
-
-const colorClassMap: CssMap<RadioColor> = {
-  black: radioBlackColorClass,
-  blue: radioBlueColorClass,
-};
+import type { RadioProps } from './Radio.types';
+import { radioColorMap }   from './css/Radio.color.css';
 
 export const Radio = forwardRef(
   (_props: WithoutRef<RadioProps>, ref: RadioProps['ref']) => {
@@ -20,7 +14,7 @@ export const Radio = forwardRef(
 
     const id = _id ?? useId();
 
-    const colorClass = useMemo(() => colorClassMap[color], [color]);
+    const colorClass = useMemo(() => radioColorMap[color], [color]);
 
     return (
       <div className={[radioWrapperClass, colorClass].join(' ')}>
