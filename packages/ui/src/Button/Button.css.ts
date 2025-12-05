@@ -57,7 +57,6 @@ const primaryButtonClass = style({
     },
   },
 });
-
 const borderButtonClass = style({
   background: '#FFFFFF',
   border: `1px solid ${buttonColorStore.borderColorStore.use('border')}`,
@@ -79,7 +78,6 @@ const borderButtonClass = style({
     },
   },
 });
-
 const dashedButtonClass = style({
   background: '#FFFFFF',
   border: `1px dashed ${buttonColorStore.borderColorStore.use('border')}`,
@@ -101,7 +99,6 @@ const dashedButtonClass = style({
     },
   },
 });
-
 const ghostButtonClass = style({
   background: '#FFFFFF',
   color: 'rgba(0,0,0,0.9)',
@@ -118,7 +115,6 @@ const ghostButtonClass = style({
     },
   },
 });
-
 const linkButtonClass = style({
   background: '#FFFFFF',
   color: buttonColorStore.linkColorStore.use('color'),
@@ -135,7 +131,6 @@ const linkButtonClass = style({
     },
   },
 });
-
 export const buttonVariantMap: CssMap<ButtonVariant> = {
   primary: primaryButtonClass,
   border: borderButtonClass,

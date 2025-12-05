@@ -28,7 +28,7 @@ export const baseInputClass = style({
   },
 });
 
-export const borderInputClass = style({
+const borderInputClass = style({
   boxShadow: `inset 0 0 0 1px ${inputColorStore.use('border')}`,
 
   selectors: {
@@ -43,8 +43,7 @@ export const borderInputClass = style({
     },
   },
 });
-
-export const solidInputClass = style({
+const solidInputClass = style({
   background: inputColorStore.use('background'),
 
   selectors: {
@@ -61,8 +60,7 @@ export const solidInputClass = style({
     },
   },
 });
-
-export const bottomBorderInputClass = style({
+const bottomBorderInputClass = style({
   borderRadius: 0,
   boxShadow: `inset 0 -1px 0 0 ${inputColorStore.use('border')}`,
 
@@ -78,7 +76,6 @@ export const bottomBorderInputClass = style({
     },
   },
 });
-
 export const inputVariantMap: CssMap<InputVariant> = {
   'border': borderInputClass,
   'solid': solidInputClass,
