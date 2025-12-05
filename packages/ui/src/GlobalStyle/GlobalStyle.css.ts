@@ -1,10 +1,8 @@
-import { css } from '@emotion/react';
+import { globalStyle } from '@vanilla-extract/css';
 
-export const globalStyleCss = css`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 1rem;
-  }
-`;
+globalStyle('*', {
+  margin: 0,
+  padding: 0,
+  boxSizing: 'border-box',
+  fontSize: '1rem',
+});

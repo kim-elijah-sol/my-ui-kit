@@ -10,9 +10,7 @@
     "jsx": "react-jsx",
     "strict": true,
     "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true,
-    "types": ["@emotion/react/types/css-prop"],
-    "jsxImportSource": "@emotion/react"
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src", "@vitejs/plugin-react"]
 }

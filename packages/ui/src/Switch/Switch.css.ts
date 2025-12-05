@@ -1,28 +1,27 @@
-import { css }                   from '@emotion/react';
-import { createVarStore }        from '../_utils/fx/createVarStore';
-import { SWITCH_BASE_CLASSNAME } from './Switch.constants';
-import type { Prefix }           from '../_utils/types';
+import { style }          from '@vanilla-extract/css';
+import { createVarStore } from '../_utils/fx/createVarStore';
+import type { Prefix }    from '../_utils/types';
 
 const switchSizeStore = createVarStore<'s-h' | 's-w'>();
 
-export const switchSmallSizeCss = switchSizeStore.css({
+export const switchSmallSizeClass = switchSizeStore.style({
   's-h': '1.5rem',
   's-w': '2.625rem',
 });
 
-export const switchMediumSizeCss = switchSizeStore.css({
+export const switchMediumSizeClass = switchSizeStore.style({
   's-h': '2rem',
   's-w': '3.5rem',
 });
 
-export const switchLargeSizeCss = switchSizeStore.css({
+export const switchLargeSizeClass = switchSizeStore.style({
   's-h': '2.5rem',
   's-w': '4.375rem',
 });
 
 const switchHandleSizeStore = createVarStore<'s-h-s'>();
 
-export const switchHandleDefaultSizeCss = switchHandleSizeStore.css({
+export const switchHandleDefaultSizeClass = switchHandleSizeStore.style({
   's-h-s': `calc(${switchSizeStore.use('s-h')} - 0.5rem)`,
 });
 
@@ -35,7 +34,7 @@ const switchColorStore = createVarStore<
   | Prefix<'unchecked-', SwitchColorProperties>
 >('ui-kit-switch');
 
-export const switchBlackColorCss = switchColorStore.css({
+export const switchBlackColorClass = switchColorStore.style({
   'checked-background': '#121212',
   'checked-background-hover': '#444444',
   'checked-outline-focus': '#121212',
@@ -47,7 +46,7 @@ export const switchBlackColorCss = switchColorStore.css({
   'unchecked-background-disabled': '#EEEEEE',
 });
 
-export const switchBlueColorCss = switchColorStore.css({
+export const switchBlueColorClass = switchColorStore.style({
   'checked-background': '#006AFF',
   'checked-background-hover': '#70ACFF',
   'checked-outline-focus': '#006AFF',
@@ -59,74 +58,60 @@ export const switchBlueColorCss = switchColorStore.css({
   'unchecked-background-disabled': '#EEEEEE',
 });
 
-export const switchCss = css({
-  'position': 'relative',
-  'height': switchSizeStore.use('s-h'),
-  'width': switchSizeStore.use('s-w'),
+export const switchClass = style({
+  position: 'relative',
+  height: switchSizeStore.use('s-h'),
+  width: switchSizeStore.use('s-w'),
 
-  'appearance': 'none',
-  'border': 'none',
-  'outline': 'none',
+  appearance: 'none',
+  border: 'none',
+  outline: 'none',
 
-  'borderRadius': `calc(${switchSizeStore.use('s-h')} / 2)`,
+  borderRadius: `calc(${switchSizeStore.use('s-h')} / 2)`,
 
-  'cursor': 'pointer',
-  'transition':
+  cursor: 'pointer',
+  transition:
     'all 0.15s cubic-bezier(1, 0.5, 0, 0.5), outline-width 0s, outline-offset 0s',
 
-  '&[aria-checked=\'true\']': {
-    'background': switchColorStore.use('checked-background'),
-    'outlineColor': switchColorStore.use('checked-outline-focus'),
-
-    ':not(:disabled):hover': {
+  selectors: {
+    '&[aria-checked="true"]': {
+      background: switchColorStore.use('checked-background'),
+      outlineColor: switchColorStore.use('checked-outline-focus'),
+    },
+    '&[aria-checked="true"]:not(:disabled):hover': {
       background: switchColorStore.use('checked-background-hover'),
     },
-
-    ':disabled': {
+    '&[aria-checked="true"]:disabled': {
       background: switchColorStore.use('checked-background-disabled'),
     },
-  },
-
-  '&[aria-checked=\'false\']': {
-    'background': switchColorStore.use('unchecked-background'),
-    'outlineColor': switchColorStore.use('unchecked-outline-focus'),
-
-    ':not(:disabled):hover': {
+    '&[aria-checked="false"]': {
+      background: switchColorStore.use('unchecked-background'),
+      outlineColor: switchColorStore.use('unchecked-outline-focus'),
+    },
+    '&[aria-checked="false"]:not(:disabled):hover': {
       background: switchColorStore.use('unchecked-background-hover'),
     },
-
-    ':disabled': {
+    '&[aria-checked="false"]:disabled': {
       background: switchColorStore.use('unchecked-background-disabled'),
     },
-  },
-
-  ':disabled': {
-    cursor: 'not-allowed',
-  },
-
-  ':focus-visible': {
-    outlineWidth: '2px',
-    outlineStyle: 'solid',
-    outlineOffset: '2px',
+    '&:disabled': {
+      cursor: 'not-allowed',
+    },
+    '&:focus-visible': {
+      outlineWidth: '2px',
+      outlineStyle: 'solid',
+      outlineOffset: '2px',
+    },
   },
 });
 
-export const switchHandleCss = css({
+export const switchHandleClass = style({
   'position': 'absolute',
   'top': '0.25rem',
   'height': switchHandleSizeStore.use('s-h-s'),
   'width': switchHandleSizeStore.use('s-h-s'),
   'transition': '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
-
-  [`.${SWITCH_BASE_CLASSNAME}[aria-checked='true'] &`]: {
-    left: `calc(${switchSizeStore.use(
-      's-w',
-    )} - calc(${switchHandleSizeStore.use('s-h-s')} + 0.25rem))`,
-  },
-
-  [`.${SWITCH_BASE_CLASSNAME}[aria-checked='false'] &`]: {
-    left: '0.25rem',
-  },
+  'pointerEvents': 'none',
 
   '::before': {
     content: '""',
@@ -137,13 +122,22 @@ export const switchHandleCss = css({
     transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
   },
 
-  [`.${SWITCH_BASE_CLASSNAME}:not(:disabled)[aria-checked='true']:active &::before`]:
-    {
-      left: `calc(calc(${switchHandleSizeStore.use('s-h-s')} / 3.5) * -1)`,
+  'selectors': {
+    [`.${switchClass}[aria-checked="true"] &`]: {
+      left: `calc(${switchSizeStore.use(
+        's-w',
+      )} - calc(${switchHandleSizeStore.use('s-h-s')} + 0.25rem))`,
     },
-
-  [`.${SWITCH_BASE_CLASSNAME}:not(:disabled)[aria-checked='false']:active &::before`]:
-    {
-      right: `calc(calc(${switchHandleSizeStore.use('s-h-s')} / 3.5) * -1)`,
+    [`.${switchClass}[aria-checked="false"] &`]: {
+      left: '0.25rem',
     },
+    [`.${switchClass}:not(:disabled)[aria-checked="true"]:active &::before`]:
+      {
+        left: `calc(calc(${switchHandleSizeStore.use('s-h-s')} / 3.5) * -1)`,
+      },
+    [`.${switchClass}:not(:disabled)[aria-checked="false"]:active &::before`]:
+      {
+        right: `calc(calc(${switchHandleSizeStore.use('s-h-s')} / 3.5) * -1)`,
+      },
+  },
 });

@@ -1,33 +1,32 @@
 import { forwardRef, useMemo }     from 'react';
 import { CommonSize }              from '../common/types';
-import { flexCss }                 from '../Flex/Flex.css';
 import type { CssMap, WithoutRef } from '../_utils/types';
 import {
-  baseButtonCss,
-  borderButtonCss,
-  buttonBlackColorCss,
-  buttonLargeSizeCss,
-  buttonMediumSizeCss,
-  buttonSmallSizeCss,
-  dashedButtonCss,
-  ghostButtonCss,
-  linkButtonCss,
-  primaryButtonCss,
+  baseButtonClass,
+  borderButtonClass,
+  buttonBlackColorClass,
+  buttonLargeSizeClass,
+  buttonMediumSizeClass,
+  buttonSmallSizeClass,
+  dashedButtonClass,
+  ghostButtonClass,
+  linkButtonClass,
+  primaryButtonClass,
 } from './Button.css';
 import type { ButtonProps, ButtonVariant } from './Button.types';
 
-const variantCssMap: CssMap<ButtonVariant> = {
-  primary: primaryButtonCss,
-  border: borderButtonCss,
-  dashed: dashedButtonCss,
-  ghost: ghostButtonCss,
-  link: linkButtonCss,
+const variantClassMap: CssMap<ButtonVariant> = {
+  primary: primaryButtonClass,
+  border: borderButtonClass,
+  dashed: dashedButtonClass,
+  ghost: ghostButtonClass,
+  link: linkButtonClass,
 };
 
-const sizeCssMap: CssMap<CommonSize> = {
-  sm: buttonSmallSizeCss,
-  md: buttonMediumSizeCss,
-  lg: buttonLargeSizeCss,
+const sizeClassMap: CssMap<CommonSize> = {
+  sm: buttonSmallSizeClass,
+  md: buttonMediumSizeClass,
+  lg: buttonLargeSizeClass,
 };
 
 export const Button = forwardRef(
@@ -36,29 +35,24 @@ export const Button = forwardRef(
       variant = 'primary',
       type = 'button',
       size = 'md',
+      className,
       ...props
     } = _props;
 
-    const variantCss = useMemo(() => variantCssMap[variant], [variant]);
-
-    const sizeCss = useMemo(() => sizeCssMap[size], [size]);
+    const variantClass = useMemo(() => variantClassMap[variant], [variant]);
+    const sizeClass = useMemo(() => sizeClassMap[size], [size]);
 
     return (
       <button
         type={type}
         ref={ref}
-        css={[
-          baseButtonCss,
-          variantCss,
-          sizeCss,
-          flexCss({
-            inline: true,
-            justify: 'center',
-            align: 'center',
-            gap: '0.5rem',
-          }),
-          ...buttonBlackColorCss,
-        ]}
+        className={[
+          baseButtonClass,
+          variantClass,
+          sizeClass,
+          buttonBlackColorClass,
+          className,
+        ].filter(Boolean).join(' ')}
         {...props}
       />
     );

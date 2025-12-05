@@ -1,7 +1,5 @@
-import React, { type ReactNode }     from 'react';
-import type { CommonSizeProps }      from '../common/types';
-import { type SwitchLabelComponent } from './Label';
-import { type SwitchRootComponent }  from './Root';
+import React, { type ReactNode } from 'react';
+import type { CommonSizeProps }  from '../common/types';
 
 export type SwitchColor = 'black' | 'blue';
 
@@ -23,8 +21,3 @@ export type SwitchProps = {
 & SwitchColorProps;
 
 export type SwitchComponent = (props: SwitchProps) => ReactNode;
-
-export type SwitchType = SwitchComponent & {
-  Root: SwitchRootComponent;
-  Label: SwitchLabelComponent;
-};

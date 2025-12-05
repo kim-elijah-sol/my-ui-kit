@@ -2,33 +2,33 @@ import { forwardRef, useMemo }     from 'react';
 import type { CommonSize }         from '../common/types';
 import type { CssMap, WithoutRef } from '../_utils/types';
 import {
-  baseInputCss,
-  borderInputCss,
-  bottomBorderInputCss,
-  inputBlackColorCss,
-  inputBlueColorCss,
-  inputLargeSizeCss,
-  inputMediumSizeCss,
-  inputSmallSizeCss,
-  solidInputCss,
+  baseInputClass,
+  borderInputClass,
+  bottomBorderInputClass,
+  inputBlackColorClass,
+  inputBlueColorClass,
+  inputLargeSizeClass,
+  inputMediumSizeClass,
+  inputSmallSizeClass,
+  solidInputClass,
 } from './Input.css';
 import type { InputColor, InputProps, InputVariant } from './Input.types';
 
-const variantCssMap: CssMap<InputVariant> = {
-  'border': borderInputCss,
-  'solid': solidInputCss,
-  'bottom-border': bottomBorderInputCss,
+const variantClassMap: CssMap<InputVariant> = {
+  'border': borderInputClass,
+  'solid': solidInputClass,
+  'bottom-border': bottomBorderInputClass,
 };
 
-const sizeCssMap: CssMap<CommonSize> = {
-  sm: inputSmallSizeCss,
-  md: inputMediumSizeCss,
-  lg: inputLargeSizeCss,
+const sizeClassMap: CssMap<CommonSize> = {
+  sm: inputSmallSizeClass,
+  md: inputMediumSizeClass,
+  lg: inputLargeSizeClass,
 };
 
-const colorCssMap: CssMap<InputColor> = {
-  black: inputBlackColorCss,
-  blue: inputBlueColorCss,
+const colorClassMap: CssMap<InputColor> = {
+  black: inputBlackColorClass,
+  blue: inputBlueColorClass,
 };
 
 export const Input = forwardRef(
@@ -38,20 +38,25 @@ export const Input = forwardRef(
       variant = 'border',
       size = 'md',
       color = 'black',
+      className,
       ...props
     } = _props;
 
-    const variantCss = useMemo(() => variantCssMap[variant], [variant]);
-
-    const sizeCss = useMemo(() => sizeCssMap[size], [size]);
-
-    const colorCss = useMemo(() => colorCssMap[color], [color]);
+    const variantClass = useMemo(() => variantClassMap[variant], [variant]);
+    const sizeClass = useMemo(() => sizeClassMap[size], [size]);
+    const colorClass = useMemo(() => colorClassMap[color], [color]);
 
     return (
       <input
         type={type}
         ref={ref}
-        css={[baseInputCss, variantCss, sizeCss, colorCss]}
+        className={[
+          baseInputClass,
+          variantClass,
+          sizeClass,
+          colorClass,
+          className,
+        ].filter(Boolean).join(' ')}
         {...props}
       />
     );

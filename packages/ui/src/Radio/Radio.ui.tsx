@@ -1,18 +1,17 @@
 import { forwardRef, useId, useMemo } from 'react';
 import type { CssMap, WithoutRef }    from '../_utils/types';
-import { RADIO_INPUT_BASE_CLASSNAME } from './Radio.constants';
 import {
-  radioBlackColorCss,
-  radioBlueColorCss,
-  radioInnerCircleCss,
-  radioInputCss,
-  radioWrapperCss,
+  radioBlackColorClass,
+  radioBlueColorClass,
+  radioInnerCircleClass,
+  radioInputClass,
+  radioWrapperClass,
 } from './Radio.css';
 import type { RadioColor, RadioProps } from './Radio.types';
 
-const colorCssMap: CssMap<RadioColor> = {
-  black: radioBlackColorCss,
-  blue: radioBlueColorCss,
+const colorClassMap: CssMap<RadioColor> = {
+  black: radioBlackColorClass,
+  blue: radioBlueColorClass,
 };
 
 export const Radio = forwardRef(
@@ -21,21 +20,21 @@ export const Radio = forwardRef(
 
     const id = _id ?? useId();
 
-    const colorCss = useMemo(() => colorCssMap[color], [color]);
+    const colorClass = useMemo(() => colorClassMap[color], [color]);
 
     return (
-      <div css={[radioWrapperCss, colorCss]}>
+      <div className={[radioWrapperClass, colorClass].join(' ')}>
         <input
           id={id}
           ref={ref}
           type="radio"
-          css={radioInputCss}
-          className={`${RADIO_INPUT_BASE_CLASSNAME}${
-            className ? ` ${className}` : ''
-          }`}
+          className={[
+            radioInputClass,
+            className,
+          ].filter(Boolean).join(' ')}
           {...props}
         />
-        <span css={radioInnerCircleCss} />
+        <span className={radioInnerCircleClass} />
       </div>
     );
   },

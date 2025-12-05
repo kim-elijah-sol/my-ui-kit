@@ -1,12 +1,12 @@
 import { forwardRef, useMemo }     from 'react';
 import type { CssMap, WithoutRef } from '../_utils/types';
 import {
-  baseTextareaCss,
-  borderTextareaCss,
-  bottomBorderTextareaCss,
-  solidTextareaCss,
-  textareaBlackColorCss,
-  textareaBlueColorCss,
+  baseTextareaClass,
+  borderTextareaClass,
+  bottomBorderTextareaClass,
+  solidTextareaClass,
+  textareaBlackColorClass,
+  textareaBlueColorClass,
 } from './Textarea.css';
 import type {
   TextareaColor,
@@ -14,29 +14,33 @@ import type {
   TextareaVariant,
 } from './Textarea.types';
 
-const variantCssMap: CssMap<TextareaVariant> = {
-  'border': borderTextareaCss,
-  'solid': solidTextareaCss,
-  'bottom-border': bottomBorderTextareaCss,
+const variantClassMap: CssMap<TextareaVariant> = {
+  'border': borderTextareaClass,
+  'solid': solidTextareaClass,
+  'bottom-border': bottomBorderTextareaClass,
 };
 
-const colorCssMap: CssMap<TextareaColor> = {
-  black: textareaBlackColorCss,
-  blue: textareaBlueColorCss,
+const colorClassMap: CssMap<TextareaColor> = {
+  black: textareaBlackColorClass,
+  blue: textareaBlueColorClass,
 };
 
 export const Textarea = forwardRef(
   (_props: WithoutRef<TextareaProps>, ref: TextareaProps['ref']) => {
-    const { variant = 'border', color = 'black', ...props } = _props;
+    const { variant = 'border', color = 'black', className, ...props } = _props;
 
-    const variantCss = useMemo(() => variantCssMap[variant], [variant]);
-
-    const colorCss = useMemo(() => colorCssMap[color], [color]);
+    const variantClass = useMemo(() => variantClassMap[variant], [variant]);
+    const colorClass = useMemo(() => colorClassMap[color], [color]);
 
     return (
       <textarea
         ref={ref}
-        css={[baseTextareaCss, variantCss, colorCss]}
+        className={[
+          baseTextareaClass,
+          variantClass,
+          colorClass,
+          className,
+        ].filter(Boolean).join(' ')}
         {...props}
       />
     );

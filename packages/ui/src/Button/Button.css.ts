@@ -1,4 +1,4 @@
-import { css }            from '@emotion/react';
+import { style }          from '@vanilla-extract/css';
 import { createVarStore } from '../_utils/fx';
 import { Prefix }         from '../_utils/types';
 
@@ -6,21 +6,21 @@ const buttonSizeStore = createVarStore<'f-s' | 'p-x' | 'h' | 'r'>(
   'button-size',
 );
 
-export const buttonSmallSizeCss = buttonSizeStore.css({
+export const buttonSmallSizeClass = buttonSizeStore.style({
   'f-s': '0.875rem',
   'p-x': '0.5rem',
   'h': '1.75rem',
   'r': '0.35rem',
 });
 
-export const buttonMediumSizeCss = buttonSizeStore.css({
+export const buttonMediumSizeClass = buttonSizeStore.style({
   'f-s': '0.875rem',
   'p-x': '0.75rem',
   'h': '2.25rem',
   'r': '0.5rem',
 });
 
-export const buttonLargeSizeCss = buttonSizeStore.css({
+export const buttonLargeSizeClass = buttonSizeStore.style({
   'f-s': '1rem',
   'p-x': '0.75rem',
   'h': '2.5rem',
@@ -29,7 +29,7 @@ export const buttonLargeSizeCss = buttonSizeStore.css({
 
 const baseButtonColorStore = createVarStore<'outline'>('base-button');
 
-const baseButtonBlackColorCss = baseButtonColorStore.css({
+const baseButtonBlackColorClass = baseButtonColorStore.style({
   outline: '#121212',
 });
 
@@ -41,7 +41,7 @@ const primaryColorStore = createVarStore<
   | Prefix<'disabled-', 'bg' | 'color' | 'border'>
 >('primary-button');
 
-const primaryBlackColorCss = primaryColorStore.css({
+const primaryBlackColorClass = primaryColorStore.style({
   'bg': '#121212',
   'color': '#FFFFFF',
   'hover': '#666666',
@@ -55,7 +55,7 @@ const borderColorStore = createVarStore<
   'border' | 'hover-border' | 'active-border' | Prefix<'disabled-', 'border'>
 >('border-button');
 
-const borderBlackColorCss = borderColorStore.css({
+const borderBlackColorClass = borderColorStore.style({
   'border': '#DFDFDF',
   'hover-border': '#888888',
   'active-border': '#000000',
@@ -64,7 +64,7 @@ const borderBlackColorCss = borderColorStore.css({
 
 const ghostColorStore = createVarStore<'hover' | 'active'>('ghost-button');
 
-const ghostBlackColorCss = ghostColorStore.css({
+const ghostBlackColorClass = ghostColorStore.style({
   hover: '#E1E1E1',
   active: '#CCCCCC',
 });
@@ -73,128 +73,149 @@ const linkColorStore = createVarStore<
   'color' | 'hover' | 'active' | 'disabled'
 >('link-button');
 
-const linkBlackColorCss = linkColorStore.css({
+const linkBlackColorClass = linkColorStore.style({
   color: '#121212',
   hover: '#666666',
   active: '#000000',
   disabled: '#CCCCCC',
 });
 
-export const buttonBlackColorCss = [
-  baseButtonBlackColorCss,
-  primaryBlackColorCss,
-  borderBlackColorCss,
-  ghostBlackColorCss,
-  linkBlackColorCss,
-];
+export const buttonBlackColorClass = [
+  baseButtonBlackColorClass,
+  primaryBlackColorClass,
+  borderBlackColorClass,
+  ghostBlackColorClass,
+  linkBlackColorClass,
+].join(' ');
 
-export const baseButtonCss = css({
-  'fontSize': buttonSizeStore.use('f-s'),
+export const baseButtonClass = style({
+  fontSize: buttonSizeStore.use('f-s'),
 
-  'paddingLeft': buttonSizeStore.use('p-x'),
-  'paddingRight': buttonSizeStore.use('p-x'),
-  'height': buttonSizeStore.use('h'),
+  paddingLeft: buttonSizeStore.use('p-x'),
+  paddingRight: buttonSizeStore.use('p-x'),
+  height: buttonSizeStore.use('h'),
 
-  'appearance': 'none',
-  'border': 'none',
-  'outline': 'none',
+  display: 'inline-flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '0.5rem',
 
-  'borderRadius': buttonSizeStore.use('r'),
+  appearance: 'none',
+  border: 'none',
+  outline: 'none',
 
-  'cursor': 'pointer',
-  'transition':
+  borderRadius: buttonSizeStore.use('r'),
+
+  cursor: 'pointer',
+  transition:
     'all 0.15s cubic-bezier(1, 0.5, 0, 0.5), outline-width 0s, outline-offset 0s',
 
-  ':disabled': {
-    cursor: 'not-allowed',
-  },
-
-  ':focus-visible': {
-    outlineWidth: '2px',
-    outlineStyle: 'solid',
-    outlineOffset: '2px',
-    outlineColor: baseButtonColorStore.use('outline'),
-  },
-});
-
-export const primaryButtonCss = css({
-  'background': primaryColorStore.use('bg'),
-  'color': primaryColorStore.use('color'),
-
-  ':hover:not(:disabled)': {
-    background: primaryColorStore.use('hover'),
-  },
-
-  ':active:not(:disabled)': {
-    background: primaryColorStore.use('active'),
-  },
-
-  ':disabled': {
-    border: `1px solid ${primaryColorStore.use('disabled-border')}`,
-    background: primaryColorStore.use('disabled-bg'),
-    color: primaryColorStore.use('disabled-color'),
+  selectors: {
+    '&:disabled': {
+      cursor: 'not-allowed',
+    },
+    '&:focus-visible': {
+      outlineWidth: '2px',
+      outlineStyle: 'solid',
+      outlineOffset: '2px',
+      outlineColor: baseButtonColorStore.use('outline'),
+    },
   },
 });
 
-export const borderButtonCss = css({
-  'background': '#FFFFFF',
-  'border': `1px solid ${borderColorStore.use('border')}`,
-  'color': 'rgba(0,0,0,0.9)',
+export const primaryButtonClass = style({
+  background: primaryColorStore.use('bg'),
+  color: primaryColorStore.use('color'),
 
-  ':hover:not(:disabled)': {
-    borderColor: borderColorStore.use('hover-border'),
-    background: '#F1F1F1',
-  },
-
-  ':active:not(:disabled)': {
-    borderColor: borderColorStore.use('active-border'),
-    background: '#E1E1E1',
-  },
-
-  ':disabled': {
-    border: `1px solid ${borderColorStore.use('disabled-border')}`,
-    background: '#F1F1F1',
-    color: '#CCCCCC',
+  selectors: {
+    '&:hover:not(:disabled)': {
+      background: primaryColorStore.use('hover'),
+    },
+    '&:active:not(:disabled)': {
+      background: primaryColorStore.use('active'),
+    },
+    '&:disabled': {
+      border: `1px solid ${primaryColorStore.use('disabled-border')}`,
+      background: primaryColorStore.use('disabled-bg'),
+      color: primaryColorStore.use('disabled-color'),
+    },
   },
 });
 
-export const dashedButtonCss = css([
-  borderButtonCss,
-  {
-    borderStyle: 'dashed',
-  },
-]);
+export const borderButtonClass = style({
+  background: '#FFFFFF',
+  border: `1px solid ${borderColorStore.use('border')}`,
+  color: 'rgba(0,0,0,0.9)',
 
-export const ghostButtonCss = css({
-  'background': '#FFFFFF',
-  'color': 'rgba(0,0,0,0.9)',
-
-  ':hover:not(:disabled)': {
-    background: ghostColorStore.use('hover'),
-  },
-
-  ':active:not(:disabled)': {
-    background: ghostColorStore.use('active'),
-  },
-
-  ':disabled': {
-    color: '#CCCCCC',
+  selectors: {
+    '&:hover:not(:disabled)': {
+      borderColor: borderColorStore.use('hover-border'),
+      background: '#F1F1F1',
+    },
+    '&:active:not(:disabled)': {
+      borderColor: borderColorStore.use('active-border'),
+      background: '#E1E1E1',
+    },
+    '&:disabled': {
+      border: `1px solid ${borderColorStore.use('disabled-border')}`,
+      background: '#F1F1F1',
+      color: '#CCCCCC',
+    },
   },
 });
 
-export const linkButtonCss = css({
-  'background': '#FFFFFF',
-  'color': linkColorStore.use('color'),
+export const dashedButtonClass = style({
+  background: '#FFFFFF',
+  border: `1px dashed ${borderColorStore.use('border')}`,
+  color: 'rgba(0,0,0,0.9)',
 
-  ':hover:not(:disabled)': {
-    color: linkColorStore.use('hover'),
+  selectors: {
+    '&:hover:not(:disabled)': {
+      borderColor: borderColorStore.use('hover-border'),
+      background: '#F1F1F1',
+    },
+    '&:active:not(:disabled)': {
+      borderColor: borderColorStore.use('active-border'),
+      background: '#E1E1E1',
+    },
+    '&:disabled': {
+      border: `1px dashed ${borderColorStore.use('disabled-border')}`,
+      background: '#F1F1F1',
+      color: '#CCCCCC',
+    },
   },
+});
 
-  ':active:not(:disabled)': {
-    color: linkColorStore.use('active'),
+export const ghostButtonClass = style({
+  background: '#FFFFFF',
+  color: 'rgba(0,0,0,0.9)',
+
+  selectors: {
+    '&:hover:not(:disabled)': {
+      background: ghostColorStore.use('hover'),
+    },
+    '&:active:not(:disabled)': {
+      background: ghostColorStore.use('active'),
+    },
+    '&:disabled': {
+      color: '#CCCCCC',
+    },
   },
+});
 
-  ':disabled': {
-    color: linkColorStore.use('disabled'),
+export const linkButtonClass = style({
+  background: '#FFFFFF',
+  color: linkColorStore.use('color'),
+
+  selectors: {
+    '&:hover:not(:disabled)': {
+      color: linkColorStore.use('hover'),
+    },
+    '&:active:not(:disabled)': {
+      color: linkColorStore.use('active'),
+    },
+    '&:disabled': {
+      color: linkColorStore.use('disabled'),
+    },
   },
 });

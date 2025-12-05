@@ -1,34 +1,31 @@
-import React, { useMemo }        from 'react';
-import type { CommonSize }       from '../common/types';
-import { useControllableState }  from '../_utils/hooks';
-import type { CssMap }           from '../_utils/types';
-import { SwitchLabel }           from './Label';
-import { SwitchRoot }            from './Root';
-import { SWITCH_BASE_CLASSNAME } from './Switch.constants';
+import React, { useMemo }       from 'react';
+import type { CommonSize }      from '../common/types';
+import { useControllableState } from '../_utils/hooks';
+import type { CssMap }          from '../_utils/types';
 import {
-  switchBlackColorCss,
-  switchBlueColorCss,
-  switchCss,
-  switchHandleCss,
-  switchHandleDefaultSizeCss,
-  switchLargeSizeCss,
-  switchMediumSizeCss,
-  switchSmallSizeCss,
+  switchBlackColorClass,
+  switchBlueColorClass,
+  switchClass,
+  switchHandleClass,
+  switchHandleDefaultSizeClass,
+  switchLargeSizeClass,
+  switchMediumSizeClass,
+  switchSmallSizeClass,
 } from './Switch.css';
-import type { SwitchColor, SwitchType } from './Switch.types';
+import type { SwitchColor, SwitchComponent } from './Switch.types';
 
-const sizeCssMap: CssMap<CommonSize> = {
-  sm: switchSmallSizeCss,
-  md: switchMediumSizeCss,
-  lg: switchLargeSizeCss,
+const sizeClassMap: CssMap<CommonSize> = {
+  sm: switchSmallSizeClass,
+  md: switchMediumSizeClass,
+  lg: switchLargeSizeClass,
 };
 
-const colorCssMap: CssMap<SwitchColor> = {
-  black: switchBlackColorCss,
-  blue: switchBlueColorCss,
+const colorClassMap: CssMap<SwitchColor> = {
+  black: switchBlackColorClass,
+  blue: switchBlueColorClass,
 };
 
-export const Switch: SwitchType = (_props) => {
+export const Switch: SwitchComponent = (_props) => {
   const {
     defaultChecked = false,
     checked,
@@ -59,9 +56,8 @@ export const Switch: SwitchType = (_props) => {
     }
   };
 
-  const sizeCss = useMemo(() => sizeCssMap[size], [size]);
-
-  const colorCss = useMemo(() => colorCssMap[color], [color]);
+  const sizeClass = useMemo(() => sizeClassMap[size], [size]);
+  const colorClass = useMemo(() => colorClassMap[color], [color]);
 
   return (
     <button
@@ -71,14 +67,15 @@ export const Switch: SwitchType = (_props) => {
       disabled={disabled}
       onClick={handleToggle}
       onKeyDown={handleKeyDown}
-      css={[switchCss, sizeCss, colorCss]}
-      className={`${SWITCH_BASE_CLASSNAME}${className ? ` ${className}` : ''}`}
+      className={[
+        switchClass,
+        sizeClass,
+        colorClass,
+        className,
+      ].filter(Boolean).join(' ')}
       {...props}
     >
-      <span css={[switchHandleCss, switchHandleDefaultSizeCss]} />
+      <span className={[switchHandleClass, switchHandleDefaultSizeClass].join(' ')} />
     </button>
   );
 };
-
-Switch.Root = SwitchRoot;
-Switch.Label = SwitchLabel;

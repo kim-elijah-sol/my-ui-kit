@@ -1,24 +1,24 @@
-import { css }            from '@emotion/react';
+import { style }          from '@vanilla-extract/css';
 import { createVarStore } from '../_utils/fx';
 import type { Prefix }    from '../_utils/types';
 
 const inputSizeStore = createVarStore<'f-s' | 'p-x' | 'h' | 'r'>();
 
-export const inputSmallSizeCss = inputSizeStore.css({
+export const inputSmallSizeClass = inputSizeStore.style({
   'f-s': '0.875rem',
   'p-x': '0.5rem',
   'h': '1.75rem',
   'r': '0.35rem',
 });
 
-export const inputMediumSizeCss = inputSizeStore.css({
+export const inputMediumSizeClass = inputSizeStore.style({
   'f-s': '0.875rem',
   'p-x': '0.75rem',
   'h': '2.25rem',
   'r': '0.5rem',
 });
 
-export const inputLargeSizeCss = inputSizeStore.css({
+export const inputLargeSizeClass = inputSizeStore.style({
   'f-s': '1rem',
   'p-x': '0.75rem',
   'h': '2.5rem',
@@ -30,7 +30,7 @@ const inputColorStore = createVarStore<
   | Prefix<'background', '' | Prefix<'-', 'hover' | 'focus' | 'disabled'>>
 >('ui-kit-input');
 
-export const inputBlackColorCss = inputColorStore.css({
+export const inputBlackColorClass = inputColorStore.style({
   'border': '#DFDFDF',
   'border-hover': '#AAAAAA',
   'border-focus': '#121212',
@@ -41,7 +41,7 @@ export const inputBlackColorCss = inputColorStore.css({
   'background-disabled': '#F1F1F1',
 });
 
-export const inputBlueColorCss = inputColorStore.css({
+export const inputBlueColorClass = inputColorStore.style({
   'border': '#DFDFDF',
   'border-hover': '#70ACFF',
   'border-focus': '#006AFF',
@@ -52,75 +52,77 @@ export const inputBlueColorCss = inputColorStore.css({
   'background-disabled': '#F1F1F1',
 });
 
-export const baseInputCss = css({
-  'fontSize': inputSizeStore.use('f-s'),
+export const baseInputClass = style({
+  fontSize: inputSizeStore.use('f-s'),
 
-  'paddingLeft': inputSizeStore.use('p-x'),
-  'paddingRight': inputSizeStore.use('p-x'),
-  'height': inputSizeStore.use('h'),
+  paddingLeft: inputSizeStore.use('p-x'),
+  paddingRight: inputSizeStore.use('p-x'),
+  height: inputSizeStore.use('h'),
 
-  'appearance': 'none',
-  'border': 'none',
-  'outline': 'none',
+  appearance: 'none',
+  border: 'none',
+  outline: 'none',
 
-  'borderRadius': inputSizeStore.use('r'),
+  borderRadius: inputSizeStore.use('r'),
 
-  'color': '#121212',
+  color: '#121212',
 
-  'transition': '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
+  transition: '0.15s cubic-bezier(1, 0.5, 0, 0.5)',
 
-  ':disabled': {
-    cursor: 'not-allowed',
+  selectors: {
+    '&:disabled': {
+      cursor: 'not-allowed',
+    },
   },
 });
 
-export const borderInputCss = css({
-  'boxShadow': `inset 0 0 0 1px ${inputColorStore.use('border')}`,
+export const borderInputClass = style({
+  boxShadow: `inset 0 0 0 1px ${inputColorStore.use('border')}`,
 
-  ':hover:not(:disabled)': {
-    boxShadow: `inset 0 0 0 2px ${inputColorStore.use('border-hover')}`,
-  },
-
-  ':focus:not(:disabled)': {
-    boxShadow: `inset 0 0 0 2px ${inputColorStore.use('border-focus')}`,
-  },
-
-  ':disabled, &[readonly]': {
-    background: inputColorStore.use('background-disabled'),
-  },
-});
-
-export const solidInputCss = css({
-  'background': inputColorStore.use('background'),
-
-  ':hover:not(:disabled)': {
-    background: inputColorStore.use('background-hover'),
-    boxShadow: `inset 0 0 0 2px ${inputColorStore.use('border-hover')}`,
-  },
-
-  ':focus:not(:disabled)': {
-    background: inputColorStore.use('background-focus'),
-    boxShadow: `inset 0 0 0 2px ${inputColorStore.use('border-focus')}`,
-  },
-
-  ':disabled, &[readonly]': {
-    background: inputColorStore.use('background-disabled'),
+  selectors: {
+    '&:hover:not(:disabled)': {
+      boxShadow: `inset 0 0 0 2px ${inputColorStore.use('border-hover')}`,
+    },
+    '&:focus:not(:disabled)': {
+      boxShadow: `inset 0 0 0 2px ${inputColorStore.use('border-focus')}`,
+    },
+    '&:disabled, &[readonly]': {
+      background: inputColorStore.use('background-disabled'),
+    },
   },
 });
 
-export const bottomBorderInputCss = css({
-  'borderRadius': 0,
-  'boxShadow': `inset 0 -1px 0 0 ${inputColorStore.use('border')}`,
+export const solidInputClass = style({
+  background: inputColorStore.use('background'),
 
-  ':hover:not(:disabled)': {
-    boxShadow: `inset 0 -2px 0 0 ${inputColorStore.use('border-hover')}`,
+  selectors: {
+    '&:hover:not(:disabled)': {
+      background: inputColorStore.use('background-hover'),
+      boxShadow: `inset 0 0 0 2px ${inputColorStore.use('border-hover')}`,
+    },
+    '&:focus:not(:disabled)': {
+      background: inputColorStore.use('background-focus'),
+      boxShadow: `inset 0 0 0 2px ${inputColorStore.use('border-focus')}`,
+    },
+    '&:disabled, &[readonly]': {
+      background: inputColorStore.use('background-disabled'),
+    },
   },
+});
 
-  ':focus:not(:disabled)': {
-    boxShadow: `inset 0 -2px 0 0 ${inputColorStore.use('border-focus')}`,
-  },
+export const bottomBorderInputClass = style({
+  borderRadius: 0,
+  boxShadow: `inset 0 -1px 0 0 ${inputColorStore.use('border')}`,
 
-  ':disabled, &[readonly]': {
-    background: inputColorStore.use('background-disabled'),
+  selectors: {
+    '&:hover:not(:disabled)': {
+      boxShadow: `inset 0 -2px 0 0 ${inputColorStore.use('border-hover')}`,
+    },
+    '&:focus:not(:disabled)': {
+      boxShadow: `inset 0 -2px 0 0 ${inputColorStore.use('border-focus')}`,
+    },
+    '&:disabled, &[readonly]': {
+      background: inputColorStore.use('background-disabled'),
+    },
   },
 });

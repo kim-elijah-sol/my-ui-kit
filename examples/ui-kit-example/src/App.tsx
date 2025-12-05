@@ -1,41 +1,44 @@
-import { Button, Flex, Input, Radio, Switch, Textarea } from '@ui-kit/ui';
-import { useState, useEffect }                          from 'react';
+import { Button, Input, Radio, Switch, Textarea } from '@ui-kit/ui';
+import { useState }                               from 'react';
+
+const sectionTitleStyle = {
+  marginBottom: '1rem',
+  fontWeight: 600,
+  fontSize: '1.25rem',
+};
+
+const sectionBoxStyle = {
+  padding: 12,
+  border: '1px solid #DDD',
+  borderRadius: '0.75rem',
+};
+
+const dividerStyle = { flexBasis: '100%', height: 0 };
+
+const columnStyle = {
+  display: 'flex',
+  flexDirection: 'column' as const,
+};
+
+const rowStyle = {
+  display: 'flex',
+  flexDirection: 'row' as const,
+};
 
 const App = () => {
   const [switchState, setSwitchState] = useState<boolean>(false);
 
-  useEffect(() => {
-    console.log('??');
-  }, []);
-
   return (
-    <Flex.Column
-      gap={12}
-      css={{
-        padding: 16,
-      }}
-    >
+    <div style={{ ...columnStyle, gap: 12, padding: 16 }}>
       <div>
-        <p
-          css={{
-            marginBottom: '1rem',
-            fontWeight: 600,
-            fontSize: '1.25rem',
+        <p style={sectionTitleStyle}>Radio</p>
+        <article
+          style={{
+            ...columnStyle,
+            ...sectionBoxStyle,
+            columnGap: 16,
+            rowGap: 8,
           }}
-        >
-          Radio
-        </p>
-        <Flex.Column
-          css={{
-            padding: 12,
-            border: '1px solid #DDD',
-            borderRadius: '0.75rem',
-          }}
-          gap={{
-            column: 16,
-            row: 8,
-          }}
-          as="article"
         >
           <Radio id="radio-1" name="radio" />
           <Radio id="radio-2" name="radio" color="blue" />
@@ -47,31 +50,19 @@ const App = () => {
             disabled
           />
           <Radio name="radio" disabled />
-        </Flex.Column>
+        </article>
       </div>
 
       <div>
-        <p
-          css={{
-            marginBottom: '1rem',
-            fontWeight: 600,
-            fontSize: '1.25rem',
+        <p style={sectionTitleStyle}>Switch</p>
+        <article
+          style={{
+            ...rowStyle,
+            ...sectionBoxStyle,
+            flexWrap: 'wrap',
+            columnGap: 16,
+            rowGap: 8,
           }}
-        >
-          Switch
-        </p>
-        <Flex
-          css={{
-            padding: 12,
-            border: '1px solid #DDD',
-            borderRadius: '0.75rem',
-          }}
-          gap={{
-            column: 16,
-            row: 8,
-          }}
-          as="article"
-          wrap
         >
           <Switch defaultChecked />
           <Switch
@@ -84,53 +75,28 @@ const App = () => {
           />
           <Switch color="blue" defaultChecked />
           <Switch color="blue" />
-          <div css={{ flexBasis: '100%', height: 0 }} />
-          <Switch disabled />
+          <div style={dividerStyle} />
+          <Switch disabled checked />
           <Switch
             disabled
-            checked
             style={{
               color: '#333',
             }}
           />
           <Switch disabled checked color="blue" />
-          <div css={{ flexBasis: '100%', height: 0 }} />
-          <Switch.Root id="root-switch">
-            <Switch.Label>On/Off</Switch.Label>
-            <Switch />
-          </Switch.Root>
-          <div css={{ flexBasis: '100%', height: 0 }} />
-          <Switch.Root id="root-switch_1">
-            <Switch disabled checked />
-            <Switch.Label>On/Off</Switch.Label>
-          </Switch.Root>
-          <Flex align="center" gap={8}>
+          <Switch disabled color="blue" />
+          <div style={dividerStyle} />
+          <div style={{ ...rowStyle, alignItems: 'center', gap: 8 }}>
             <Switch size="sm" />
             <Switch size="md" />
             <Switch size="lg" />
-          </Flex>
-        </Flex>
+          </div>
+        </article>
       </div>
 
       <div>
-        <p
-          css={{
-            marginBottom: '1rem',
-            fontWeight: 600,
-            fontSize: '1.25rem',
-          }}
-        >
-          Textarea
-        </p>
-        <Flex.Column
-          css={{
-            padding: 12,
-            border: '1px solid #DDD',
-            borderRadius: '0.75rem',
-          }}
-          gap={16}
-          as="article"
-        >
+        <p style={sectionTitleStyle}>Textarea</p>
+        <article style={{ ...columnStyle, ...sectionBoxStyle, gap: 16 }}>
           <Textarea placeholder="내용을 입력" />
           <Textarea placeholder="내용을 입력 (blue color)" color="blue" />
           <Textarea placeholder="내용을 입력" disabled />
@@ -147,31 +113,19 @@ const App = () => {
             placeholder="내용을 입력"
             disabled
           />
-        </Flex.Column>
+        </article>
       </div>
 
       <div>
-        <p
-          css={{
-            marginBottom: '1rem',
-            fontWeight: 600,
-            fontSize: '1.25rem',
+        <p style={sectionTitleStyle}>Button</p>
+        <article
+          style={{
+            ...rowStyle,
+            ...sectionBoxStyle,
+            flexWrap: 'wrap',
+            rowGap: 12,
+            columnGap: '0.75rem',
           }}
-        >
-          Button
-        </p>
-        <Flex
-          css={{
-            padding: 12,
-            border: '1px solid #DDD',
-            borderRadius: '0.75rem',
-          }}
-          wrap
-          gap={{
-            row: 12,
-            column: '0.75rem',
-          }}
-          as="article"
         >
           <Button>Primary Button</Button>
           <Button variant="border">Border Button</Button>
@@ -179,7 +133,7 @@ const App = () => {
           <Button variant="ghost">Ghost Button</Button>
           <Button variant="link">Link Button</Button>
 
-          <div css={{ flexBasis: '100%', height: 0 }} />
+          <div style={dividerStyle} />
 
           <Button disabled>Primary Button</Button>
           <Button variant="border" disabled>
@@ -195,35 +149,19 @@ const App = () => {
             Link Button
           </Button>
 
-          <div css={{ flexBasis: '100%', height: 0 }} />
+          <div style={dividerStyle} />
 
-          <Flex align="center" gap={8}>
+          <div style={{ ...rowStyle, alignItems: 'center', gap: 8 }}>
             <Button size="sm">Small Button</Button>
             <Button>Medium Button</Button>
             <Button size="lg">Large Button</Button>
-          </Flex>
-        </Flex>
+          </div>
+        </article>
       </div>
 
       <div>
-        <p
-          css={{
-            marginBottom: '1rem',
-            fontWeight: 600,
-            fontSize: '1.25rem',
-          }}
-        >
-          Input
-        </p>
-        <Flex.Column
-          css={{
-            padding: 12,
-            border: '1px solid #DDD',
-            borderRadius: '0.75rem',
-          }}
-          gap={16}
-          as="article"
-        >
+        <p style={sectionTitleStyle}>Input</p>
+        <article style={{ ...columnStyle, ...sectionBoxStyle, gap: 16 }}>
           <Input placeholder="아이디 입력" />
           <Input
             type="password"
@@ -263,9 +201,9 @@ const App = () => {
 
           <Input size="sm" />
           <Input size="lg" />
-        </Flex.Column>
+        </article>
       </div>
-    </Flex.Column>
+    </div>
   );
 };
 
