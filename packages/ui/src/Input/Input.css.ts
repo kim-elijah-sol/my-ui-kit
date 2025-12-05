@@ -1,6 +1,6 @@
 import { style }           from '@vanilla-extract/css';
 import { inputColorStore } from './store/Input.color.store';
-import { inputSizeStore }  from './store/input.size.store';
+import { inputSizeStore }  from './store/Input.size.store';
 import { CssMap }          from '@ui-kit/utils';
 import { InputVariant }    from './Input.types';
 
