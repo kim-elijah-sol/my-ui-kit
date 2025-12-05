@@ -8,14 +8,12 @@ const radioBlackColorClass = radioColorStore.style({
   'disabled-checked': '#6A6A6A',
   'disabled-unchecked': '#EEEEEE',
 });
-
 const radioBlueColorClass = radioColorStore.style({
   'hover': '#70ACFF',
   'checked': '#006AFF',
   'disabled-checked': '#A0CFFF',
   'disabled-unchecked': '#EEEEEE',
 });
-
 export const radioColorMap: CssMap<RadioColor> = {
   black: radioBlackColorClass,
   blue: radioBlueColorClass,

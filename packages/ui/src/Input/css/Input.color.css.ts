@@ -12,7 +12,6 @@ const inputBlackColorClass = inputColorStore.style({
   'background-focus': '#FFFFFF',
   'background-disabled': '#F1F1F1',
 });
-
 const inputBlueColorClass = inputColorStore.style({
   'border': '#DFDFDF',
   'border-hover': '#70ACFF',
@@ -23,7 +22,6 @@ const inputBlueColorClass = inputColorStore.style({
   'background-focus': '#FFFFFF',
   'background-disabled': '#F1F1F1',
 });
-
 export const inputColorMap: CssMap<InputColor> = {
   black: inputBlackColorClass,
   blue: inputBlueColorClass,

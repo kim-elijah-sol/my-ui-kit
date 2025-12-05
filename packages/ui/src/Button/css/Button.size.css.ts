@@ -20,7 +20,6 @@ const buttonLargeSizeClass = buttonSizeStore.style({
   'h': '2.5rem',
   'r': '0.5rem',
 });
-
 export const buttonSizeMap: CssMap<CommonSize> = {
   sm: buttonSmallSizeClass,
   md: buttonMediumSizeClass,
