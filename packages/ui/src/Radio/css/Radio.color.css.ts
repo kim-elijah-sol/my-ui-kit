@@ -1,6 +1,6 @@
-import { CssMap }          from '@ui-kit/utils';
+import type { CssMap }     from '@ui-kit/utils';
 import { radioColorStore } from '../store/Radio.color.store';
-import { RadioColor }      from '../Radio.types';
+import type { RadioColor } from '../Radio.types';
 
 const radioBlackColorClass = radioColorStore.style({
   'hover': '#AAAAAA',

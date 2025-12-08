@@ -1,5 +1,5 @@
 import { type ComponentPropsWithRef, type ReactNode } from 'react';
-import { CommonSizeProps }                            from '../common/types';
+import type { CommonSizeProps }                       from '../common/types';
 
 export type ButtonVariant = 'primary' | 'border' | 'dashed' | 'ghost' | 'link';
 

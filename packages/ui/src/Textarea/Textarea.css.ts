@@ -1,7 +1,7 @@
-import { CssMap }             from '@ui-kit/utils';
-import { style }              from '@vanilla-extract/css';
-import { TextareaVariant }    from './Textarea.types';
-import { textareaColorStore } from './store/Textarea.color.store';
+import type { CssMap }          from '@ui-kit/utils';
+import { style }                from '@vanilla-extract/css';
+import type { TextareaVariant } from './Textarea.types';
+import { textareaColorStore }   from './store/Textarea.color.store';
 
 export const baseTextareaClass = style({
   fontSize: '0.875rem',

@@ -1,5 +1,6 @@
-import React, { type ReactNode } from 'react';
-import type { CommonSizeProps }  from '../common/types';
+import type React               from 'react';
+import { type ReactNode }       from 'react';
+import type { CommonSizeProps } from '../common/types';
 
 export type SwitchColor = 'black' | 'blue';
 

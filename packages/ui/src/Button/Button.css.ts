@@ -1,8 +1,8 @@
-import { style }             from '@vanilla-extract/css';
-import { CssMap }            from '@ui-kit/utils';
-import { ButtonVariant }     from './Button.types';
-import { buttonSizeStore }   from './store/Button.size.store';
-import * as buttonColorStore from './store/Button.color.store';
+import { style }              from '@vanilla-extract/css';
+import type { CssMap }        from '@ui-kit/utils';
+import type { ButtonVariant } from './Button.types';
+import { buttonSizeStore }    from './store/Button.size.store';
+import * as buttonColorStore  from './store/Button.color.store';
 
 export const baseButtonClass = style({
   fontSize: buttonSizeStore.use('f-s'),

@@ -1,4 +1,5 @@
-import { Prefix, createVarStore } from '@ui-kit/utils';
+import type { Prefix }    from '@ui-kit/utils';
+import { createVarStore } from '@ui-kit/utils';
 
 type SwitchColorProperties
   = | Prefix<'background', '' | '-hover' | '-disabled'>

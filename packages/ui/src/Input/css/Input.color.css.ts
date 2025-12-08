@@ -1,6 +1,6 @@
-import { CssMap }          from '@ui-kit/utils';
+import type { CssMap }     from '@ui-kit/utils';
 import { inputColorStore } from '../store/Input.color.store';
-import { InputColor }      from '../Input.types';
+import type { InputColor } from '../Input.types';
 
 const inputBlackColorClass = inputColorStore.style({
   'border': '#DFDFDF',

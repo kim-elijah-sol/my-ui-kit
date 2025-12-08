@@ -1,6 +1,6 @@
-import { CssMap }           from '@ui-kit/utils';
+import type { CssMap }      from '@ui-kit/utils';
 import * as switchSizeStore from '../store/Switch.size.store';
-import { CommonSize }       from '../../common/types';
+import type { CommonSize }  from '../../common/types';
 
 const switchSmallSizeClass = switchSizeStore.switchSizeStore.style({
   's-h': '1.5rem',

@@ -1,8 +1,8 @@
-import { style }           from '@vanilla-extract/css';
-import { inputColorStore } from './store/Input.color.store';
-import { inputSizeStore }  from './store/Input.size.store';
-import { CssMap }          from '@ui-kit/utils';
-import { InputVariant }    from './Input.types';
+import { style }             from '@vanilla-extract/css';
+import { inputColorStore }   from './store/Input.color.store';
+import { inputSizeStore }    from './store/Input.size.store';
+import type { CssMap }       from '@ui-kit/utils';
+import type { InputVariant } from './Input.types';
 
 export const baseInputClass = style({
   fontSize: inputSizeStore.use('f-s'),

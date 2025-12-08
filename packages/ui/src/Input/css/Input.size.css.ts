@@ -1,6 +1,6 @@
-import { CssMap }         from '@ui-kit/utils';
-import { inputSizeStore } from '../store/Input.size.store';
-import { CommonSize }     from '../../common/types';
+import type { CssMap }     from '@ui-kit/utils';
+import { inputSizeStore }  from '../store/Input.size.store';
+import type { CommonSize } from '../../common/types';
 
 const inputSmallSizeClass = inputSizeStore.style({
   'f-s': '0.875rem',

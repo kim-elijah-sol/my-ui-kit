@@ -1,6 +1,6 @@
-import { CssMap }             from '@ui-kit/utils';
+import type { CssMap }        from '@ui-kit/utils';
 import { textareaColorStore } from '../store/Textarea.color.store';
-import { TextareaColor }      from '../Textarea.types';
+import type { TextareaColor } from '../Textarea.types';
 
 const textareaBlackColorClass = textareaColorStore.style({
   'border': '#DFDFDF',

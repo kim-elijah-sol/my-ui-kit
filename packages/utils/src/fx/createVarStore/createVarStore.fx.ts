@@ -1,5 +1,5 @@
-import { createVar, style } from '@vanilla-extract/css';
-import { CreateVarStore }   from './createVarStore.types';
+import { createVar, style }    from '@vanilla-extract/css';
+import type { CreateVarStore } from './createVarStore.types';
 
 const DEFAULT_PREFIX = 'ui-kit';
 

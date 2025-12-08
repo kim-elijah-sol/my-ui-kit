@@ -24,6 +24,10 @@ export default defineConfig(
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-empty-object-type': 'off',
+      '@typescript-eslint/consistent-type-imports': ['error', {
+        prefer: 'type-imports',
+        fixStyle: 'separate-type-imports',
+      }],
 
       '@stylistic/indent': ['error', 2],
       '@stylistic/quotes': ['error', 'single'],

@@ -1,6 +1,6 @@
-import { CssMap }           from '@ui-kit/utils';
+import type { CssMap }      from '@ui-kit/utils';
 import { switchColorStore } from '../store/Switch.color.store';
-import { SwitchColor }      from '../Switch.types';
+import type { SwitchColor } from '../Switch.types';
 
 const switchBlackColorClass = switchColorStore.style({
   'checked-background': '#121212',
