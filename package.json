@@ -19,6 +19,7 @@
     "ui": "pnpm -F @ui-kit/ui",
     "utils": "pnpm -F @ui-kit/utils",
     "example": "pnpm -F @ui-kit/example",
+    "storybook": "pnpm -F @ui-kit/storybook",
     "format": "eslint --fix",
     "prepare": "husky",
     "package:dev": "pnpm -F @ui-kit/ui dev & pnpm -F @ui-kit/utils dev"
