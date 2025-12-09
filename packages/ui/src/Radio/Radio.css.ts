@@ -11,6 +11,7 @@ export const radioWrapperClass = style({
 
 export const radioInputClass = style({
   appearance: 'none',
+  margin: 0,
 
   width: '100%',
   height: '100%',
