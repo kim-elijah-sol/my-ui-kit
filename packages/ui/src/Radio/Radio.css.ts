@@ -71,6 +71,9 @@ export const radioInnerCircleClass = style({
       transform: 'translate(-50%, -50%) scale(1)',
       background: radioColorStore.use('checked'),
     },
+    [`.${radioInputClass}:not(:disabled):checked:hover + &`]: {
+      transform: 'translate(-50%, -50%) scale(0.9)',
+    },
     [`.${radioInputClass}:disabled:checked + &`]: {
       transform: 'translate(-50%, -50%) scale(1)',
       background: radioColorStore.use('disabled-checked'),
