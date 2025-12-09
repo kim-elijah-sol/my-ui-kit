@@ -29,6 +29,12 @@ importers:
 
   examples/storybook:
     dependencies:
+      '@storybook/manager-api':
+        specifier: ^8.6.14
+        version: 8.6.14(storybook@8.6.14)
+      '@storybook/theming':
+        specifier: ^8.6.14
+        version: 8.6.14(storybook@8.6.14)
       '@ui-kit/ui':
         specifier: workspace:*
         version: link:../../packages/ui
